@@ -13,9 +13,15 @@ const MONGO_PW = process.env.MONGO_PW;
 const port = process.env.PORT || 5000;
 
 //Connect to MongoDB
-mongoose.connect("mongodb://srv-captain--project-3-db:27017/project3", {
-  useNewUrlParser: true
-});
+mongoose.connect(
+  "mongodb://srv-captain--project-3-db:27017/project3",
+  {
+    useNewUrlParser: true
+  },
+  function(err) {
+    console.log(err);
+  }
+);
 
 //Initialize Passport and Instagram Authentication
 passport.serializeUser(function(user, done) {
