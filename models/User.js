@@ -8,7 +8,11 @@ var userSchema = new Schema({
   bio: String,
   website: String,
   profile_picture: String,
-  access_token: String
+  access_token: String,
+  post: [{
+    type: Schema.Types.ObjectId,
+    ref: "Post"
+  }]
 });
 
 module.exports = mongoose.model("User", userSchema);
