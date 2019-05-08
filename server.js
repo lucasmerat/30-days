@@ -33,7 +33,7 @@ app.use(cookieParser());
 app.get("/auth", authUser);
 
 app.get("/login", function(request, response) {
-  response.redirect(process.env.INSTAGRAM_CALLBACK_URI);
+  response.redirect(process.env.INSTAGRAM_AUTH_URL);
 });
 
 // API calls
