@@ -1,27 +1,21 @@
 import React from "react";
 import "./style.css";
 import CategoryCard from "../CategoryCard";
-import ChallengesNav from "../ChallenegesNav";
+import ChallengesNav from "../ChallengesNav";
 import ProfileNav from "../ProfileNav";
 function profile(props) {
-    return (
-      <div>
-          
-              <ChallengesNav></ChallengesNav>
-              <ProfileNav></ProfileNav> 
-              <div className="row">
-              <div className="col-4"></div>
-              <div className="col-8">
-              <CategoryCard></CategoryCard>
-              </div>
-              </div>
-              
-
+  return (
+    <div>
+      <ChallengesNav />
+      <ProfileNav />
+      <div className="row">
+        <div className="col-4" />
+        <div className="col-8">
+          <CategoryCard />
+        </div>
       </div>
-      
-    );
-  }
-  
-  export default profile;
-  
-  
+    </div>
+  );
+}
+
+export default profile;
