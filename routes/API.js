@@ -15,7 +15,7 @@ module.exports = function(app) {
 
  // Adding a user to a challenge
   app.post("/api/newuserchallenge/:id", function(req, res) {
-    db.Challenge.findOneAndUpdate({ _id: req.params.id },{ $push: { user: userid } },{ new: true })
+    db.Challenge.findOneAndUpdate({ _id: req.params.id },{ $push: { user: req.body.userId } },{ new: true })
       .populate("user")
       .then(function(dbChallenge) {
         res.json(dbChallenge);
@@ -27,7 +27,7 @@ module.exports = function(app) {
 
  // Removing a user from a challenge
   app.post("/api/removeuserchallenge/:id", function(req, res) {
-    db.Challenge.findOneAndUpdate({ _id: req.params.id },{ $pull: { user: userid } },{ new: true })
+    db.Challenge.findOneAndUpdate({ _id: req.params.id },{ $pull: { user: req.body.userId } },{ new: true })
       .populate("user")
       .then(function(dbChallenge) {
         res.json(dbChallenge);
