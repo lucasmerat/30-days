@@ -1,21 +1,21 @@
 var db = require("../models");
+const authUser = require("../bin/authService");
 
 module.exports = function(app) {
-  app.get("/api/hello", (req, res) => {
-    res.send({ express: "Hello From Express" });
+  //Instagram Login API routes
+  app.get("/api/auth", authUser);
+
+  app.get("/api/login", function(request, response) {
+    response.redirect(process.env.INSTAGRAM_AUTH_URL);
   });
 
-  app.post("/api/world", (req, res) => {
-    console.log(req.body);
-    res.send(
-      `I received your POST request. This is what you sent me: ${req.body.post}`
-    );
-  });
-
-
- // Adding a user to a challenge
+  // Adding a user to a challenge
   app.post("/api/newuserchallenge/:id", function(req, res) {
-    db.Challenge.findOneAndUpdate({ _id: req.params.id },{ $push: { user: req.body.userId } },{ new: true })
+    db.Challenge.findOneAndUpdate(
+      { _id: req.params.id },
+      { $push: { user: req.body.userId } },
+      { new: true }
+    )
       .populate("user")
       .then(function(dbChallenge) {
         res.json(dbChallenge);
@@ -25,9 +25,13 @@ module.exports = function(app) {
       });
   });
 
- // Removing a user from a challenge
+  // Removing a user from a challenge
   app.post("/api/removeuserchallenge/:id", function(req, res) {
-    db.Challenge.findOneAndUpdate({ _id: req.params.id },{ $pull: { user: req.body.userId } },{ new: true })
+    db.Challenge.findOneAndUpdate(
+      { _id: req.params.id },
+      { $pull: { user: req.body.userId } },
+      { new: true }
+    )
       .populate("user")
       .then(function(dbChallenge) {
         res.json(dbChallenge);
@@ -37,9 +41,9 @@ module.exports = function(app) {
       });
   });
 
-   // Users in a challenge
+  // Users in a challenge
   app.get("/api/userchallenge/:id", function(req, res) {
-     db.Challenge.findOne({ _id: req.params.id })
+    db.Challenge.findOne({ _id: req.params.id })
       .populate("user")
       .then(function(dbChallenge) {
         res.json(dbChallenge.user);

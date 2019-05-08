@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import "./App.css";
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import SampleResponse from "./Components/SampleResponse";
 import NavBarWrapper from "./Components/NavBar/NavBarWrapper";
 import LoginWrapper from "./Components/Login/LoginWrapper";
@@ -15,19 +15,17 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
-       <div>
-        <Nav />
-        <Switch>
-          
-          <Route exact path="/" component={LoginWrapper} />
-          <Route exact path="/profile" component={profile} />
-          {/* <Route exact path="/main" component={main} /> */}
-          <Route exact path="/login" component={login} />
-          <Route exact path="/categories" component={CategoryCard} />
-          <Route exact path="/signup" component={signup} />
-          <Route component={NoMatch} />
-        </Switch>
-      </div>
+        <div>
+          <Nav />
+          <Switch>
+            <Route exact path={["/", "/login"]} component={login} />
+            <Route exact path="/profile" component={profile} />
+            {/* <Route exact path="/main" component={main} /> */}
+            <Route exact path="/categories" component={CategoryCard} />
+            <Route exact path="/signup" component={signup} />
+            <Route component={NoMatch} />
+          </Switch>
+        </div>
       </BrowserRouter>
     );
   }
