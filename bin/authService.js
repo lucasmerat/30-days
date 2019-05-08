@@ -30,7 +30,7 @@ module.exports = function(req, res) {
       };
       User.create(user, function(error) {
         if (error) res.send(error);
-        res.redirect("/");
+        res.redirect("/profile");
       });
     }
   });
