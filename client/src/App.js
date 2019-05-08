@@ -1,14 +1,11 @@
 import React, { Component } from "react";
 import "./App.css";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import SampleResponse from "./Components/SampleResponse";
-import NavBarWrapper from "./Components/NavBar/NavBarWrapper";
-import LoginWrapper from "./Components/Login/LoginWrapper";
 import login from "./pages/login";
 import signup from "./pages/signup";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./Components/Nav";
-import CategoryCard from "./Components/categories";
+import CategoryCard from "./Components/CategoryCard";
 import profile from "./Components/Profile";
 
 class App extends Component {

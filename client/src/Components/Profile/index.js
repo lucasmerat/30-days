@@ -8,7 +8,7 @@ function profile(props) {
       <div>
           
               <ChallengesNav></ChallengesNav>
-              {/* <ProfileNav></ProfileNav>  */}
+              <ProfileNav></ProfileNav> 
               <div className="row">
               <div className="col-4"></div>
               <div className="col-8">
