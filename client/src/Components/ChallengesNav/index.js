@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 import "./style.css";
 // import categories from "./categories.json";
 
@@ -11,16 +12,16 @@ function ChallengesNav() {
  
  <ul className="">
    <li className="nav-item active">
-     <a className="nav-link" href="profile/browse">Browse Categories <span className="sr-only">(current)</span></a>
+     <Link className="nav-link" to="/profile/browse">Browse Challenges <span className="sr-only">(current)</span></Link>
    </li>
    <li className="nav-item">
-     <a className="nav-link" href="profile/ongoing">Ongoing Challenges</a>
+     <Link className="nav-link" to="/profile/ongoing">Ongoing Challenges</Link>
    </li>
    <li className="nav-item">
-     <a className="nav-link" href="profile/done">Done</a>
+     <Link className="nav-link" to="/profile/done">Done</Link>
    </li>
    <li className="nav-item">
-     <a className="nav-link" href="profile/timeline">Timeline</a>
+     <Link className="nav-link" to="/profile/timeline">Timeline</Link>
    </li>
  </ul>
 
