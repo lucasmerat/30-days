@@ -2,7 +2,7 @@ var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
 var challengeSchema = new Schema({
-  title: string,
+  title: String,
   user: [{
     type: Schema.Types.ObjectId,
     ref: "User"
