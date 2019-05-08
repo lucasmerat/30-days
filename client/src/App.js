@@ -16,8 +16,7 @@ class App extends Component {
           <Nav />
           <Switch>
             <Route exact path={["/", "/login"]} component={login} />
-            <Route exact path="/profile" component={profile} />
-            {/* <Route exact path="/main" component={main} /> */}
+            <Route path="/profile" component={profile} />
             <Route exact path="/categories" component={CategoryCard} />
             <Route exact path="/signup" component={signup} />
             <Route component={NoMatch} />
