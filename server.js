@@ -36,6 +36,9 @@ app.get("/login", function(request, response) {
   response.redirect(process.env.INSTAGRAM_AUTH_URL);
 });
 
+// API calls
+require("./routes/API")(app);
+
 if (process.env.NODE_ENV === "production") {
   // Serve any static files
   app.use(express.static(path.join(__dirname, "client/build")));
