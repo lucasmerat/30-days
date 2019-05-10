@@ -3,9 +3,11 @@ var Schema = mongoose.Schema;
 
 var challengeSchema = new Schema({
   title: String,
+  description:String,
+  image:String,
   startDate: Date,
   createdAt: Date,
-  description:[{
+  days:[{
     type: String
   }],
   user: [{
