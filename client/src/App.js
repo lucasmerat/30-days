@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import "./App.css";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import login from "./pages/login";
-import signup from "./pages/signup";
-import NoMatch from "./pages/NoMatch";
-import Nav from "./Components/Nav";
-import profile from "./Components/Profile";
+import login from "./Components/Pages/login";
+import signup from "./Components/Pages/signup";
+import NoMatch from "./Components/Pages/NoMatch";
+import Nav from "./Components/UiComponents/Nav";
+import profile from "./Components/Pages/Profile";
 
 class App extends Component {
   render() {
