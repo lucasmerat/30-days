@@ -1,0 +1,11 @@
+.create-challenge-card{
+  margin:auto;
+  margin-top:5%;
+  width:80%;
+  padding:3%;
+  color:whitesmoke;
+}
+.challenge-img-pick{
+  width:50%;
+  float:left;
+}
