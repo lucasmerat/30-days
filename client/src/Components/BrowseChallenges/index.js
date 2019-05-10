@@ -1,18 +1,21 @@
 import React from 'react'
-
+import "./style.css";
+import { Input, TextArea, FormBtn,FormBtnlink } from "../Form";
 export default function BrowseChallegnes(props) {
   return (
     <div className="row">
-    
-        {/* start map function here */}
-        <div onClick={() => props.handleClick(props.id)} className="card">
-          <div className="img-container">
-            <img alt={props.name} src="https://spng.pngfly.com/20180601/elo/kisspng-check-mark-clip-art-true-sign-5b115b4133e421.2059374415278641292126.jpg" />
-            <h4>{props.catgoryName}  </h4>
-            
+       
+          <div className="card browse-card" >
+            <img src="https://images.vexels.com/media/users/3/138778/isolated/preview/cdd6b2f922a8bea7fb38b54b80a2dc65-fitness-woman-silhouette-stretching-legs-by-vexels.png" className="card-img-top" alt="..."/>
+            <div className="card-body">
+                <h5 className="card-title challenge-title">Core Challenge</h5>
+                <p className="card-text challenge-text">Ready to Get that summer body? Join our challenge!</p>
+                <p className="card-text challenge-text"># of challengers</p>
+                <FormBtn href="#" className="btn btn-primary join-btn ">Join Challenge</FormBtn>
+            </div>
+            <p className="card-text challenge-info">Starts:  | 30 Days <i class="fas fa-share-alt "></i></p>
           </div>
-        
-        </div>
+          
     </div>
    
   )

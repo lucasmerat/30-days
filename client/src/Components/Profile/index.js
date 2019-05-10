@@ -1,6 +1,5 @@
 import React from "react";
 import "./style.css";
-import CategoryCard from "../CategoryCard";
 import ChallengesNav from "../ChallengesNav";
 import ProfileNav from "../ProfileNav";
 import BrowseChallenges from "../BrowseChallenges";

@@ -6,3 +6,17 @@
 .btn-link{
     color:#e74b3c;
 }
+
+.btn-success:hover{
+    background-color:#df2f1f;
+    border-color:#e74b3c;
+}
+
+.btn-success:active{
+    background-color:#e74b3c;
+    border-color:#e74b3c;
+}
+.btn-success:focus{
+    background-color:#e74b3c;
+    border-color:#e74b3c;
+}
