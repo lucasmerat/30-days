@@ -9,7 +9,7 @@ module.exports = function(app) {
     res.redirect(process.env.INSTAGRAM_AUTH_URL);
   });
 
-  // Adding a user to a challenge
+  // Adding a user to a challenge - Not Used
   //Adds the user to the challenge checking if he is not already there, then in creates a post for that user and that post will be related to the challenge
   app.post("/api/newuserchallenge/:id", function(req, res) {
     db.Challenge.findOne({user:{_id:req.body.userId}})
@@ -43,7 +43,7 @@ module.exports = function(app) {
       });
   });
 
-  // Removing a user from a challenge
+  // Removing a user from a challenge - Not Used
   //Looks for the challenge and removes the association to the user, then it looks for the Post that is related to the challenge & User and delete that post from the user and finally delete that post
   app.post("/api/removeuserchallenge/:id", function(req, res) {
     db.Challenge.findOneAndUpdate(
@@ -69,33 +69,7 @@ module.exports = function(app) {
       });
   });
 
-
-  // Get Number of users in a challenge
-  app.get("/api/challengeusers/:id", function(req, res) {
-    db.Challenge.findOne({ _id: req.params.id })
-      .populate("user")
-      .then(function(dbChallenge) {
-        res.json(dbChallenge.user);
-      })
-      .catch(function(err) {
-        res.json(err);
-      });
-  });
-
-  // Get Challenges only belonging to a certain user
-  app.get("/api/challenges/:username", function(req, res) {
-    db.User.findOne({ _id: req.params.username })
-      .populate("user")
-      .populate("challenge")
-      .then(function(dbUser) {
-        res.json(dbUser.post.challenge);
-      })
-      .catch(function(err) {
-        res.json(err);
-      });
-  });
-
-  //Post a completed day of a challenge. //Increments one each time right now, could be changed?
+   //Post a completed day of a challenge. //Increments one each time right now, could be changed? - Not Used
     app.post("/api/updatepost/:id", function(req, res) {
     db.Post.findOneAndUpdate(
       { _id: req.params.id },
@@ -110,8 +84,9 @@ module.exports = function(app) {
       });
   });
 
-    //Create Post - Testing purposes
-    app.post("/api/newpost", function(req, res) {
+
+  //Create Post - Testing purposes
+  app.post("/api/newpost", function(req, res) {
     db.Post.create(req.body)
       .then(function(dbPost) {
         res.json(dbPost);
@@ -132,7 +107,7 @@ module.exports = function(app) {
       });
   });
 
-  //Create Challenge - Testing purposes
+  //Create Challenge
   app.post("/api/newChallenge", function(req, res) {
     db.Challenge.create(req.body)
       .then(function(dbChallenge) {
@@ -141,5 +116,67 @@ module.exports = function(app) {
       .catch(function(err) {
         res.json(err);
       });
+  });
+
+  // Get Number of users in a challenge
+  app.get("/api/challengeusers/:id", function(req, res) {
+    db.Challenge.findOne({ _id: req.params.id })
+      .populate("user")
+      .then(function(dbChallenge) {
+        res.json(dbChallenge.user);
+      })
+      .catch(function(err) {
+        res.json(err);
+      });
+  });
+
+  // Get Challenges only belonging to a certain user
+  app.get("/api/challenges/:id", function(req, res) {
+    db.User.findOne({ _id: req.params.id })
+      .populate("challenge")
+      .then(function(dbUser) {
+        res.json(dbUser.challenge);
+      })
+      .catch(function(err) {
+        res.json(err);
+      });
+  });
+
+  //Add a user to a challenge
+  //Only adds user to a challenge if not already there
+  app.post("/api/addchallengeuser/:id", function(req, res) {
+    db.Challenge.findOne({_id:req.params.id, user:{_id:req.body.userId}})
+    .then(function(dbChallenge){
+      if (dbChallenge === null)
+        {db.Challenge.findOneAndUpdate({ _id: req.params.id },{ $push: { user: req.body.userId } },{ new: true })
+          .populate("user")
+          .then(function(dbChallenge) {
+            return db.User.findOneAndUpdate({ _id: req.body.userId},{ $push: { challenge: dbChallenge._id} },{ new: true }).populate("challenge");
+          }).then(function(dbUser){
+            res.json(dbUser);
+          })
+      }
+      else {
+        res.json(dbChallenge);
+      }
+    })
+      .catch(function(err) {
+        res.json(err);
+      });
+  });
+
+  //Remove a user from a challenge
+  app.post("/api/removechallengeuser/:id", function(req, res) {
+    db.Challenge.findOneAndUpdate({_id:req.params.id, user:{_id:req.body.userId}},{ $pull: { user: req.body.userId } },{ new: true })
+      .populate("user")
+      .then(function(dbChallenge) {
+        return db.User.findOneAndUpdate({ _id: req.body.userId},{ $pull: { challenge: dbChallenge._id} },{ new: true }).populate("challenge");
+      })
+      .then(function(dbUser){
+        res.json(dbUser);
+      })
+    .catch(function(err) {
+      res.json(err);
+    });
   });
 };

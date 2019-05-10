@@ -9,9 +9,9 @@ var userSchema = new Schema({
   website: String,
   profile_picture: String,
   access_token: String,
-  post: [{
+  challenge: [{
     type: Schema.Types.ObjectId,
-    ref: "Post"
+    ref: "Challenge"
   }]
 });
 
