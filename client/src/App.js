@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import "./App.css";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import login from "./Components/Pages/login";
-import signup from "./Components/Pages/signup";
+import Login from "./Components/Pages/login";
+import Signup from "./Components/Pages/signup";
 import NoMatch from "./Components/Pages/NoMatch";
 import Nav from "./Components/UiComponents/Nav";
-import profile from "./Components/Pages/Profile";
+import Profile from "./Components/Pages/Profile";
+import BrowseChallenges from "./Components/Pages/BrowseChallenges";
 
 class App extends Component {
   render() {
@@ -14,10 +15,10 @@ class App extends Component {
         <div>
           <Nav />
           <Switch>
-            <Route exact path={["/", "/login"]} component={login} />
-            <Route path="/profile" component={profile} />
-            <Route exact path="/signup" component={signup} />
-            <Route component={NoMatch} />
+            <Route exact path={["/", "/login"]} component={Login} />
+            <Route path="/profile" component={Profile} />
+            <Route exact path="/signup" component={Signup} />
+            {/* <Route component={NoMatch} /> */}
           </Switch>
         </div>
       </BrowserRouter>
