@@ -1,0 +1,25 @@
+import axios from "axios";
+
+export default {
+  // Creates a challenges
+  createChallenge: function(data) {
+    return axios.post("/api/newChallenge",data);
+  },
+  // Gets all users in a challenge
+  getUsersInChallenge: function(id) {
+    return axios.get("/api/challengeusers/" + id);
+  },
+  // Get all challenges from a user
+  getChallengesFromUser: function(id) {
+    return axios.get("/api/challenges/"+id);
+  },
+  // Add a user to a challenge
+  addUserChallenge: function(id, data) {
+    return axios.post("/api/addchallengeuser/"+id,data);
+  },
+  // Add a user to a challenge
+  removeUserChallenge: function(id, data) {
+    return axios.post("/api/removechallengeuser/"+id,data);
+  }
+
+};
