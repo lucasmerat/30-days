@@ -3,6 +3,10 @@
   margin-left:0%;
 }
 
+.profile-float{
+  float:left;
+
+}
 .profile-nav{
   background-color: rgb(106, 103, 99);
   color:whitesmoke;
@@ -14,16 +18,16 @@
 .buttons-row{
   padding-top:10%;
 }
-#root > div > div > div:nth-child(2) > div{
+/* #root > div > div > div:nth-child(2) > div{
   padding-top:0px;
-}
+} */
 .profile-img{
   background-color: #fafafa;
   width:100%;
-    border-radius: 50%;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    margin: 0 auto;
-    overflow: hidden;
-    position: relative;
+  border-radius: 50%;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
 }

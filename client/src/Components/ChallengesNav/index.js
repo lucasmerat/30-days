@@ -7,7 +7,7 @@ function ChallengesNav() {
   return (
     <div className="row">
     <div className="col-4 left-nav"></div>
-    <div className="col-8">
+    <div className="col-8 right-nav">
     <nav className=" navbar navbar-dark bg-dark ">
  
  <ul className="">
