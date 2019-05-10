@@ -1,5 +1,5 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
 import "./style.css";
 // import categories from "./categories.json";
 
@@ -8,20 +8,20 @@ function ChallengesNav() {
     <div className="row">
     <div className="col-4 left-nav"></div>
     <div className="col-8 right-nav">
-    <nav className=" navbar navbar-dark bg-dark ">
+    <nav className="navbar navbar-dark bg-dark ">
  
  <ul className="">
    <li className="nav-item active">
-     <Link className="nav-link" to="/profile/browse">Browse Challenges <span className="sr-only">(current)</span></Link>
+     <NavLink activeClassName="selectedLink" className="nav-link" to="/profile/browse/">Browse Challenges <span className="sr-only">(current)</span></NavLink>
    </li>
    <li className="nav-item">
-     <Link className="nav-link" to="/profile/ongoing">Ongoing Challenges</Link>
+     <NavLink activeClassName="selectedLink" className="nav-link" to="/profile/ongoing">Ongoing Challenges</NavLink>
    </li>
    <li className="nav-item">
-     <Link className="nav-link" to="/profile/done">Done</Link>
+     <NavLink activeClassName="selectedLink" className="nav-link" to="/profile/done">Done</NavLink>
    </li>
    <li className="nav-item">
-     <Link className="nav-link" to="/profile/timeline">Timeline</Link>
+     <NavLink activeClassName="selectedLink" className="nav-link" to="/profile/timeline">Timeline</NavLink>
    </li>
  </ul>
 
