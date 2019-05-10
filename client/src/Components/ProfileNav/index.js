@@ -2,6 +2,7 @@ import React from "react";
 import "./style.css";
 import { Input, TextArea, FormBtn,FormBtnlink } from "../Form";
 // import categories from "./categories.json";
+import {Link} from "react-router-dom";
 
 function ProfileNav() {
   return (
@@ -27,13 +28,13 @@ function ProfileNav() {
     </div>
     <div className="row buttons-row">
     <div className="col-4">
-    <FormBtn className="edit-profile-btn">
+    {/* <FormBtn className="edit-profile-btn">
       Edit Profile
-    </FormBtn>
+    </FormBtn> */}
     </div>
-    <div className="col-8">
+    <div className="col-4">
     <FormBtn className="edit-profile-btn">
-      Create a Challenge
+    <Link className="nav-link" to="/profile/create">Create a Challenge</Link>
     </FormBtn>
     </div>
     
