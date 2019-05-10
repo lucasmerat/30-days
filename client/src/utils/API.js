@@ -1,11 +1,11 @@
 import axios from "axios";
 
 export default {
-  // Creates a challenges
+  // Create a challenges
   createChallenge: function(data) {
     return axios.post("/api/newChallenge",data);
   },
-  // Gets all users in a challenge
+  // Get all users in a challenge
   getUsersInChallenge: function(id) {
     return axios.get("/api/challengeusers/" + id);
   },
@@ -19,7 +19,7 @@ export default {
   },
   // Add a user to a challenge
   removeUserChallenge: function(id, data) {
-    return axios.post("/api/removechallengeuser/"+id,data);
+    return axios.delete("/api/removechallengeuser/"+id,data);
   }
 
 };
