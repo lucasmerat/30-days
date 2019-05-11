@@ -34,9 +34,10 @@ module.exports = function(req, res) {
             if (error) res.send(error);
             res.redirect("/profile");
          });
-        } 
-        if (error) res.send(error);
-        res.redirect("/profile");
+        } else {
+          if (error) res.send(error);
+          res.redirect("/profile");
+        }
       })
     
     }
