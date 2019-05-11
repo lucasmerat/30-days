@@ -5,6 +5,10 @@ export default {
   createChallenge: function(data) {
     return axios.post("/api/newChallenge",data);
   },
+   // Get all users in a challenge
+  getChallenges: function(i) {
+    return axios.get("/api/challenges");
+  },
   // Get all users in a challenge
   getUsersInChallenge: function(id) {
     return axios.get("/api/challengeusers/" + id);
