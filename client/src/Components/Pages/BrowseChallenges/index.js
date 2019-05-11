@@ -1,8 +1,7 @@
 import React from 'react'
 import "./style.css";
-import { Input, TextArea, FormBtn,FormBtnlink } from "../../UiComponents/Form";
-export default function BrowseChallegnes(props) {
-  console.log(props)
+import { FormBtn } from "../../UiComponents/Form";
+export default function BrowseChallenges(props) {
   return (
     <div className="row">
        
