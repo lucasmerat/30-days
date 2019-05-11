@@ -3,7 +3,7 @@ import React from "react";
 var redirect;
 
 if (process.env.NODE_ENV === "development") {
-  redirect = "localhost:5000/api/login";
+  redirect = "http://localhost:5000/api/login";
 } else {
   redirect = "/api/login";
 }
