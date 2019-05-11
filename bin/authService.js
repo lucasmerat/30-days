@@ -28,10 +28,18 @@ module.exports = function(req, res) {
         profile_picture: r.user.profile_picture,
         access_token: r.access_token
       };
-      User.create(user, function(error) {
-        if (error) res.send(error);
-        res.redirect("/profile");
-      });
+      User.findOne({access_token:access_token},function(res,error){
+        if (res !== []){
+          User.create(user, function(error) {
+            if (error) res.send(error);
+            res.redirect("/profile");
+         });
+        } else {
+          if (error) res.send(error);
+          res.redirect("/profile");
+        }
+      })
+    
     }
   });
 };
