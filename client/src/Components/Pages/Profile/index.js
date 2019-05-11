@@ -12,14 +12,16 @@ import "./style.css";
 
 class Profile extends Component {
   state = {
-    challenges: []
+    challenges: null
   };
   componentDidMount() {
     this.loadChallenges();
   }
   loadChallenges = () =>{
-    API.getChallenges().then((data)=>{
-      console.log(data)
+    API.getChallenges().then((response)=>{
+      this.setState({
+        challenges: response.data
+      })
     })
   }
   handleClick = e => {
