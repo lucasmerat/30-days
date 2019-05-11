@@ -30,7 +30,11 @@ module.exports = function(req, res) {
       };
       User.create(user, function(error) {
         if (error) res.send(error);
-        res.redirect("/profile");
+        if (process.env.NODE_ENV === "development") {
+          res.redirect("http://localhost:3000/profile");
+        } else {
+          res.redirect("/profile");
+        }
       });
     }
   });
