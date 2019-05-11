@@ -70,7 +70,7 @@ export default function CreateChallegnes(props) {
                   <Input></Input>
                   </div>
                                 
-                <FormBtn href="#" className="btn btn-primary join-btn ">Create Challenge</FormBtn>
+                <FormBtn href="#" className="btn btn-primary join-btn" onClick={props.handleClick}>Create Challenge</FormBtn>
             </div>
             
           </div>
