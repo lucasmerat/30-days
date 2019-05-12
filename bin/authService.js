@@ -28,14 +28,28 @@ module.exports = function(req, res) {
         profile_picture: r.user.profile_picture,
         access_token: r.access_token
       };
-      User.create(user, function(error) {
-        if (error) res.send(error);
-        if (process.env.NODE_ENV === "development") {
-          res.redirect("http://localhost:3000/profile");
+      User.findOne({username:user.username},function(err,dbUser){
+        if (err) res.send(err);
+        if (dbUser===null){
+          User.create(user, function(error) {
+            if (error) res.send(error);
+            if (process.env.NODE_ENV === "development") {
+              res.redirect("http://localhost:3000/profile");
+            } else {
+              res.redirect("/profile");
+            }
+          });
         } else {
-          res.redirect("/profile");
+          if (process.env.NODE_ENV === "development") {
+              res.redirect("http://localhost:3000/profile");
+            } else {
+              res.redirect("/profile");
+            }
         }
-      });
+      }); 
+
+
+
     }
   });
 };
