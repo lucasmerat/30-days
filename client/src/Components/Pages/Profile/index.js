@@ -69,6 +69,7 @@ class Profile extends Component {
         <ProfileNav
           userName={this.props.userName}
           profilePic={this.props.profilePic}
+          bio={this.props.bio}
         />
         <Switch>
           <Route

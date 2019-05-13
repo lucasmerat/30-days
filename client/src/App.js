@@ -19,21 +19,20 @@ class App extends Component {
   readCookie() {
     var allcookies = document.cookie;
     var cookiearray = [];
-    var username = "";
+    var userId = "";
 
     if (allcookies.length) {
       cookiearray = allcookies.split(";");
     }
     if (cookiearray.length) {
-      username = cookiearray[0].split("=")[1];
+      userId = cookiearray[0].split("=")[1];
     }
-    return username;
+    return userId;
   }
   getUserInfo() {
-    const username = this.readCookie();
-    if (username) {
-      console.log(username);
-      API.getUser(username)
+    const userId = this.readCookie();
+    if (userId) {
+      API.getUser(userId)
         .then(res => this.setState({ user: res.data }))
         .catch(err => console.log(err));
     }
@@ -53,6 +52,7 @@ class App extends Component {
                   {...props}
                   userName={this.state.user.username}
                   profilePic={this.state.user.profile_picture}
+                  bio = {this.state.user.bio}
                 />
               )}
             />

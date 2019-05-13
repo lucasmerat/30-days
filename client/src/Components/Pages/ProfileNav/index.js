@@ -3,7 +3,7 @@ import "./style.css";
 import { FormBtn } from "../../UiComponents/Form";
 import {Link} from "react-router-dom";
 
-function ProfileNav({ userName, profilePic }) {
+function ProfileNav({ userName, profilePic,bio }) {
   return (
         <div className="col-4 profile-nav profile-float">
           <div className="row">
@@ -15,9 +15,7 @@ function ProfileNav({ userName, profilePic }) {
                       <h3>{userName}</h3>
                       </div>
                       <div className="user-about">
-                          <h6>blah blah blah blah blah
-                          blah blah blah blah blah
-                          blah blah blah blah blah
+                          <h6>{bio}
                           </h6>
                       </div>
                       </div>
