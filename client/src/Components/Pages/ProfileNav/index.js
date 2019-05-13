@@ -30,7 +30,7 @@ function ProfileNav(props) {
                   </div>
                   <div className="col-4">
                   <FormBtn className="edit-profile-btn">
-                    <Link className="nav-link" to="/profile/create">Create a Challenge</Link>
+                    <Link className="nav-link" to="/profile/create">Create a Workout</Link>
                   </FormBtn>
                   </div>
                   </div>
