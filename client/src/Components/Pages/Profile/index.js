@@ -38,25 +38,25 @@ class Profile extends Component {
           <Route
             path={"/profile/browse"}
             render={props => (
-              <BrowseChallenges {...props} challenges={this.state.challenges} key="browse-challenges" />
+              <BrowseChallenges {...props} challenges={this.state.challenges} />
             )}
           />
           <Route
             path={"/profile/ongoing"}
             render={props => (
-              <OngoingChallenges {...props} challenges={this.state.challenges} key="ongoing-challenges" />
+              <OngoingChallenges {...props} challenges={this.state.challenges} />
             )}
           />
           <Route
             path={"/profile/done"}
             render={props => (
-              <DoneChallenges {...props} challenges={this.state.challenges} key="done-challenges" />
+              <DoneChallenges {...props} challenges={this.state.challenges} />
             )}
           />
           <Route
             path={"/profile/ongoing"}
             render={props => (
-              <Timeline {...props} challenges={this.state.challenges} key="timeline" />
+              <Timeline {...props} challenges={this.state.challenges} />
             )}
           />
           <Route
