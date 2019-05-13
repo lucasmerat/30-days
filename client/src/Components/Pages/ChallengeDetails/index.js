@@ -1,19 +1,22 @@
 import React, { Component } from "react";
 import { FormBtn } from "../../UiComponents/Form";
 import "./ChallengeDetails.css";
+import API from "../../../utils/API";
 
 class ChallengeDetails extends Component {
   componentDidMount() {
     this.loadChallenge();
   }
   state = {
-    title: "Workout title",
-    description: "Workout description",
-    days: ["Workout 1", "Workout2", "Workout3", "...... more workout days"],
-    numUsers: 100
+    title: "",
+    description: "",
+    days: [],
+    numUsers: 0
   };
   loadChallenge = () => {
-    console.log("API call here to load the challenge data");
+    API.getChallengebyId(this.props.match.params.id)
+    .then (res=> this.setState({title: res.data.title, description:res.data.description, days: res.data.days, numUsers:res.data.user.length }))
+    .catch(err => console.log(err));
   };
 
   render() {
@@ -32,8 +35,8 @@ class ChallengeDetails extends Component {
             <hr />
             <div className="workout-days">
               {this.state.days &&
-                this.state.days.map(day => {
-                  return <p>{day}</p>;
+                this.state.days.map((day,index) => {
+                  return <p>Day {index+1}: {day===null?"Break":day}</p>;
                 })}
             </div>
           </div>
