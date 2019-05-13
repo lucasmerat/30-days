@@ -130,8 +130,8 @@ module.exports = function(app) {
       });
   });
   // Get user info
-  app.get("/api/user/:username", function(req, res) {
-    db.User.findOne({ username: req.params.username })
+  app.get("/api/user/:id", function(req, res) {
+    db.User.findOne({ id: req.params.id })
       .populate("challenge")
       .then(function(dbUser) {
         res.json(dbUser);
@@ -143,7 +143,7 @@ module.exports = function(app) {
 
   // Get Challenges only belonging to a certain user
   app.get("/api/challenges/:id", function(req, res) {
-    db.User.findOne({ _id: req.params.id })
+    db.User.findOne({ id: req.params.id })
       .populate("challenge")
       .then(function(dbUser) {
         res.json(dbUser.challenge);
@@ -179,13 +179,13 @@ module.exports = function(app) {
   //Add a user to a challenge
   //Only adds user to a challenge if not already there
   app.post("/api/addchallengeuser/:id", function(req, res) {
-    db.Challenge.findOne({_id:req.params.id, user:{_id:req.body.userId}})
+    db.Challenge.findOne({_id:req.params.id, user:{id:req.body.userId}})
     .then(function(dbChallenge){
       if (dbChallenge === null)
         {db.Challenge.findOneAndUpdate({ _id: req.params.id },{ $push: { user: req.body.userId } },{ new: true })
           .populate("user")
           .then(function(dbChallenge) {
-            return db.User.findOneAndUpdate({ _id: req.body.userId},{ $push: { challenge: dbChallenge._id} },{ new: true }).populate("challenge");
+            return db.User.findOneAndUpdate({ id: req.body.userId},{ $push: { challenge: dbChallenge._id} },{ new: true }).populate("challenge");
           }).then(function(dbUser){
             res.json(dbUser);
           })
@@ -201,10 +201,10 @@ module.exports = function(app) {
 
   //Remove a user from a challenge
   app.delete("/api/removechallengeuser/:id", function(req, res) {
-    db.Challenge.findOneAndUpdate({_id:req.params.id, user:{_id:req.body.userId}},{ $pull: { user: req.body.userId } },{ new: true })
+    db.Challenge.findOneAndUpdate({_id:req.params.id, user:{id:req.body.userId}},{ $pull: { user: req.body.userId } },{ new: true })
       .populate("user")
       .then(function(dbChallenge) {
-        return db.User.findOneAndUpdate({ _id: req.body.userId},{ $pull: { challenge: dbChallenge._id} },{ new: true }).populate("challenge");
+        return db.User.findOneAndUpdate({ id: req.body.userId},{ $pull: { challenge: dbChallenge._id} },{ new: true }).populate("challenge");
       })
       .then(function(dbUser){
         res.json(dbUser);

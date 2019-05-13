@@ -28,9 +28,9 @@ module.exports = function(req, res) {
         profile_picture: r.user.profile_picture,
         access_token: r.access_token
       };
-      User.findOneAndUpdate({username:user.username},user,{upsert:true, returnNewDocument:true, new:true},function(err,dbUser){
+      User.findOneAndUpdate({id:user.id},user,{upsert:true, returnNewDocument:true, new:true},function(err,dbUser){
         if (err) res.send(err);
-          res.cookie('username',  dbUser.username, {maxAge: 604800000});
+          res.cookie('userId',  dbUser.id, {maxAge: 604800000});
           if (process.env.NODE_ENV === "development") {
               res.redirect("http://localhost:3000/profile");
             } else {
