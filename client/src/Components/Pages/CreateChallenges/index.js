@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./style.css";
 import { Input, FormBtn } from "../../UiComponents/Form";
+import API from "../../../utils/API";
 
 class CreateChallegnes extends Component {
   state = {
@@ -34,7 +35,10 @@ class CreateChallegnes extends Component {
     })
   }
   handleSubmit = () =>{
-    console.log("Make call to API to submit challenge state here, then render ongoing challenges component with updated challenge")
+    console.log("Make call to API to submit challenge state here, then render ongoing challenges component with updated challenge");
+    API.createChallenge(this.state)
+    .then (res=> console.log("We need to close the createChallenge, clean the state and update the challenge state?"))
+    .catch(err => console.log(err));
   }
   render() {
     return (
@@ -58,7 +62,7 @@ class CreateChallegnes extends Component {
                       id="customCheck1"
                       onChange={this.handleImageChange}
                     />
-                    <label className="custom-control-label" for="customCheck1">
+                    <label className="custom-control-label" htmlFor="customCheck1">
                       {" "}
                       <img
                         className="challenge-img-pick"
@@ -77,7 +81,7 @@ class CreateChallegnes extends Component {
                       id="customCheck2"
                       onChange={this.handleImageChange}
                     />
-                    <label className="custom-control-label" for="customCheck2">
+                    <label className="custom-control-label" htmlFor="customCheck2">
                       {" "}
                       <img
                         className="challenge-img-pick"
@@ -97,7 +101,7 @@ class CreateChallegnes extends Component {
                       id="customCheck3"
                       onChange={this.handleImageChange}
                     />
-                    <label className="custom-control-label" for="customCheck3">
+                    <label className="custom-control-label" htmlFor="customCheck3">
                       {" "}
                       <img
                         className="challenge-img-pick"
@@ -118,7 +122,7 @@ class CreateChallegnes extends Component {
                       id="customCheck4"
                       onChange={this.handleImageChange}
                     />
-                    <label className="custom-control-label" for="customCheck4">
+                    <label className="custom-control-label" htmlFor="customCheck4">
                       {" "}
                       <img
                         className="challenge-img-pick"
@@ -137,7 +141,7 @@ class CreateChallegnes extends Component {
                       id="customCheck5"
                       onChange={this.handleImageChange}
                     />
-                    <label className="custom-control-label" for="customCheck5">
+                    <label className="custom-control-label" htmlFor="customCheck5">
                       {" "}
                       <img
                         className="challenge-img-pick"
@@ -156,7 +160,7 @@ class CreateChallegnes extends Component {
                       id="customCheck6"
                       onChange={this.handleImageChange}
                     />
-                    <label className="custom-control-label" for="customCheck6">
+                    <label className="custom-control-label" htmlFor="customCheck6">
                       {" "}
                       <img
                         className="challenge-img-pick"
@@ -183,7 +187,7 @@ class CreateChallegnes extends Component {
             <FormBtn
               href="#"
               className="btn btn-primary join-btn"
-              onClick={this.props.handleClick}
+              onClick={this.handleSubmit}
             >
               Create Workout
             </FormBtn>
