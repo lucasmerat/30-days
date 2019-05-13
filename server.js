@@ -18,6 +18,7 @@ mongoose.connect(
     console.log(err);
   }
 );
+mongoose.set('useFindAndModify', false);
 
 //Initialize Express Server
 const app = express();
