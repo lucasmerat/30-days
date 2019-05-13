@@ -20,7 +20,7 @@ class CreateChallegnes extends Component {
     })
    }
   handleDayChange = (e) =>{
-    let dayChanged= e.target.getAttribute('day') - 1
+    let dayChanged= e.target.getAttribute('day') - 1;
     let newState = [...this.state.days];
     newState[dayChanged] = e.target.value;
     this.setState({
