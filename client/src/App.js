@@ -10,17 +10,17 @@ import API from "./utils/API";
 
 class App extends Component {
   state = {
-    user:{}
-  }
-  componentDidMount(){
+    user: {}
+  };
+  componentDidMount() {
     this.getUserInfo();
   }
 
-  readCookie (){
+  readCookie() {
     var allcookies = document.cookie;
     var cookiearray = [];
-    var username = '';
-    
+    var username = "";
+
     if (allcookies.length) {
       cookiearray = allcookies.split(";");
     }
@@ -29,13 +29,13 @@ class App extends Component {
     }
     return username;
   }
-  getUserInfo (){
+  getUserInfo() {
     const username = this.readCookie();
     if (username) {
-      console.log(username)
-    API.getUser(username)
-      .then (res=> this.setState({user: res.data}))
-      .catch(err => console.log(err));
+      console.log(username);
+      API.getUser(username)
+        .then(res => this.setState({ user: res.data }))
+        .catch(err => console.log(err));
     }
   }
 
@@ -46,7 +46,16 @@ class App extends Component {
           <Nav />
           <Switch>
             <Route exact path={["/", "/login"]} component={Login} />
-            <Route path="/profile" component={Profile} />
+            <Route
+              path={"/profile"}
+              render={props => (
+                <Profile
+                  {...props}
+                  userName={this.state.user.username}
+                  profilePic={this.state.user.profile_picture}
+                />
+              )}
+            />
             <Route exact path="/signup" component={Signup} />
             <Route component={NoMatch} />
           </Switch>

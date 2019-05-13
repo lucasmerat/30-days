@@ -14,26 +14,62 @@ import "./style.css";
 class Profile extends Component {
   state = {
     challenges: null,
-    numDays: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30]
+    numDays: [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30
+    ]
   };
   componentDidMount() {
     this.loadChallenges();
   }
-  loadChallenges = () =>{
-    API.getChallenges().then((response)=>{
+  loadChallenges = () => {
+    API.getChallenges().then(response => {
       this.setState({
         challenges: response.data
-      })
-    })
-  }
+      });
+    });
+  };
   handleClick = e => {
-    console.log("Here we call a function to add the challenge to DB and reload the challenges afterwards");
+    console.log(
+      "Here we call a function to add the challenge to DB and reload the challenges afterwards"
+    );
   };
   render() {
-    return (
+    return this.props.userName ? (
       <div>
         <ChallengesNav />
-        <ProfileNav />
+        <ProfileNav
+          userName={this.props.userName}
+          profilePic={this.props.profilePic}
+        />
         <Switch>
           <Route
             path={"/profile/browse"}
@@ -44,7 +80,10 @@ class Profile extends Component {
           <Route
             path={"/profile/ongoing"}
             render={props => (
-              <OngoingChallenges {...props} challenges={this.state.challenges} />
+              <OngoingChallenges
+                {...props}
+                challenges={this.state.challenges}
+              />
             )}
           />
           <Route
@@ -61,14 +100,17 @@ class Profile extends Component {
           />
           <Route
             path={"/profile/challenge/:id"}
-            render={props => (
-              <ChallengeDetails {...props} />
-            )}
+            render={props => <ChallengeDetails {...props} />}
           />
           <Route
             path={"/profile/create"}
             render={props => (
-              <CreateChallenges {...props} numDays={this.state.numDays} handleClick={this.handleClick} key="create-challenges" />
+              <CreateChallenges
+                {...props}
+                numDays={this.state.numDays}
+                handleClick={this.handleClick}
+                key="create-challenges"
+              />
             )}
           />
         </Switch>
@@ -77,7 +119,7 @@ class Profile extends Component {
           <div className="col-8" />
         </div>
       </div>
-    );
+    ) : (null);
   }
 }
 
