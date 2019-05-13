@@ -153,6 +153,18 @@ module.exports = function(app) {
         res.json(err);
       });
   });
+
+   // Get challenge by id
+  app.get("/api/challenge/:id", function(req, res) {
+    db.Challenge.findOne({_id:req.params.id})
+      .populate("user")
+      .then(function(dbChallenge) {
+        res.json(dbChallenge);
+      })
+      .catch(function(err) {
+        res.json(err);
+      });
+  });
   //Add a user to a challenge
   //Only adds user to a challenge if not already there
   app.post("/api/addchallengeuser/:id", function(req, res) {
