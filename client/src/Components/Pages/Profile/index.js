@@ -50,7 +50,7 @@ class Profile extends Component {
           <Route
             path={"/profile/done"}
             render={props => (
-              <OngoingChallenges {...props} challenges={this.state.challenges} key="done-challenges" />
+              <DoneChallenges {...props} challenges={this.state.challenges} key="done-challenges" />
             )}
           />
           <Route
