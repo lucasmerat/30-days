@@ -4,6 +4,7 @@ import ProfileNav from "../ProfileNav";
 import BrowseChallenges from "../BrowseChallenges";
 import OngoingChallenges from "../OngoingChallenges";
 import DoneChallenges from "../DoneChallenges";
+import ChallengeDetails from "../ChallengeDetails";
 import Timeline from "../Timeline";
 import CreateChallenges from "../CreateChallenges";
 import API from "../../../utils/API";
@@ -56,6 +57,12 @@ class Profile extends Component {
             path={"/profile/ongoing"}
             render={props => (
               <Timeline {...props} challenges={this.state.challenges} key="timeline" />
+            )}
+          />
+          <Route
+            path={"/profile/challenge/:id"}
+            render={props => (
+              <ChallengeDetails {...props} />
             )}
           />
           <Route

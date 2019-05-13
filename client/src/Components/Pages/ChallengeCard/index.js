@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 import { FormBtn } from "../../UiComponents/Form";
 
 export default function ChallengeCard(props) {
@@ -11,7 +12,7 @@ export default function ChallengeCard(props) {
               alt="..."
             />
             <div className="card-body">
-              <h5 className="card-title challenge-title">{props.title}</h5>
+              <Link to= {`/profile/challenge/${props._id}`}><h5 className="card-title challenge-title">{props.title}</h5></Link>
               <p className="card-text challenge-text">
                 {props.description}
               </p>
