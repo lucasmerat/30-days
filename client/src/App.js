@@ -32,6 +32,7 @@ class App extends Component {
   getUserInfo (){
     const username = this.readCookie();
     if (username) {
+      console.log(username)
     API.getUser(username)
       .then (res=> this.setState({user: res.data}))
       .catch(err => console.log(err));
