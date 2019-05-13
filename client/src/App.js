@@ -6,7 +6,6 @@ import Login from "./Components/Pages/Login/";
 import NoMatch from "./Components/Pages/NoMatch/";
 import Signup from "./Components/Pages/SignUp/";
 import Profile from "./Components/Pages/Profile";
-import BrowseChallenges from "./Components/Pages/BrowseChallenges";
 
 class App extends Component {
   render() {

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Jumbotron from "../../UiComponents/Jumbotron";
 import { Col, Row, Container } from "../../UiComponents/Grid";
-import { Input, TextArea, FormBtn,FormBtnlink } from "../../UiComponents/Form";
+import { Input, FormBtn,FormBtnlink } from "../../UiComponents/Form";
 
 class login extends Component {
   state = {

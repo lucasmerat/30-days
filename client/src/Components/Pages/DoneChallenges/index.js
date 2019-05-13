@@ -1,6 +1,5 @@
 import React from 'react'
 import "./style.css";
-import { Input, TextArea, FormBtn,FormBtnlink } from "../../UiComponents/Form";
 
 export default function DoneChallegnes() {
   return (

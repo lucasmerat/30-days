@@ -21,7 +21,7 @@ export default function ChallengeCard(props) {
               </FormBtn>
             </div>
             <p className="card-text challenge-info">
-              Starts: | 30 Days <i class="fas fa-share-alt " />
+              Starts: | 30 Days <i className="fas fa-share-alt " />
             </p>
           </div>
         </div>
