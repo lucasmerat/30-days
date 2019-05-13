@@ -8,6 +8,24 @@ import Signup from "./Components/Pages/SignUp/";
 import Profile from "./Components/Pages/Profile";
 
 class App extends Component {
+  componentDidMount(){
+    this.readCookie();
+  }
+
+  readCookie (){
+    var allcookies = document.cookie;
+    var cookiearray = [];
+    var username = '';
+    
+    if (allcookies.length) {
+      cookiearray = allcookies.split(";");
+    }
+    if (cookiearray.length) {
+      username = cookiearray[0].split("=")[1];
+    }
+    console.log(username);
+  }
+
   render() {
     return (
       <BrowserRouter>
