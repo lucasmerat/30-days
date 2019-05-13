@@ -29,14 +29,12 @@ class CreateChallegnes extends Component {
     })
   }
   handleImageChange = (e) =>{
-    console.log(e.target.id)
     this.setState({
       image: e.target.id
     })
   }
   handleSubmit = () =>{
-    console.log("Make call to API to submit challenge state here, then render ongoing challenges component with updated challenge");
-    API.createChallenge(this.state)
+    API.createChallenge({...this.state, createdAt: new Date()})
     .then (res=> console.log("We need to close the createChallenge, clean the state and update the challenge state?"))
     .catch(err => console.log(err));
   }
