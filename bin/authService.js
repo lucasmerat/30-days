@@ -29,26 +29,14 @@ module.exports = function(req, res) {
         access_token: r.access_token
       };
 
-      User.findOne({username:user.username},function(err,dbUser){
+      User.findOneAndUpdate({username:user.username},user,{upsert:true},function(err,dbUser){
         if (err) res.send(err);
-        if (dbUser===null){
-          User.create(user, function(error, currentUser) {
-            if (error) res.send(error);
-            res.cookie('username',  currentUser.username, {maxAge: 604800000});
-            if (process.env.NODE_ENV === "development") {
-              res.redirect("http://localhost:3000/profile");
-            } else {
-              res.redirect("/profile");
-            }
-          });
-        } else {
-           res.cookie('username',  dbUser.username, {maxAge: 604800000});
+          res.cookie('username',  dbUser.username, {maxAge: 604800000});
           if (process.env.NODE_ENV === "development") {
               res.redirect("http://localhost:3000/profile");
             } else {
               res.redirect("/profile");
             }
-        }
       }); 
     }
   });
