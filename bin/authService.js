@@ -28,11 +28,13 @@ module.exports = function(req, res) {
         profile_picture: r.user.profile_picture,
         access_token: r.access_token
       };
+
       User.findOne({username:user.username},function(err,dbUser){
         if (err) res.send(err);
         if (dbUser===null){
-          User.create(user, function(error) {
+          User.create(user, function(error, currentUser) {
             if (error) res.send(error);
+            res.cookie('username',  currentUser.username, {maxAge: 604800000});
             if (process.env.NODE_ENV === "development") {
               res.redirect("http://localhost:3000/profile");
             } else {
@@ -40,6 +42,7 @@ module.exports = function(req, res) {
             }
           });
         } else {
+           res.cookie('username',  dbUser.username, {maxAge: 604800000});
           if (process.env.NODE_ENV === "development") {
               res.redirect("http://localhost:3000/profile");
             } else {
@@ -47,9 +50,6 @@ module.exports = function(req, res) {
             }
         }
       }); 
-
-
-
     }
   });
 };
