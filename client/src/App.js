@@ -6,10 +6,14 @@ import Login from "./Components/Pages/Login/";
 import NoMatch from "./Components/Pages/NoMatch/";
 import Signup from "./Components/Pages/SignUp/";
 import Profile from "./Components/Pages/Profile";
+import API from "./utils/API";
 
 class App extends Component {
+  state = {
+    user:{}
+  }
   componentDidMount(){
-    this.readCookie();
+    this.getUserInfo();
   }
 
   readCookie (){
@@ -23,7 +27,15 @@ class App extends Component {
     if (cookiearray.length) {
       username = cookiearray[0].split("=")[1];
     }
-    console.log(username);
+    return username;
+  }
+  getUserInfo (){
+    const username = this.readCookie();
+    if (username) {
+    API.getUser(username)
+      .then (res=> this.setState({user: res.data}))
+      .catch(err => console.log(err));
+    }
   }
 
   render() {

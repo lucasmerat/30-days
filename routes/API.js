@@ -129,6 +129,17 @@ module.exports = function(app) {
         res.json(err);
       });
   });
+  // Get user info
+  app.get("/api/user/:username", function(req, res) {
+    db.User.findOne({ username: req.params.username })
+      .populate("challenge")
+      .then(function(dbUser) {
+        res.json(dbUser);
+      })
+      .catch(function(err) {
+        res.json(err);
+      });
+  });
 
   // Get Challenges only belonging to a certain user
   app.get("/api/challenges/:id", function(req, res) {
