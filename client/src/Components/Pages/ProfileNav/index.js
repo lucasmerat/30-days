@@ -1,14 +1,13 @@
 import React from "react";
 import "./style.css";
-import { Input, TextArea, FormBtn,FormBtnlink } from "../../UiComponents/Form";
-// import categories from "./categories.json";
+import { FormBtn } from "../../UiComponents/Form";
 import {Link} from "react-router-dom";
 
 function ProfileNav(props) {
   return (
         <div className="col-4 profile-nav profile-float">
           <div className="row">
-                      <div className="col-6"><img className="profile-img" src="https://scontent-dfw5-1.cdninstagram.com/vp/4c24b1fbb2f9ca52d303c839b7dfd3fb/5D76A903/t51.2885-19/s150x150/49643358_370948406801366_6866656548769234944_n.jpg?_nc_ht=scontent-dfw5-1.cdninstagram.com">
+                      <div className="col-6"><img className="profile-img" alt="profile" src="https://scontent-dfw5-1.cdninstagram.com/vp/4c24b1fbb2f9ca52d303c839b7dfd3fb/5D76A903/t51.2885-19/s150x150/49643358_370948406801366_6866656548769234944_n.jpg?_nc_ht=scontent-dfw5-1.cdninstagram.com">
                       </img>
                       </div>
                       <div className="col-6 info-container">

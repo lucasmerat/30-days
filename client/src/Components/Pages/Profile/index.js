@@ -36,16 +36,31 @@ class Profile extends Component {
           <Route
             path={"/profile/browse"}
             render={props => (
-              <BrowseChallenges {...props} challenges={this.state.challenges} />
+              <BrowseChallenges {...props} challenges={this.state.challenges} key="browse-challenges" />
             )}
           />
-          <Route path={"/profile/ongoing"} component={OngoingChallenges} />
-          <Route path={"/profile/done"} component={DoneChallenges} />
-          <Route path={"/profile/timeline"} component={Timeline} />
+          <Route
+            path={"/profile/ongoing"}
+            render={props => (
+              <OngoingChallenges {...props} challenges={this.state.challenges} key="ongoing-challenges" />
+            )}
+          />
+          <Route
+            path={"/profile/done"}
+            render={props => (
+              <OngoingChallenges {...props} challenges={this.state.challenges} key="done-challenges" />
+            )}
+          />
+          <Route
+            path={"/profile/ongoing"}
+            render={props => (
+              <Timeline {...props} challenges={this.state.challenges} key="timeline" />
+            )}
+          />
           <Route
             path={"/profile/create"}
             render={props => (
-              <CreateChallenges {...props} handleClick={this.handleClick} />
+              <CreateChallenges {...props} handleClick={this.handleClick} key="create-challenges" />
             )}
           />
         </Switch>

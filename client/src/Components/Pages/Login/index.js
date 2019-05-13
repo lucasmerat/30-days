@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import Jumbotron from "../UiComponents/Jumbotron";
-import { Col, Row, Container } from "../UiComponents/Grid";
-import { Input, TextArea, FormBtn } from "../UiComponents/Form";
+import Jumbotron from "../../UiComponents/Jumbotron";
+import { Col, Row, Container } from "../../UiComponents/Grid";
+import { Input, FormBtn,FormBtnlink } from "../../UiComponents/Form";
 
-class signup extends Component {
+class login extends Component {
   state = {
    
   };
@@ -16,30 +16,26 @@ class signup extends Component {
         <Col size="md-4"></Col>
           <Col size="md-4">
             <Jumbotron>
-              <h1>Sign up</h1>
+              <h1>Login with Instagram</h1>
             </Jumbotron>
             <form>
               <Input
-                name="name"
-                placeholder="Name (required)"
-              />
-              <Input
                 name="username"
                 placeholder="Username (required)"
-              />
-               <Input
-                name="email"
-                placeholder="E-mail (required)"
               />
               <Input
                 name="password"
                 placeholder="Password (required)"
               />
-              <FormBtn
+              
+              <FormBtn href="/profile"
               >
-                Sign up
+                Login
               </FormBtn>
             </form>
+            <FormBtnlink className="btn btn-link" href="/signup">
+                Sign up
+              </FormBtnlink>
           </Col>
           <Col size="md-4"></Col>
         </Row>
@@ -48,4 +44,4 @@ class signup extends Component {
   }
 }
 
-export default signup;
+export default login;
