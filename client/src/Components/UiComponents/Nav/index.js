@@ -1,13 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./style.css";
 
 function Nav(props) {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark ">
-    <img className="logo-img" alt="logo" src="/assets/images/Logo30.jpg" ></img>
-      <a className="navbar-brand" href="/">
-      {props.messege}
-      </a>
+      <Link className="navbar-brand" to="/profile/browse">
+        <img className="logo-img" alt="logo" src="/assets/images/Logo30.jpg" />
+        {props.messege}
+      </Link>
     </nav>
   );
 }
