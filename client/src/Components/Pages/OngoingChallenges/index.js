@@ -18,6 +18,7 @@ export default function OngoingChallenges({challenges, user}) {
               description={challenge.description}
               numUsers={challenge.user.length}
               createdAt={challenge.createdAt}
+              image={challenge.image}
               type="Ongoing"
             />)
           } 

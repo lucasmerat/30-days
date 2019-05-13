@@ -7,7 +7,7 @@ class CreateChallegnes extends Component {
   state = {
     title:"",
     description:"",
-    image: null,
+    image: "",
     days: []
   }
   handleTitleChange = (e) =>{
@@ -29,6 +29,7 @@ class CreateChallegnes extends Component {
     })
   }
   handleImageChange = (e) =>{
+    console.log(e.target.id)
     this.setState({
       image: e.target.id
     })
@@ -57,10 +58,10 @@ class CreateChallegnes extends Component {
                       type="radio"
                       className="custom-control-input"
                       name="onlyOne"
-                      id="customCheck1"
-                      onChange={this.handleImageChange}
+                      id="https://images.vexels.com/media/users/3/138766/isolated/preview/aa86bc7fc758d324029168656a5b6874-fitness-woman-silhouette-by-vexels.png"
+                      onClick={this.handleImageChange}
                     />
-                    <label className="custom-control-label" htmlFor="customCheck1">
+                    <label className="custom-control-label" htmlFor="https://images.vexels.com/media/users/3/138766/isolated/preview/aa86bc7fc758d324029168656a5b6874-fitness-woman-silhouette-by-vexels.png">
                       {" "}
                       <img
                         className="challenge-img-pick"
@@ -76,10 +77,10 @@ class CreateChallegnes extends Component {
                       type="radio"
                       name="onlyOne"
                       className="custom-control-input"
-                      id="customCheck2"
+                      id="https://images.vexels.com/media/users/3/131346/isolated/preview/e35291e5e0befe8215c03b06c92c161f-man-fitness-training-silhouette-by-vexels.png"
                       onChange={this.handleImageChange}
                     />
-                    <label className="custom-control-label" htmlFor="customCheck2">
+                    <label className="custom-control-label" htmlFor="https://images.vexels.com/media/users/3/131346/isolated/preview/e35291e5e0befe8215c03b06c92c161f-man-fitness-training-silhouette-by-vexels.png">
                       {" "}
                       <img
                         className="challenge-img-pick"
@@ -96,10 +97,10 @@ class CreateChallegnes extends Component {
                       type="radio"
                       name="onlyOne"
                       className="custom-control-input"
-                      id="customCheck3"
+                      id="https://images.vexels.com/media/users/3/138770/isolated/preview/e00461c64feae7746c6ab1cd50268f85-fitness-woman-silhouette-lifting-hips-by-vexels.png"
                       onChange={this.handleImageChange}
                     />
-                    <label className="custom-control-label" htmlFor="customCheck3">
+                    <label className="custom-control-label" htmlFor="https://images.vexels.com/media/users/3/138770/isolated/preview/e00461c64feae7746c6ab1cd50268f85-fitness-woman-silhouette-lifting-hips-by-vexels.png">
                       {" "}
                       <img
                         className="challenge-img-pick"
@@ -117,10 +118,10 @@ class CreateChallegnes extends Component {
                       type="radio"
                       name="onlyOne"
                       className="custom-control-input"
-                      id="customCheck4"
+                      id="https://i0.wp.com/abjsfitness.com/wp-content/uploads/2018/09/429472415c458712f85bc19b240091e5-bodybuilder-double-biceps-pose-silhouette-by-vexels.png?resize=512%2C460&ssl=1"
                       onChange={this.handleImageChange}
                     />
-                    <label className="custom-control-label" htmlFor="customCheck4">
+                    <label className="custom-control-label" htmlFor="https://i0.wp.com/abjsfitness.com/wp-content/uploads/2018/09/429472415c458712f85bc19b240091e5-bodybuilder-double-biceps-pose-silhouette-by-vexels.png?resize=512%2C460&ssl=1">
                       {" "}
                       <img
                         className="challenge-img-pick"
@@ -136,10 +137,10 @@ class CreateChallegnes extends Component {
                       type="radio"
                       name="onlyOne"
                       className="custom-control-input"
-                      id="customCheck5"
+                      id="https://images.vexels.com/media/users/3/138773/isolated/preview/1cb1b8e931e5f9d9bdc4abe479cde54b-fitness-woman-silhouette-run-by-vexels.png"
                       onChange={this.handleImageChange}
                     />
-                    <label className="custom-control-label" htmlFor="customCheck5">
+                    <label className="custom-control-label" htmlFor="https://images.vexels.com/media/users/3/138773/isolated/preview/1cb1b8e931e5f9d9bdc4abe479cde54b-fitness-woman-silhouette-run-by-vexels.png">
                       {" "}
                       <img
                         className="challenge-img-pick"
@@ -155,10 +156,10 @@ class CreateChallegnes extends Component {
                       type="radio"
                       name="onlyOne"
                       className="custom-control-input"
-                      id="customCheck6"
+                      id="https://images.vexels.com/media/users/3/132736/isolated/preview/c5beec0aff097139052f79f2e19a3a51-woman-doing-exercise-fitness-silhouette-by-vexels.png"
                       onChange={this.handleImageChange}
                     />
-                    <label className="custom-control-label" htmlFor="customCheck6">
+                    <label className="custom-control-label" htmlFor="https://images.vexels.com/media/users/3/132736/isolated/preview/c5beec0aff097139052f79f2e19a3a51-woman-doing-exercise-fitness-silhouette-by-vexels.png">
                       {" "}
                       <img
                         className="challenge-img-pick"
