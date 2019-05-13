@@ -55,7 +55,7 @@ export default function ChallengeCard(props) {
           </Link>
         </div>
         <p className="card-text challenge-info">
-          Ends: | 10 Days Left <i class="fas fa-share-alt " />
+          Ends: | 10 Days Left <i className="fas fa-share-alt " />
         </p>{" "}
       </div>
     );
