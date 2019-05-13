@@ -63,7 +63,7 @@ class Profile extends Component {
     );
   };
   render() {
-    return this.props.userName ? (
+    return (
       <div>
         <ChallengesNav />
         <ProfileNav
@@ -119,7 +119,7 @@ class Profile extends Component {
           <div className="col-8" />
         </div>
       </div>
-    ) : (null);
+    );
   }
 }
 
