@@ -1,6 +1,10 @@
 import axios from "axios";
 
 export default {
+  // Get User
+  getUser: function(username) {
+    return axios.get("/api/user/"+username);
+  },
   // Create a challenges
   createChallenge: function(data) {
     return axios.post("/api/newChallenge",data);
