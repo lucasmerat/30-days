@@ -10,16 +10,31 @@ class CreateChallegnes extends Component {
     days: []
   }
   handleTitleChange = (e) =>{
-    console.log(e)
+   this.setState({
+     title: e.target.value
+   })
   }
+  handleDescriptionChange = (e) =>{
+    this.setState({
+      description: e.target.value
+    })
+   }
   handleDayChange = (e) =>{
     let dayChanged= e.target.getAttribute('day') - 1
     let newState = [...this.state.days];
     newState[dayChanged] = e.target.value;
-    console.log(newState)
     this.setState({
       [e.target.name]: newState
     })
+  }
+  handleImageChange = (e) =>{
+    console.log(e.target.id)
+    this.setState({
+      image: e.target.id
+    })
+  }
+  handleSubmit = () =>{
+    console.log("Make call to API to submit challenge state here, then render ongoing challenges component with updated challenge")
   }
   render() {
     return (
@@ -29,17 +44,19 @@ class CreateChallegnes extends Component {
             <h5 className="card-title challenge-title">Create a workout</h5>
             <div className="row">
               <label> Title of workout</label>
-              <Input onChange={this.handleChange}/>
+              <Input value={this.state.title} onChange={this.handleTitleChange}/>
               <label> Short description</label>
-              <Input />
+              <Input value={this.state.description} onChange={this.handleDescriptionChange}/>
               <label>Select an Image For Your Workout </label>
               <div className="row">
                 <div className="col-4">
-                  <div className="custom-control custom-checkbox">
+                  <div className="custom-control custom-radio">
                     <input
-                      type="checkbox"
+                      type="radio"
                       className="custom-control-input"
+                      name="onlyOne"
                       id="customCheck1"
+                      onChange={this.handleImageChange}
                     />
                     <label className="custom-control-label" for="customCheck1">
                       {" "}
@@ -52,16 +69,19 @@ class CreateChallegnes extends Component {
                   </div>
                 </div>
                 <div className="col-4">
-                  <div className="custom-control custom-checkbox">
+                  <div className="custom-control custom-radio">
                     <input
-                      type="checkbox"
+                      type="radio"
+                      name="onlyOne"
                       className="custom-control-input"
                       id="customCheck2"
+                      onChange={this.handleImageChange}
                     />
                     <label className="custom-control-label" for="customCheck2">
                       {" "}
                       <img
                         className="challenge-img-pick"
+                        name="onlyOne"
                         alt="workout-placeholder"
                         src="https://images.vexels.com/media/users/3/131346/isolated/preview/e35291e5e0befe8215c03b06c92c161f-man-fitness-training-silhouette-by-vexels.png"
                       />
@@ -69,11 +89,13 @@ class CreateChallegnes extends Component {
                   </div>
                 </div>
                 <div className="col-4">
-                  <div className="custom-control custom-checkbox">
+                  <div className="custom-control custom-radio">
                     <input
-                      type="checkbox"
+                      type="radio"
+                      name="onlyOne"
                       className="custom-control-input"
                       id="customCheck3"
+                      onChange={this.handleImageChange}
                     />
                     <label className="custom-control-label" for="customCheck3">
                       {" "}
@@ -88,11 +110,13 @@ class CreateChallegnes extends Component {
               </div>
               <div className="row">
                 <div className="col-4">
-                  <div className="custom-control custom-checkbox">
+                  <div className="custom-control custom-radio">
                     <input
-                      type="checkbox"
+                      type="radio"
+                      name="onlyOne"
                       className="custom-control-input"
                       id="customCheck4"
+                      onChange={this.handleImageChange}
                     />
                     <label className="custom-control-label" for="customCheck4">
                       {" "}
@@ -105,11 +129,13 @@ class CreateChallegnes extends Component {
                   </div>
                 </div>
                 <div className="col-4">
-                  <div className="custom-control custom-checkbox">
+                  <div className="custom-control custom-radio">
                     <input
-                      type="checkbox"
+                      type="radio"
+                      name="onlyOne"
                       className="custom-control-input"
                       id="customCheck5"
+                      onChange={this.handleImageChange}
                     />
                     <label className="custom-control-label" for="customCheck5">
                       {" "}
@@ -122,11 +148,13 @@ class CreateChallegnes extends Component {
                   </div>
                 </div>
                 <div className="col-4">
-                  <div className="custom-control custom-checkbox">
+                  <div className="custom-control custom-radio">
                     <input
-                      type="checkbox"
+                      type="radio"
+                      name="onlyOne"
                       className="custom-control-input"
                       id="customCheck6"
+                      onChange={this.handleImageChange}
                     />
                     <label className="custom-control-label" for="customCheck6">
                       {" "}
