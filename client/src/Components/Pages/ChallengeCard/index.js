@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { FormBtn } from "../../UiComponents/Form";
 
 export default function ChallengeCard(props) {
+    console.log(props)
   return (
           <div className="card browse-card">
             <img

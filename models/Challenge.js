@@ -7,6 +7,7 @@ var challengeSchema = new Schema({
   image:String,
   startDate: Date,
   createdAt: Date,
+  completed: Boolean,
   days:[{
     type: String
   }],

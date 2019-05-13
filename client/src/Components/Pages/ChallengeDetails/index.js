@@ -36,7 +36,7 @@ class ChallengeDetails extends Component {
             <div className="workout-days">
               {this.state.days &&
                 this.state.days.map((day,index) => {
-                  return <p>Day {index+1}: {day===null?"Break":day}</p>;
+                  return <p key={day}>Day {index+1}: {day===null?"Break":day}</p>;
                 })}
             </div>
           </div>
