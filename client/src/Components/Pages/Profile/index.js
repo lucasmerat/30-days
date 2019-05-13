@@ -12,7 +12,8 @@ import "./style.css";
 
 class Profile extends Component {
   state = {
-    challenges: null
+    challenges: null,
+    numWeeks: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30]
   };
   componentDidMount() {
     this.loadChallenges();
@@ -60,7 +61,7 @@ class Profile extends Component {
           <Route
             path={"/profile/create"}
             render={props => (
-              <CreateChallenges {...props} handleClick={this.handleClick} key="create-challenges" />
+              <CreateChallenges {...props} numWeeks={this.state.numWeeks} handleClick={this.handleClick} key="create-challenges" />
             )}
           />
         </Switch>
