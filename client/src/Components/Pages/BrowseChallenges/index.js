@@ -17,6 +17,7 @@ export default function BrowseChallenges({ challenges }) {
               description={challenge.description}
               numUsers={challenge.user.length}
               createdAt={challenge.createdAt}
+              image={challenge.image}
               type="Browse"
             />)
           } 

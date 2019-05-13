@@ -8,7 +8,7 @@ export default function ChallengeCard(props) {
     return (
       <div className="card browse-card">
         <img
-          src="https://images.vexels.com/media/users/3/138778/isolated/preview/cdd6b2f922a8bea7fb38b54b80a2dc65-fitness-woman-silhouette-stretching-legs-by-vexels.png"
+          src={props.image}
           className="card-img-top"
           alt="..."
         />
@@ -33,7 +33,7 @@ export default function ChallengeCard(props) {
     return (
       <div className="card browse-card">
         <img
-          src="https://images.vexels.com/media/users/3/138778/isolated/preview/cdd6b2f922a8bea7fb38b54b80a2dc65-fitness-woman-silhouette-stretching-legs-by-vexels.png"
+          src={props.image}
           className="card-img-top"
           alt="..."
         />
@@ -63,7 +63,7 @@ export default function ChallengeCard(props) {
     return (
       <div className="card browse-card">
         <img
-          src="https://images.vexels.com/media/users/3/138778/isolated/preview/cdd6b2f922a8bea7fb38b54b80a2dc65-fitness-woman-silhouette-stretching-legs-by-vexels.png"
+          src={props.image}
           className="card-img-top"
           alt="..."
         />
