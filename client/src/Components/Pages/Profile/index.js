@@ -13,7 +13,9 @@ import "./style.css";
 
 class Profile extends Component {
   state = {
-    challenges: null,
+    allChallenges: null,
+    userChallenges: null,
+    userData: null,
     numDays: [
       1,
       2,
@@ -48,34 +50,63 @@ class Profile extends Component {
     ]
   };
   componentDidMount() {
-    this.loadChallenges();
+    this.getUserInfo();
   }
   loadChallenges = () => {
     API.getChallenges().then(response => {
       this.setState({
-        challenges: response.data
+        allChallenges: response.data
+      });
+    });
+    API.getChallengesFromUser(this.state.userData._id).then(response => {
+      console.log(response)
+      this.setState({
+        userChallenges: response.data
       });
     });
   };
+  readCookie() {
+    var allcookies = document.cookie;
+    var cookiearray = [];
+    var userId = "";
+
+    if (allcookies.length) {
+      cookiearray = allcookies.split(";");
+    }
+    if (cookiearray.length) {
+      userId = cookiearray[0].split("=")[1];
+    }
+    return userId;
+  }
+  getUserInfo() {
+    const userId = this.readCookie();
+    if (userId) {
+      API.getUser(userId)
+        .then(res => this.setState({ userData: res.data }, ()=>{
+          this.loadChallenges();
+        }))
+        .catch(err => console.log(err));
+    }
+  }
   handleClick = e => {
     console.log(
       "Here we call a function to add the challenge to DB and reload the challenges afterwards"
     );
   };
   render() {
-    return (
+    return this.state.userData ? (
       <div>
         <ChallengesNav />
         <ProfileNav
-          userName={this.props.userName}
-          profilePic={this.props.profilePic}
-          bio={this.props.bio}
+          userName={this.state.userData.username}
+          profilePic={this.state.userData.profile_picture}
+          bio={this.state.userData.bio}
         />
         <Switch>
           <Route
             path={"/profile/browse"}
             render={props => (
-              <BrowseChallenges {...props} challenges={this.state.challenges} />
+              <BrowseChallenges {...props} challenges={this.state.allChallenges} />
             )}
           />
           <Route
@@ -83,20 +114,14 @@ class Profile extends Component {
             render={props => (
               <OngoingChallenges
                 {...props}
-                challenges={this.state.challenges}
+                challenges={this.state.userChallenges}
               />
             )}
           />
           <Route
             path={"/profile/done"}
             render={props => (
-              <DoneChallenges {...props} challenges={this.state.challenges} />
-            )}
-          />
-          <Route
-            path={"/profile/ongoing"}
-            render={props => (
-              <Timeline {...props} challenges={this.state.challenges} />
+              <DoneChallenges {...props} challenges={this.state.userChallenges} />
             )}
           />
           <Route
@@ -120,7 +145,7 @@ class Profile extends Component {
           <div className="col-8" />
         </div>
       </div>
-    );
+    ): (<div>Loading user data</div>);
   }
 }
 
