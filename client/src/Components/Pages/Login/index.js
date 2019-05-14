@@ -1,9 +1,10 @@
-require("dotenv").config();
+
 import React, { Component } from "react";
 import Jumbotron from "../../UiComponents/Jumbotron";
 import { InstagramLoginButton } from "react-social-login-buttons";
 import { Col, Row, Container } from "../../UiComponents/Grid";
 import { Input, FormBtn,FormBtnlink } from "../../UiComponents/Form";
+require("dotenv").config();
 
 var instaLink;
 
