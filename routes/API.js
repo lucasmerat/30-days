@@ -164,9 +164,9 @@ module.exports = function(app) {
       });
   });
 
-  // Get all challenges
-  app.get("/api/challenges", function(req, res) {
-    db.Challenge.find()
+  // Get all challenges user doesn't belong to
+  app.get("/api/notchallenges/:id", function(req, res) {
+    db.Challenge.find({user:{$nin:[req.params.id]}})
       .populate("user")
       .then(function(dbChallenge) {
         res.json(dbChallenge);

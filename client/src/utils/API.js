@@ -9,9 +9,9 @@ export default {
   createChallenge: function(data) {
     return axios.post("/api/newChallenge",data);
   },
-   // Get all challenges
-  getChallenges: function() {
-    return axios.get("/api/challenges");
+   // Get all challenges not belonging to a user
+  getChallenges: function(_id) {
+    return axios.get("/api/notchallenges/"+_id);
   },
     // Get challenge by ID
   getChallengebyId: function(id) {
@@ -21,7 +21,7 @@ export default {
   getUsersInChallenge: function(id) {
     return axios.get("/api/challengeusers/" + id);
   },
-  // Get all challenges from a user
+  // Get all challenges a user belongs to
   getChallengesFromUser: function(id) {
     return axios.get("/api/challenges/"+id);
   },
