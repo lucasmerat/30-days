@@ -53,7 +53,7 @@ class Profile extends Component {
     this.getUserInfo();
   }
   loadChallenges = () => {
-    API.getChallenges().then(response => {
+    API.getChallenges(this.state.userData._id).then(response => {
       this.setState({
         allChallenges: response.data
       });
