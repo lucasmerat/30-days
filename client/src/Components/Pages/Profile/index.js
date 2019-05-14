@@ -106,7 +106,7 @@ class Profile extends Component {
           <Route
             path={"/profile/browse"}
             render={props => (
-              <BrowseChallenges {...props} challenges={this.state.allChallenges} userId={this.state.userData._id} />
+              <BrowseChallenges {...props} challenges={this.state.allChallenges} userId={this.state.userData._id} loadChallenges={this.loadChallenges}/>
             )}
           />
           <Route
