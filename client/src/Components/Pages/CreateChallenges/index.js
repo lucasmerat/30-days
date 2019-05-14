@@ -37,7 +37,10 @@ class CreateChallegnes extends Component {
   }
   handleSubmit = () =>{
     API.createChallenge({...this.state, createdAt: new Date()})
-    .then (res=> <Redirect to="/profile/browse" />)
+    .then ((res)=>{
+      this.props.loadChallenges();
+      this.props.history.push(`/profile/challenge/${res.data._id}`)
+    })
     .catch(err => console.log(err));
   }
   render() {
