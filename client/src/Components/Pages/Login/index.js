@@ -1,8 +1,17 @@
+require("dotenv").config();
 import React, { Component } from "react";
 import Jumbotron from "../../UiComponents/Jumbotron";
 import { InstagramLoginButton } from "react-social-login-buttons";
 import { Col, Row, Container } from "../../UiComponents/Grid";
 import { Input, FormBtn,FormBtnlink } from "../../UiComponents/Form";
+
+var instaLink;
+
+if (process.env.NODE_ENV === "production") {
+  instaLink = "/api/login";
+} else {
+  instaLink = "http://localhost:5000/api/login;
+}
 
 class login extends Component {
   state = {
@@ -16,7 +25,7 @@ class login extends Component {
         <Row>
         <Col size="md-4"></Col>
           <Col size="md-4">
-            <a href="http://localhost:5000/api/login"><InstagramLoginButton /></a>
+            <a href={ instaLink }><InstagramLoginButton /></a>
             <form>
               <Input
                 name="username"
