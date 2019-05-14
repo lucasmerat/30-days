@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import { FormBtn } from "../../UiComponents/Form";
 
 export default function ChallengeCard(props) {
-  console.log(props);
   if (props.type === "Browse") {
+      console.log(props)
     return (
       <div className="card browse-card">
         <img
@@ -20,7 +20,7 @@ export default function ChallengeCard(props) {
           <p className="card-text challenge-text">
             {props.numUsers} active challengers
           </p>
-          <FormBtn href="#" className="btn btn-primary join-btn ">
+          <FormBtn onClick={()=>{props.joinChallenge(props._id, {userId: props.userId})}} href="#" className="btn btn-primary join-btn ">
             Join Challenge
           </FormBtn>
         </div>
