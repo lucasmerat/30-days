@@ -11,16 +11,23 @@ class ChallengeDetails extends Component {
     title: "",
     description: "",
     days: [],
-    numUsers: 0
+    numUsers: 0,
+    isJoinedUser: false
   };
   loadChallenge = () => {
     API.getChallengebyId(this.props.match.params.id)
-    .then (res=> this.setState({title: res.data.title, description:res.data.description, days: res.data.days, numUsers:res.data.user.length }))
-    .catch(err => console.log(err));
+      .then(res =>
+        this.setState({
+          title: res.data.title,
+          description: res.data.description,
+          days: res.data.days,
+          numUsers: res.data.user.length
+        })
+      )
+      .catch(err => console.log(err));
   };
-
   render() {
-    return (
+    return this.props.userChallenges ? (
       <div className="row">
         <div className="card challenge-details-card">
           <div className="card-body">
@@ -29,19 +36,30 @@ class ChallengeDetails extends Component {
               <div>{this.state.numUsers} challengers</div>
               {this.state.description}
             </div>
-            <FormBtn href="#" className="btn btn-primary join-btn ">
-              Join Challenge
-            </FormBtn>
+            {/* Checks that user is not already part of challenge and shows button if they are not */}
+            {!this.props.userChallenges.some(
+              challenge => challenge._id === this.props.match.params.id
+            ) && (
+              <FormBtn onClick={()=>{this.props.joinChallenge(this.props.match.params.id, {userId: this.props.userId})}} href="#" className="btn btn-primary join-btn ">
+                Join Challenge
+              </FormBtn>
+            )}
             <hr />
             <div className="workout-days">
               {this.state.days &&
-                this.state.days.map((day,index) => {
-                  return <p key={day}>Day {index+1}: {day===null?"Break":day}</p>;
+                this.state.days.map((day, index) => {
+                  return (
+                    <p key={day}>
+                      Day {index + 1}: {day === null ? "Break" : day}
+                    </p>
+                  );
                 })}
             </div>
           </div>
         </div>
       </div>
+    ) : (
+      <div>Loading challenge</div>
     );
   }
 }

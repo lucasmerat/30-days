@@ -65,6 +65,11 @@ class Profile extends Component {
       });
     });
   };
+  joinChallenge = (challengeId, userId) => {
+    API.addUserChallenge(challengeId, userId).then(result => {
+      this.loadChallenges();
+    });
+  };
   readCookie() {
     var allcookies = document.cookie;
     var cookiearray = [];
@@ -106,7 +111,7 @@ class Profile extends Component {
           <Route
             path={"/profile/browse"}
             render={props => (
-              <BrowseChallenges {...props} challenges={this.state.allChallenges} userId={this.state.userData._id} loadChallenges={this.loadChallenges}/>
+              <BrowseChallenges {...props} challenges={this.state.allChallenges} userId={this.state.userData._id} loadChallenges={this.loadChallenges} joinChallenge={this.joinChallenge}/>
             )}
           />
           <Route
@@ -126,7 +131,7 @@ class Profile extends Component {
           />
           <Route
             path={"/profile/challenge/:id"}
-            render={props => <ChallengeDetails {...props} />}
+            render={props => <ChallengeDetails {...props} userId={this.state.userData._id} userChallenges={this.state.userChallenges} loadChallenges={this.loadChallenges}  joinChallenge={this.joinChallenge}/>}
           />
           <Route
             path={"/profile/create"}

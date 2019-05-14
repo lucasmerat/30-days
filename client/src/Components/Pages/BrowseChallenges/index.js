@@ -4,12 +4,7 @@ import "./style.css";
 import ChallengeCard from "../ChallengeCard";
 import API from "../../../utils/API";
 
-export default function BrowseChallenges({ challenges, userId, loadChallenges }) {
-  const joinChallenge = (challengeId, userId) => {
-    API.addUserChallenge(challengeId, userId).then(result => {
-      loadChallenges();
-    });
-  };
+export default function BrowseChallenges({ challenges, userId, loadChallenges, joinChallenge }) {
   return (
     <div className="row">
       {challenges &&
