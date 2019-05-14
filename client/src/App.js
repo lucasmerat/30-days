@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import PrivateRoute from "./Components/Pages/PrivateRoute"
 import Nav from "./Components/UiComponents/Nav";
 import Login from "./Components/Pages/Login/";
 import NoMatch from "./Components/Pages/NoMatch/";
@@ -45,16 +46,14 @@ class App extends Component {
           <Nav />
           <Switch>
             <Route exact path={["/", "/login"]} component={Login} />
-            <Route
+            <PrivateRoute
               path={"/profile"}
-              render={props => (
-                <Profile
-                  {...props}
-                  userName={this.state.user.username}
-                  profilePic={this.state.user.profile_picture}
-                  bio = {this.state.user.bio}
-                />
-              )}
+              component={Profile}
+              getUserInfo={this.getUserInfo}
+              readCookie={this.readCookie}
+              userName={this.state.user.username}
+              profilePic={this.state.user.profile_picture}
+              bio = {this.state.user.bio}
             />
             <Route exact path="/signup" component={Signup} />
             <Route component={NoMatch} />
