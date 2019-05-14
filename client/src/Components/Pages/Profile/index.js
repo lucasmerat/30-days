@@ -135,7 +135,7 @@ class Profile extends Component {
                 {...props}
                 numDays={this.state.numDays}
                 handleClick={this.handleClick}
-                key="create-challenges"
+                loadChallenges={this.loadChallenges}
               />
             )}
           />
