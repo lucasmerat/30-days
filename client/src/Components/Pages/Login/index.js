@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Jumbotron from "../../UiComponents/Jumbotron";
+import { InstagramLoginButton } from "react-social-login-buttons";
 import { Col, Row, Container } from "../../UiComponents/Grid";
 import { Input, FormBtn,FormBtnlink } from "../../UiComponents/Form";
 
@@ -15,9 +16,7 @@ class login extends Component {
         <Row>
         <Col size="md-4"></Col>
           <Col size="md-4">
-            <Jumbotron>
-              <h1>Login with Instagram</h1>
-            </Jumbotron>
+            <a href="http://localhost:5000/api/login"><InstagramLoginButton /></a>
             <form>
               <Input
                 name="username"
