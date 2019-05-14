@@ -10,7 +10,7 @@ var instaLink;
 if (process.env.NODE_ENV === "production") {
   instaLink = "/api/login";
 } else {
-  instaLink = "http://localhost:5000/api/login;
+  instaLink = "http://localhost:5000/api/login";
 }
 
 class login extends Component {
