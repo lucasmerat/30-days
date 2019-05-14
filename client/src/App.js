@@ -13,9 +13,6 @@ class App extends Component {
   state = {
     user: {}
   };
-  componentDidMount() {
-    this.getUserInfo();
-  }
 
   readCookie() {
     var allcookies = document.cookie;
@@ -30,14 +27,6 @@ class App extends Component {
     }
     return userId;
   }
-  getUserInfo() {
-    const userId = this.readCookie();
-    if (userId) {
-      API.getUser(userId)
-        .then(res => this.setState({ user: res.data }))
-        .catch(err => console.log(err));
-    }
-  }
 
   render() {
     return (
@@ -49,11 +38,7 @@ class App extends Component {
             <PrivateRoute
               path={"/profile"}
               component={Profile}
-              getUserInfo={this.getUserInfo}
               readCookie={this.readCookie}
-              userName={this.state.user.username}
-              profilePic={this.state.user.profile_picture}
-              bio = {this.state.user.bio}
             />
             <Route exact path="/signup" component={Signup} />
             <Route component={NoMatch} />

@@ -3,11 +3,11 @@ import moment from "moment";
 import ChallengeCard from "../ChallengeCard";
 import "./style.css";
 import { FormBtn } from "../../UiComponents/Form";
-export default function OngoingChallenges({challenges, user}) {
+export default function OngoingChallenges({userChallenges, user}) {
   return (
     <div className="row">
-          {challenges &&
-        challenges.map(challenge => {
+          {userChallenges &&
+            userChallenges.map(challenge => {
           let endDate = moment(challenge.createdAt).add(30, "days");
           //Need to add logic to check that challenge belongs to user -- challenge.user === user
           if (endDate.isAfter(moment())) {
