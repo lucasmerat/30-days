@@ -3,12 +3,12 @@ import moment from "moment";
 import ChallengeCard from "../ChallengeCard";
 import "./DoneChallenges.css";
 
-export default function DoneChallegnes({ userChallenges }) {
-  console.log(userChallenges)
+export default function DoneChallegnes({ challenges }) {
+  console.log(challenges)
   return (
     <div className="row">
-      {userChallenges &&
-        userChallenges.map(challenge => {
+      {challenges &&
+        challenges.map(challenge => {
           let endDate = moment(challenge.createdAt).add(30, "days");
           if (endDate.isBefore(moment())) {
             return (

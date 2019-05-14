@@ -154,7 +154,7 @@ module.exports = function(app) {
 
   // Get Challenges only belonging to a certain user
   app.get("/api/challenges/:id", function(req, res) {
-    db.User.findOne({ id: req.params.id })
+    db.User.findOne({ _id:req.params.id })
       .populate("challenge")
       .then(function(dbUser) {
         res.json(dbUser.challenge);

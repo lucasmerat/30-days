@@ -94,13 +94,13 @@ class Profile extends Component {
     );
   };
   render() {
-    return (
+    return this.state.userData ? (
       <div>
         <ChallengesNav />
         <ProfileNav
-          userName={this.props.userName}
-          profilePic={this.props.profilePic}
-          bio={this.props.bio}
+          userName={this.state.userData.username}
+          profilePic={this.state.userData.profile_picture}
+          bio={this.state.userData.bio}
         />
         <Switch>
           <Route
@@ -125,12 +125,6 @@ class Profile extends Component {
             )}
           />
           <Route
-            path={"/profile/ongoing"}
-            render={props => (
-              <Timeline {...props} challenges={this.state.challenges} />
-            )}
-          />
-          <Route
             path={"/profile/challenge/:id"}
             render={props => <ChallengeDetails {...props} />}
           />
@@ -151,7 +145,7 @@ class Profile extends Component {
           <div className="col-8" />
         </div>
       </div>
-    );
+    ): (<div>Loading user data</div>);
   }
 }
 
