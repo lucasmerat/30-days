@@ -2,8 +2,14 @@ import React from "react";
 import moment from "moment";
 import "./style.css";
 import ChallengeCard from "../ChallengeCard";
+import API from "../../../utils/API";
 
-export default function BrowseChallenges({ challenges }) {
+export default function BrowseChallenges({ challenges, userId }) {
+  const joinChallenge = (challengeId, userId) =>{
+    API.addUserChallenge(challengeId, userId).then((result)=>{
+      console.log(result, "Now we need to refresh the browse challenges to reflect the challenge we joined being gone")
+    })
+  }
   return (
     <div className="row">
       {challenges &&
@@ -18,6 +24,8 @@ export default function BrowseChallenges({ challenges }) {
               numUsers={challenge.user.length}
               createdAt={challenge.createdAt}
               image={challenge.image}
+              joinChallenge= {joinChallenge}
+              userId={userId}
               type="Browse"
             />)
           } 

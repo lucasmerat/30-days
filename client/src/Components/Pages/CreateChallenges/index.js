@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./style.css";
 import { Input, FormBtn } from "../../UiComponents/Form";
 import API from "../../../utils/API";
+import { Redirect } from "react-router-dom";
 
 class CreateChallegnes extends Component {
   state = {
@@ -36,7 +37,7 @@ class CreateChallegnes extends Component {
   }
   handleSubmit = () =>{
     API.createChallenge({...this.state, createdAt: new Date()})
-    .then (res=> console.log("We need to close the createChallenge, clean the state and update the challenge state?"))
+    .then (res=> <Redirect to="/profile/browse" />)
     .catch(err => console.log(err));
   }
   render() {
