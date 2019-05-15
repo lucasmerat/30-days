@@ -10,6 +10,8 @@ export default function DoneChallegnes({ challenges }) {
       {challenges &&
         challenges.map(challenge => {
           let endDate = moment(challenge.createdAt).add(30, "days");
+          console.log(endDate);
+          console.log(endDate.isBefore(moment()));
           if (endDate.isBefore(moment())) {
             return (
               <ChallengeCard

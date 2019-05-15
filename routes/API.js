@@ -107,7 +107,7 @@ module.exports = function(app) {
       });
   });
 
-  //Create Post - Testing purposes
+  //Create Post
   app.post("/api/newpost", function(req, res) {
     db.Post.create(req.body)
       .then(function(dbPost) {
@@ -117,6 +117,7 @@ module.exports = function(app) {
         res.json(err);
       });
   });
+
   //Create Challenge
   app.post("/api/newChallenge", function(req, res) {
     db.Challenge.create(req.body)
@@ -232,4 +233,19 @@ module.exports = function(app) {
         res.json(err);
       });
   });
+
+  //Get all posts related to the user challenges
+  app.get("/api/challengeposts/:id", function(req, res) {
+    db.User.findOne({ _id:req.params.id })
+      .then(function(dbUser) {
+        return db.Post.find({challenge:{$in:dbUser.challenge}}).populate("challenge").populate("user")
+      })
+      .then(function(dbPost) {
+        res.json(dbPost);
+      })
+      .catch(function(err) {
+        res.json(err);
+      });
+  });
+
 };
