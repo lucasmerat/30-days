@@ -5,8 +5,15 @@
 
 .profile-float{
   float:left;
-
 }
+#root > div > div > div.col-4.profile-nav.profile-float > div.row.buttons-row > div:nth-child(1) > button > a{
+  color:#e74b3c;
+}
+
+#root > div > div > div.col-4.profile-nav.profile-float > div.row.buttons-row > div:nth-child(1) > button > a:hover {
+  color:#962f26;
+}
+
 .profile-nav{
   background-color: rgb(106, 103, 99);
   color:whitesmoke;
