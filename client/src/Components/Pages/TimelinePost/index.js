@@ -14,6 +14,7 @@ export default function TimelinePost() {
                                 </div>
                                 <div className="ml-2">
                                     <div className="h5 m-0">@LeeCross</div>
+                                    <div className="h5 m-0">From challenge: INSERT CHALLENGE LINK HERE</div>
                                 </div>
                             </div>
 

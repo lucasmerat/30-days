@@ -42,7 +42,7 @@ class ChallengeDetails extends Component {
             {/* Checks that user is not already part of challenge and shows button if they are not */}
             {!this.props.userChallenges.some(
               challenge => challenge._id === this.props.match.params.id
-            ) && (
+            ) ? (
               <FormBtn
                 onClick={() => {
                   this.props.joinChallenge(this.props.match.params.id, {
@@ -54,7 +54,15 @@ class ChallengeDetails extends Component {
               >
                 Join Challenge
               </FormBtn>
-            )}
+            ) : (<div><FormBtn
+                onClick={() => {
+                  this.props.postToChallenge();
+                }}
+                href="#"
+                className="btn btn-primary join-btn "
+              >
+                Post to challenge
+              </FormBtn></div>)}
             <hr />
             <div className="workout-days">
               {this.state.days &&
