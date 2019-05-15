@@ -146,7 +146,7 @@ class Profile extends Component {
           <Route
             path={"/profile/timeline"}
             render={props => (
-              <Timeline {...props} challenges={this.state.allChallenges} userId={this.state.userData._id} loadChallenges={this.loadChallenges} joinChallenge={this.joinChallenge}/>
+              <Timeline {...props}  userId={this.state.userData._id} />
             )}
           />
         </Switch>

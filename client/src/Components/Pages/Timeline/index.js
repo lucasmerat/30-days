@@ -1,6 +1,6 @@
 import React from "react";
 import "./Timeline.css";
-import TimelinePost from "../Timeline";
+import TimelinePost from "../TimelinePost";
 
 export default function Timeline() {
   return (

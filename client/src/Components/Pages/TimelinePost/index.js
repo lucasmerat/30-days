@@ -1,10 +1,12 @@
-import React from 'react'
+import React from 'react';
+import { FormBtn,FormBtnlink } from "../../UiComponents/Form";
+import "./TimelinePost.css";
 
-export default function index() {
+export default function TimelinePost() {
   return (
     <div>
-      <div className="card gedf-card">
-                    <div className="card-header">
+      <div className="card post-card gedf-card">
+                    <div className="card-header post-header">
                         <div className="d-flex justify-content-between align-items-center">
                             <div className="d-flex justify-content-between align-items-center">
                                 <div className="mr-2">
@@ -12,40 +14,26 @@ export default function index() {
                                 </div>
                                 <div className="ml-2">
                                     <div className="h5 m-0">@LeeCross</div>
-                                    <div className="h7 text-muted">Miracles Lee Cross</div>
                                 </div>
                             </div>
-                            <div>
-                                <div className="dropdown">
-                                    <button className="btn btn-link dropdown-toggle" type="button" id="gedf-drop1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i className="fa fa-ellipsis-h"></i>
-                                    </button>
-                                    <div className="dropdown-menu dropdown-menu-right" aria-labelledby="gedf-drop1">
-                                        <div className="h6 dropdown-header">Configuration</div>
-                                        <a className="dropdown-item" href="#">Save</a>
-                                        <a className="dropdown-item" href="#">Hide</a>
-                                        <a className="dropdown-item" href="#">Report</a>
-                                    </div>
+
                                 </div>
-                            </div>
-                        </div>
 
                     </div>
                     <div className="card-body">
-                        <div className="text-muted h7 mb-2"> <i className="fa fa-clock-o"></i>10 min ago</div>
-                        <a className="card-link" href="#">
+                        <div className="text-white h7 mb-2"> <i className="fa fa-clock-o"></i>10 min ago</div>
                             <h5 className="card-title">Lorem ipsum dolor sit amet, consectetur adip.</h5>
-                        </a>
+                            <img width="100%" src="https://picsum.photos/200/100" alt="" />
 
-                        <p className="card-text">
+                        <p className="card-text my-2">
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo recusandae nulla rem eos ipsa praesentium esse magnam nemo dolor
                             sequi fuga quia quaerat cum, obcaecati hic, molestias minima iste voluptates.
                         </p>
                     </div>
                     <div className="card-footer">
-                        <a href="#" className="card-link"><i className="fa fa-gittip"></i> Like</a>
-                        <a href="#" className="card-link"><i className="fa fa-comment"></i> Comment</a>
-                        <a href="#" className="card-link"><i className="fa fa-mail-forward"></i> Share</a>
+                    <FormBtn className="edit-profile-btn">
+                    Like
+                      </FormBtn>
                     </div>
                 </div>
     </div>
