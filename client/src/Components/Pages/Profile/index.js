@@ -69,6 +69,11 @@ class Profile extends Component {
       this.loadChallenges();
     });
   };
+  postToChallenge = (post) => {
+    API.createPost(post).then(result=>{
+      console.log(result)
+    })
+  };
   readCookie() {
     var allcookies = document.cookie;
     var cookiearray = [];
@@ -86,9 +91,11 @@ class Profile extends Component {
     const userId = this.readCookie();
     if (userId) {
       API.getUser(userId)
-        .then(res => this.setState({ userData: res.data }, ()=>{
-          this.loadChallenges();
-        }))
+        .then(res =>
+          this.setState({ userData: res.data }, () => {
+            this.loadChallenges();
+          })
+        )
         .catch(err => console.log(err));
     }
   }
@@ -110,7 +117,13 @@ class Profile extends Component {
           <Route
             path={"/profile/browse"}
             render={props => (
-              <BrowseChallenges {...props} challenges={this.state.allChallenges} userId={this.state.userData._id} loadChallenges={this.loadChallenges} joinChallenge={this.joinChallenge}/>
+              <BrowseChallenges
+                {...props}
+                challenges={this.state.allChallenges}
+                userId={this.state.userData._id}
+                loadChallenges={this.loadChallenges}
+                joinChallenge={this.joinChallenge}
+              />
             )}
           />
           <Route
@@ -125,12 +138,24 @@ class Profile extends Component {
           <Route
             path={"/profile/done"}
             render={props => (
-              <DoneChallenges {...props} challenges={this.state.userChallenges} />
+              <DoneChallenges
+                {...props}
+                challenges={this.state.userChallenges}
+              />
             )}
           />
           <Route
             path={"/profile/challenge/:id"}
-            render={props => <ChallengeDetails {...props} userId={this.state.userData._id} userChallenges={this.state.userChallenges} loadChallenges={this.loadChallenges}  joinChallenge={this.joinChallenge}/>}
+            render={props => (
+              <ChallengeDetails
+                {...props}
+                userId={this.state.userData._id}
+                userChallenges={this.state.userChallenges}
+                loadChallenges={this.loadChallenges}
+                joinChallenge={this.joinChallenge}
+                postToChallenge={this.postToChallenge}
+              />
+            )}
           />
           <Route
             path={"/profile/create"}
@@ -143,13 +168,21 @@ class Profile extends Component {
               />
             )}
           />
+          <Route
+            path={"/profile/timeline"}
+            render={props => (
+              <Timeline {...props} userId={this.state.userData._id} />
+            )}
+          />
         </Switch>
         <div className="row">
           <div className="col-4" />
           <div className="col-8" />
         </div>
       </div>
-    ): (<div>Loading user data</div>);
+    ) : (
+      <div>Loading user data</div>
+    );
   }
 }
 

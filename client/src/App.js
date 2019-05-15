@@ -34,7 +34,12 @@ class App extends Component {
         <div>
           <Nav />
           <Switch>
-            <Route exact path={["/", "/login"]} component={Login} />
+          <Route
+            exact path={["/", "/login"]}
+            render={props => (
+              <Login {...props} challenges={this.state.allChallenges} readCookie={this.readCookie}/>
+            )}
+          />
             <PrivateRoute
               path={"/profile"}
               component={Profile}

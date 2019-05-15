@@ -25,8 +25,8 @@ mongoose.set('useFindAndModify', false);
 const app = express();
 
 app.use(logger("dev"));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json({limit:'5mb', type:'application/json'})); 
+app.use(bodyParser.urlencoded({extended:true, limit:'5mb', type:'application/x-www-form-urlencoding' }));
 app.use(cookieParser());
 app.use(passport.initialize());
 app.use(passport.session());
