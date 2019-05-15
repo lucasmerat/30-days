@@ -8,7 +8,15 @@ class Timeline extends Component {
     posts: null
   }
   loadPosts = () =>{
-   console.log("Call load posts when component mounts to get post data and pass it doen to the timelinepost componenet")
+   API.getPosts(this.props.userId).then(posts=>{
+     console.log(posts)
+     this.setState({
+       posts: posts.data
+     })
+   })
+  }
+  componentDidMount(){
+    this.loadPosts();
   }
   render() {
     return (

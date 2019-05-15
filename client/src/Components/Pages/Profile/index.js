@@ -69,8 +69,10 @@ class Profile extends Component {
       this.loadChallenges();
     });
   };
-  postToChallenge = () => {
-    console.log("Open modal to create a post");
+  postToChallenge = (post) => {
+    API.createPost(post).then(result=>{
+      console.log(result)
+    })
   };
   readCookie() {
     var allcookies = document.cookie;
