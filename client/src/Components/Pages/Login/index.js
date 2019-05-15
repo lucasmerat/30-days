@@ -5,6 +5,15 @@ import { Input, FormBtn, FormBtnlink } from "../../UiComponents/Form";
 import { Redirect } from "react-router-dom";
 
 function Login(props) {
+  let instaLink;
+  let googleLink;
+  if (process.env.NODE_ENV === "production") {
+    instaLink = "/api/login";
+    googleLink = "/api/auth/google";
+  } else {
+    instaLink = "http://localhost:5000/api/login";
+    googleLink = "http://localhost:5000/api/auth/google";
+  }
   return props.readCookie() ? (
     <Redirect to="/profile/browse" />
   ) : (
@@ -15,6 +24,7 @@ function Login(props) {
           <a href="http://localhost:5000/api/login">
             <InstagramLoginButton />
           </a>
+          <a href={googleLink}>Sign In with Google</a>
           <form>
             <Input name="username" placeholder="Username (required)" />
             <Input name="password" placeholder="Password (required)" />
