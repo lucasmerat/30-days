@@ -18,9 +18,9 @@ p{
 p:nth-child(7) , p:nth-child(14),p:nth-child(21),p:nth-child(28),p:nth-child(30){
   border-right: 2px solid #D0E4F5;
 }
-/* p:nth-child(24),p:nth-child(25),p:nth-child(26),p:nth-child(27),p:nth-child(28),p:nth-child(29),p:nth-child(30){
+p:nth-child(24),p:nth-child(25),p:nth-child(26),p:nth-child(27),p:nth-child(28),p:nth-child(29),p:nth-child(30){
   border-bottom: 2px solid #D0E4F5;
-} */
+}
 p:hover{
   background-color:grey;
 }
