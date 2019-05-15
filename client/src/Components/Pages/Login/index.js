@@ -7,11 +7,14 @@ import { Input, FormBtn, FormBtnlink } from "../../UiComponents/Form";
 dotenv.config();
 
 var instaLink;
+var googleLink;
 
 if (process.env.NODE_ENV === "production") {
   instaLink = "/api/login";
+  googleLink = "/api/auth/google";
 } else {
   instaLink = "http://localhost:5000/api/login";
+  googleLink = "http://localhost:5000/api/auth/google";
 }
 
 class login extends Component {
@@ -26,6 +29,7 @@ class login extends Component {
             <a href={instaLink}>
               <InstagramLoginButton />
             </a>
+            <a href={googleLink}>Sign In with Google</a>
             <form>
               <Input name="username" placeholder="Username (required)" />
               <Input name="password" placeholder="Password (required)" />
