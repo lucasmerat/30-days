@@ -29,6 +29,7 @@ class Timeline extends Component {
                   <TimelinePost
                     key={post._id}
                     username={post.user.username}
+                    profilePicture={post.user.profile_picture}
                     challengeName={post.challenge.title}
                     postTitle={post.title}
                     createdAt={post.createdAt}
