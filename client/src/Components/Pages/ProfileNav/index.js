@@ -1,6 +1,6 @@
 import React from "react";
 import "./style.css";
-import { FormBtn } from "../../UiComponents/Form";
+import { FormBtn,FormBtnlink } from "../../UiComponents/Form";
 import {Link} from "react-router-dom";
 
 function ProfileNav({ userName, profilePic,bio }) {
@@ -22,9 +22,9 @@ function ProfileNav({ userName, profilePic,bio }) {
                   </div>
                   <div className="row buttons-row">
                   <div className="col-4">
-                  {/* <FormBtn className="edit-profile-btn">
-                    Edit Profile
-                  </FormBtn> */}
+                  <FormBtnlink className="logout-profile-btn">
+                   <Link className="nav-link logout-link" to="/">Log Out</Link>
+                  </FormBtnlink>
                   </div>
                   <div className="col-4">
                   <FormBtn className="edit-profile-btn">
