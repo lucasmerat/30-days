@@ -6,16 +6,16 @@ import API from "../../../utils/API";
 class Timeline extends Component {
   state = {
     posts: null
-  }
-  loadPosts = () =>{
-   API.getPosts(this.props.userId).then(posts=>{
-     console.log(posts)
-     this.setState({
-       posts: posts.data
-     })
-   })
-  }
-  componentDidMount(){
+  };
+  loadPosts = () => {
+    API.getPosts(this.props.userId).then(posts => {
+      console.log(posts);
+      this.setState({
+        posts: posts.data
+      });
+    });
+  };
+  componentDidMount() {
     this.loadPosts();
   }
   render() {
@@ -23,7 +23,20 @@ class Timeline extends Component {
       <div className="row">
         <div className="card timeline-card">
           <div className="card-body">
-              <TimelinePost posts={this.state.posts} />
+            {this.state.posts &&
+              this.state.posts.map(post => {
+                return (
+                  <TimelinePost
+                    key={post._id}
+                    username={post.user.username}
+                    challengeName={post.challenge.title}
+                    postTitle={post.title}
+                    createdAt={post.createdAt}
+                    postBody={post.body}
+                    postImage={post.image}
+                  />
+                );
+              })}
             <div className="card-body" />
           </div>
         </div>
