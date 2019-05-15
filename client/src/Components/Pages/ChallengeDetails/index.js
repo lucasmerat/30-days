@@ -16,12 +16,12 @@ class ChallengeDetails extends Component {
     showModal: false,
     postImage: null,
     postTitle: null,
-    postBody:null
+    postBody: null
   };
   handleShowModal = () => {
     this.setState({ show: true });
   };
-  handleCloseModal = () =>{
+  handleCloseModal = () => {
     this.setState({ show: false });
     const post = {
       title: this.state.postTitle,
@@ -29,31 +29,31 @@ class ChallengeDetails extends Component {
       image: this.state.postImage,
       challenge: this.props.match.params.id,
       user: this.props.userId
-    }
+    };
     this.props.postToChallenge(post);
-  }
-  handleFileSelect = (e) =>{
-    console.log(e.target.files[0])
+  };
+  handleFileSelect = e => {
+    console.log(e.target.files[0]);
     const reader = new FileReader();
-    reader.readAsDataURL(e.target.files[0])
-    reader.onload = () =>{
-      this.setState({postImage: reader.result})
-    }
+    reader.readAsDataURL(e.target.files[0]);
+    reader.onload = () => {
+      this.setState({ postImage: reader.result });
+    };
 
     this.setState({
       postImage: e.target.files[0]
-    })
-  }
-  handlePostBodyChange = (e) =>{
+    });
+  };
+  handlePostBodyChange = e => {
     this.setState({
       postBody: e.target.value
-    })
-  }
-  handlePostTitleChange = (e) =>{
+    });
+  };
+  handlePostTitleChange = e => {
     this.setState({
       postTitle: e.target.value
-    })
-  }
+    });
+  };
   loadChallenge = () => {
     API.getChallengebyId(this.props.match.params.id)
       .then(res =>
@@ -74,7 +74,9 @@ class ChallengeDetails extends Component {
         <div className="card challenge-details-card">
           <div className="card-body">
             <img alt="..." src={this.state.image} className="details-image" />
-            <h5 className="card-title challenge-title">{this.state.challengeTitle}</h5>
+            <h5 className="card-title challenge-title">
+              {this.state.challengeTitle}
+            </h5>
             <div className="card-body">
               <div>{this.state.numUsers} challengers</div>
               {this.state.challengeDescription}
@@ -88,6 +90,9 @@ class ChallengeDetails extends Component {
                   this.props.joinChallenge(this.props.match.params.id, {
                     userId: this.props.userId
                   });
+                  this.setState({
+                    numUsers: this.state.numUsers + 1
+                  })
                 }}
                 href="#"
                 className="btn btn-primary join-btn "
@@ -110,7 +115,7 @@ class ChallengeDetails extends Component {
                     <Modal.Title>Share with other challengers!</Modal.Title>
                   </Modal.Header>
                   <Modal.Body>
-                    <form action="/"></form>
+                    <form action="/" />
                     <label>Title</label>
                     <Input onChange={this.handlePostTitleChange} />
                     <label>Post body</label>
@@ -119,9 +124,7 @@ class ChallengeDetails extends Component {
                     <Input type="file" onChange={this.handleFileSelect} />
                   </Modal.Body>
                   <Modal.Footer>
-                    <FormBtn onClick={this.handleCloseModal}>
-                      Add Post
-                    </FormBtn>
+                    <FormBtn onClick={this.handleCloseModal}>Add Post</FormBtn>
                   </Modal.Footer>
                 </Modal>
               </div>
