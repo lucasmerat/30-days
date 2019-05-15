@@ -34,7 +34,7 @@ class App extends Component {
         <div>
           <Nav />
           <Switch>
-            <Route exact path={["/", "/login"]} component={Login} />
+            <Route exact path={["/", "/login"]} component={Login} readCookie={this.readCookie} />
             <PrivateRoute
               path={"/profile"}
               component={Profile}
