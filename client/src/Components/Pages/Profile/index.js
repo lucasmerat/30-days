@@ -141,6 +141,12 @@ class Profile extends Component {
                 handleClick={this.handleClick}
                 loadChallenges={this.loadChallenges}
               />
+            )}  
+          />
+          <Route
+            path={"/profile/timeline"}
+            render={props => (
+              <Timeline {...props} challenges={this.state.allChallenges} userId={this.state.userData._id} loadChallenges={this.loadChallenges} joinChallenge={this.joinChallenge}/>
             )}
           />
         </Switch>
