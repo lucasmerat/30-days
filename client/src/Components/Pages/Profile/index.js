@@ -59,7 +59,6 @@ class Profile extends Component {
       });
     });
     API.getChallengesFromUser(this.state.userData._id).then(response => {
-      console.log(response)
       this.setState({
         userChallenges: response.data
       });

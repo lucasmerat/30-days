@@ -1,5 +1,8 @@
 var db = require("../models");
 const authUser = require("../bin/authService");
+const passport = require("passport");
+const passportSetup = require("../bin/authGoogle");
+require("dotenv").config();
 
 module.exports = function(app) {
   //Instagram Login API routes
@@ -8,6 +11,22 @@ module.exports = function(app) {
   app.get("/api/login", function(req, res) {
     res.redirect(process.env.INSTAGRAM_AUTH_URL);
   });
+
+  app.get('/api/auth/google',
+  passport.authenticate('google', { scope: ['profile'] }));
+
+
+  app.get('/api/auth/google/callback',passport.authenticate('google'),(req,res)=>{
+    res.cookie('userId',  req.user.id, {maxAge: 604800000});
+    if (process.env.NODE_ENV === "development") {
+        res.redirect("http://localhost:3000/profile");
+      } else {
+        res.redirect("/profile");
+      }
+    }
+  );
+
+
 
   // Adding a user to a challenge - Not Used
   //Adds the user to the challenge checking if he is not already there, then in creates a post for that user and that post will be related to the challenge
@@ -107,7 +126,7 @@ module.exports = function(app) {
       });
   });
 
-  //Create Post - Testing purposes
+  //Create Post
   app.post("/api/newpost", function(req, res) {
     db.Post.create(req.body)
       .then(function(dbPost) {
@@ -117,6 +136,7 @@ module.exports = function(app) {
         res.json(err);
       });
   });
+
   //Create Challenge
   app.post("/api/newChallenge", function(req, res) {
     db.Challenge.create(req.body)
@@ -232,4 +252,19 @@ module.exports = function(app) {
         res.json(err);
       });
   });
+
+  //Get all posts related to the user challenges
+  app.get("/api/challengeposts/:id", function(req, res) {
+    db.User.findOne({ _id:req.params.id })
+      .then(function(dbUser) {
+        return db.Post.find({challenge:{$in:dbUser.challenge}}).populate("challenge").populate("user")
+      })
+      .then(function(dbPost) {
+        res.json(dbPost);
+      })
+      .catch(function(err) {
+        res.json(err);
+      });
+  });
+
 };

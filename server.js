@@ -7,6 +7,7 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const MONGO_URI = process.env.MONGO_URI || "mongodb://localhost/project3";
 const PORT = process.env.PORT || 5000;
+const passport = require('passport');
 
 //Connect to MongoDB
 mongoose.connect(
@@ -27,6 +28,8 @@ app.use(logger("dev"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(passport.initialize());
+app.use(passport.session());
 
 // API calls
 require("./routes/API")(app);

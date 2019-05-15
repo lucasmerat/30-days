@@ -4,25 +4,20 @@ var Schema = mongoose.Schema;
 
 var PostSchema = new Schema({
   title:String,
+  image:String,
   body:String,
-  currentDay:{
-    type:Number,
-    default:0},
-  totalDays:{
-    type:Number,
-    default:30},
   createdAt:{
     type:Date,
     default:Date.now
   },
-  challenge: [{
+  challenge: {
     type: Schema.Types.ObjectId,
     ref: "Challenge"
-  }],
-  user: [{
+  },
+  user: {
     type: Schema.Types.ObjectId,
     ref: "User"
-  }]
+  }
 });
 
 
