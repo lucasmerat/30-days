@@ -5,6 +5,7 @@ import moment from "moment";
 
 export default function TimelinePost({
   username,
+  profilePicture,
   challengeName,
   postTitle,
   createdAt,
@@ -21,7 +22,7 @@ export default function TimelinePost({
                 <img
                   className="rounded-circle"
                   width="45"
-                  src="https://picsum.photos/50/50"
+                  src={profilePicture}
                   alt=""
                 />
               </div>
