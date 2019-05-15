@@ -4,7 +4,6 @@ import ChallengeCard from "../ChallengeCard";
 import "./DoneChallenges.css";
 
 export default function DoneChallegnes({ challenges }) {
-  console.log(challenges)
   return (
     <div className="row">
       {challenges &&

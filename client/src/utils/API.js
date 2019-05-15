@@ -29,9 +29,17 @@ export default {
   addUserChallenge: function(id, data) {
     return axios.post("/api/addchallengeuser/"+id,data);
   },
-  // Add a user to a challenge
+  //Remove a user from a challenge
   removeUserChallenge: function(id, data) {
     return axios.delete("/api/removechallengeuser/"+id,data);
+  },
+  //Create a post
+  createPost: function(data){
+    return axios.post("/api/newpost",data);
+  },
+  //Return all the posts related to the challenges that the user is in.
+  getPosts:function(userId){
+    return axios.get("/api/challengeposts/"+userId)
   }
 
 };

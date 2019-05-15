@@ -4,6 +4,28 @@ import { FormBtn,FormBtnlink } from "../../UiComponents/Form";
 import {Link} from "react-router-dom";
 
 function ProfileNav({ userName, profilePic,bio }) {
+
+  function readCookie() {
+    var allcookies = document.cookie;
+    var cookiearray = [];
+    var userId = "";
+
+    if (allcookies.length) {
+      cookiearray = allcookies.split(";");
+    }
+    if (cookiearray.length) {
+      userId = cookiearray[0].split("=")[1];
+    }
+    return userId;
+  }
+
+  function LogOut(){
+  var now = new Date();
+  now.setMonth(now.getMonth() - 1);
+  var cookievalue = readCookie() + ";";
+  document.cookie ="userId=" + cookievalue + "expires=" + now.toUTCString() + "; path=/";
+  };
+
   return (
         <div className="col-4 profile-nav profile-float">
           <div className="row">
@@ -23,7 +45,7 @@ function ProfileNav({ userName, profilePic,bio }) {
                   <div className="row buttons-row">
                   <div className="col-4">
                   <FormBtnlink className="logout-profile-btn">
-                   <Link className="nav-link logout-link" to="/">Log Out</Link>
+                   <Link className="nav-link logout-link" to="/" onClick={LogOut}>Log Out</Link>
                   </FormBtnlink>
                   </div>
                   <div className="col-4">
