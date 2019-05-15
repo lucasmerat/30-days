@@ -1,5 +1,8 @@
 var db = require("../models");
 const authUser = require("../bin/authService");
+const passport = require("passport");
+const passportSetup = require("../bin/authGoogle");
+require("dotenv").config();
 
 module.exports = function(app) {
   //Instagram Login API routes
@@ -8,6 +11,22 @@ module.exports = function(app) {
   app.get("/api/login", function(req, res) {
     res.redirect(process.env.INSTAGRAM_AUTH_URL);
   });
+
+  app.get('/api/auth/google',
+  passport.authenticate('google', { scope: ['profile'] }));
+
+
+  app.get('/api/auth/google/callback',passport.authenticate('google'),(req,res)=>{
+    res.cookie('userId',  req.user.id, {maxAge: 604800000});
+    if (process.env.NODE_ENV === "development") {
+        res.redirect("http://localhost:3000/profile");
+      } else {
+        res.redirect("/profile");
+      }
+    }
+  );
+
+
 
   // Adding a user to a challenge - Not Used
   //Adds the user to the challenge checking if he is not already there, then in creates a post for that user and that post will be related to the challenge
