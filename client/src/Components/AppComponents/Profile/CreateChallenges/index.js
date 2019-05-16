@@ -9,7 +9,7 @@ class CreateChallegnes extends Component {
     title:"",
     description:"",
     image: "",
-    days: []
+    days: this.props.numDays.map(() => "")
   }
   handleTitleChange = (e) =>{
    this.setState({
@@ -30,7 +30,6 @@ class CreateChallegnes extends Component {
     })
   }
   handleImageChange = (e) =>{
-    console.log(e.target.id)
     this.setState({
       image: e.target.id
     })

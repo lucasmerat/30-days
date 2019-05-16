@@ -6,7 +6,7 @@ import "./style.css";
 export default function OngoingChallenges({challenges, user}) {
   return (
     <div className="row">
-          {challenges && challenges.map(challenge => {
+          {challenges && challenges.length > 0 ? (challenges.map(challenge => {
           let endDate = moment(challenge.createdAt).add(30, "days");
           if (endDate.isAfter(moment())) {
             return (<ChallengeCard
@@ -18,10 +18,12 @@ export default function OngoingChallenges({challenges, user}) {
               createdAt={challenge.createdAt}
               image={challenge.image}
               type="Ongoing"
-            />)
-          } 
-        })}
+            />);
+          } else return null;
+        })
+      ) : (
+        <div>No Challenges available</div>
+      )}
     </div>
-   
-  )
+  );
 }

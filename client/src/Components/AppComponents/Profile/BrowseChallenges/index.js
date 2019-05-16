@@ -3,10 +3,15 @@ import moment from "moment";
 import "./BrowseChallenges.css";
 import ChallengeCard from "../ChallengeCard";
 
-export default function BrowseChallenges({ challenges, userId, loadChallenges, joinChallenge }) {
+export default function BrowseChallenges({
+  challenges,
+  userId,
+  loadChallenges,
+  joinChallenge
+}) {
   return (
     <div className="row">
-      {challenges &&
+      {challenges && challenges.length > 0 ? (
         challenges.map(challenge => {
           let endDate = moment(challenge.createdAt).add(30, "days");
           if (endDate.isAfter(moment())) {
@@ -24,8 +29,11 @@ export default function BrowseChallenges({ challenges, userId, loadChallenges, j
                 type="Browse"
               />
             );
-          }
-        })}
+          } else return null;
+        })
+      ) : (
+        <div>No Challenges available</div>
+      )}
     </div>
   );
 }

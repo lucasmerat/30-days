@@ -6,7 +6,7 @@ import "./DoneChallenges.css";
 export default function DoneChallegnes({ challenges }) {
   return (
     <div className="row">
-      {challenges &&
+      {challenges && challenges.length > 0 ? (
         challenges.map(challenge => {
           let endDate = moment(challenge.createdAt).add(30, "days");
           if (endDate.isBefore(moment())) {
@@ -22,8 +22,11 @@ export default function DoneChallegnes({ challenges }) {
                 type="Done"
               />
             );
-          }
-        })}
+          } else return null;
+        })
+      ) : (
+        <div>No Challenges available</div>
+      )}
     </div>
   );
 }

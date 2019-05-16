@@ -80,7 +80,7 @@ export default function ChallengeCard(props) {
           </Link>
         </div>
         <p className="card-text challenge-info">
-          Ends: Finished <i class="fas fa-share-alt " />
+          Ends: Finished <i className="fas fa-share-alt " />
         </p>{" "}
       </div>
     );
