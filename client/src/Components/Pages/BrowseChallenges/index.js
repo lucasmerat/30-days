@@ -2,7 +2,6 @@ import React from "react";
 import moment from "moment";
 import "./style.css";
 import ChallengeCard from "../ChallengeCard";
-import API from "../../../utils/API";
 
 export default function BrowseChallenges({ challenges, userId, loadChallenges, joinChallenge }) {
   return (

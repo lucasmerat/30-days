@@ -4,7 +4,6 @@ import { FormBtn } from "../../UiComponents/Form";
 
 export default function ChallengeCard(props) {
   if (props.type === "Browse") {
-      console.log(props)
     return (
       <div className="card browse-card">
         <img

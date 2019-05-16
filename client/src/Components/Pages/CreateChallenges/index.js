@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./style.css";
 import { Input, FormBtn } from "../../UiComponents/Form";
 import API from "../../../utils/API";
-import { Redirect } from "react-router-dom";
+// import { Redirect } from "react-router-dom";
 
 class CreateChallegnes extends Component {
   state = {
@@ -179,7 +179,7 @@ class CreateChallegnes extends Component {
               {this.props.numDays &&
                 this.props.numDays.map(day => {
                   return (
-                    <div style={{ width: "100%", textAlign: "left" }}>
+                    <div style={{ width: "100%", textAlign: "left" }} key={day}>
                       <label>Day {day}</label>
                       <Input value={this.state.days[day-1]} key={day} name={"days"} day={day} onChange={this.handleDayChange}/>
                     </div>

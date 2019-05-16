@@ -12,9 +12,9 @@ module.exports = function(app) {
     res.redirect(process.env.INSTAGRAM_AUTH_URL);
   });
 
+ //Google Login API routes
   app.get('/api/auth/google',
   passport.authenticate('google', { scope: ['profile'] }));
-
 
   app.get('/api/auth/google/callback',passport.authenticate('google'),(req,res)=>{
     res.cookie('userId',  req.user.id, {maxAge: 604800000});
@@ -26,8 +26,7 @@ module.exports = function(app) {
     }
   );
 
-
-  //Create User
+  //Create User - Not used
   app.post("/api/signup", function(req, res) {
     db.User.create(req.body)
       .then(function(dbUser) {
@@ -40,7 +39,7 @@ module.exports = function(app) {
 
   //Create Post
   app.post("/api/newpost", function(req, res) {
-    db.Post.create(req.body)
+    db.Post.findOneAndUpdate({title:req.body.title,body:req.body.body,image:req.body.image,user:req.body.user},req.body,{upsert:true, returnNewDocument:true, new:true})
       .then(function(dbPost) {
         res.json(dbPost);
       })
@@ -51,7 +50,7 @@ module.exports = function(app) {
 
   //Create Challenge
   app.post("/api/newChallenge", function(req, res) {
-    db.Challenge.create(req.body)
+    db.Challenge.findOneAndUpdate({title:req.body.title,description:req.body.description,image:req.body.image,days:req.body.days},req.body,{upsert:true, returnNewDocument:true, new:true})
       .then(function(dbChallenge) {
         res.json(dbChallenge);
       })
@@ -98,7 +97,7 @@ module.exports = function(app) {
 
   // Get all challenges user doesn't belong to
   app.get("/api/notchallenges/:id", function(req, res) {
-    db.Challenge.find({user:{$nin:[req.params.id]}})
+    db.Challenge.find({user:{$nin:[req.params.id]}}).sort({createdAt: 'desc'})
       .populate("user")
       .then(function(dbChallenge) {
         res.json(dbChallenge);
