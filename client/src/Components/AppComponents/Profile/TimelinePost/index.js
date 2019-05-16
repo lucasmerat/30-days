@@ -1,6 +1,6 @@
 import React from "react";
 import { FormBtn} from "../../../BootstrapComponents/Form/";
-// import { FormBtn, FormBtnlink } from "../../UiComponents/Form";
+import { Link } from "react-router-dom";
 import "./TimelinePost.css";
 import moment from "moment";
 
@@ -11,7 +11,8 @@ export default function TimelinePost({
   postTitle,
   createdAt,
   postBody,
-  postImage
+  postImage,
+  challengeId
 }) {
   return (
     <div>
@@ -29,7 +30,7 @@ export default function TimelinePost({
               </div>
               <div className="ml-2">
                 <div className="h5 m-0">{username}</div>
-                <div className="h5 m-0">From challenge: {challengeName}</div>
+                <div className="h5 m-0">From challenge: <Link to={`/profile/challenge/${challengeId}`}> {challengeName}</Link></div> 
               </div>
             </div>
           </div>
