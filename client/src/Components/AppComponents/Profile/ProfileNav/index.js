@@ -53,15 +53,7 @@ function ProfileNav({ userName, profilePic,bio }) {
                     <Link className="nav-link" to="/profile/create">Create a Workout</Link>
                   </FormBtn>
                   </div>
-                  </div>
-                        <div className="row challenge-summary-row">
-                            <ul>
-                                  <h5>Completed Challenges:</h5>
-                                  <h5>Current Challenges:</h5>
-                                  <h5>Success Rate:</h5>
-                            </ul>
-                        </div>
-              
+                  </div>              
         <div className="col-8"></div>
     </div>
    

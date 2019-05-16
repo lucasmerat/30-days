@@ -34,6 +34,7 @@ class Timeline extends Component {
                     createdAt={post.createdAt}
                     postBody={post.body}
                     postImage={post.image}
+                    challengeId={post.challenge._id}
                   />
                 );
               })}

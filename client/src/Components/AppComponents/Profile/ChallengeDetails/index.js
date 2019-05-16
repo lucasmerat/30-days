@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 import { Input, FormBtn } from "../../../BootstrapComponents/Form/";
-// import { Input, FormBtn, FormBtnlink } from "../../UiComponents/Form";
 import "./ChallengeDetails.css";
 import API from "../../../../utils/API";
 import { Modal } from "react-bootstrap";
-// import { Modal, Button } from "react-bootstrap";
 
 class ChallengeDetails extends Component {
   componentDidMount() {
@@ -20,20 +18,24 @@ class ChallengeDetails extends Component {
     postTitle: null,
     postBody: null
   };
+  loadChallenge = () => {
+    API.getChallengebyId(this.props.match.params.id)
+      .then(res =>
+        this.setState({
+          challengeTitle: res.data.title,
+          challengeDescription: res.data.description,
+          days: res.data.days,
+          numUsers: res.data.user.length,
+          image: res.data.image
+        })
+      )
+      .catch(err => console.log(err));
+  };
   handleShowModal = () => {
     this.setState({ show: true });
   };
   handleCloseModal = () => {
     this.setState({ show: false });
-    const post = {
-      title: this.state.postTitle,
-      body: this.state.postBody,
-      image: this.state.postImage,
-      challenge: this.props.match.params.id,
-      user: this.props.userId,
-      createdAt: new Date()
-    };
-    this.props.postToChallenge(post);
   };
   handleFileSelect = e => {
     console.log(e.target.files[0]);
@@ -57,18 +59,18 @@ class ChallengeDetails extends Component {
       postTitle: e.target.value
     });
   };
-  loadChallenge = () => {
-    API.getChallengebyId(this.props.match.params.id)
-      .then(res =>
-        this.setState({
-          challengeTitle: res.data.title,
-          challengeDescription: res.data.description,
-          days: res.data.days,
-          numUsers: res.data.user.length,
-          image: res.data.image
-        })
-      )
-      .catch(err => console.log(err));
+  handleAddPost = () => {
+    this.setState({ show: false });
+    const post = {
+      title: this.state.postTitle,
+      body: this.state.postBody,
+      image: this.state.postImage,
+      challenge: this.props.match.params.id,
+      user: this.props.userId,
+      createdAt: new Date()
+    };
+    this.props.postToChallenge(post);
+    this.props.history.push("/profile/timeline")
   };
 
   render() {
@@ -113,7 +115,7 @@ class ChallengeDetails extends Component {
                 >
                   Post to challenge
                 </FormBtn>
-                <Modal show={this.state.show} onHide={this.handleClose}>
+                <Modal show={this.state.show} onHide={this.handleCloseModal}>
                   <Modal.Header closeButton>
                     <Modal.Title>Share with other challengers!</Modal.Title>
                   </Modal.Header>
@@ -127,7 +129,7 @@ class ChallengeDetails extends Component {
                     <Input type="file" onChange={this.handleFileSelect} />
                   </Modal.Body>
                   <Modal.Footer>
-                    <FormBtn onClick={this.handleCloseModal}>Add Post</FormBtn>
+                    <FormBtn onClick={this.handleAddPost}>Add Post</FormBtn>
                   </Modal.Footer>
                 </Modal>
               </div>
