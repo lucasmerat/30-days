@@ -1,5 +1,5 @@
 import React from "react";
-import { FormBtn} from "../../UiComponents/Form";
+import { FormBtn} from "../../../BootstrapComponents/Form/";
 // import { FormBtn, FormBtnlink } from "../../UiComponents/Form";
 import "./TimelinePost.css";
 import moment from "moment";

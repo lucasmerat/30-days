@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FormBtn } from "../../UiComponents/Form";
+import { FormBtn } from "../../../BootstrapComponents/Form";
 
 export default function ChallengeCard(props) {
   if (props.type === "Browse") {
@@ -41,9 +41,9 @@ export default function ChallengeCard(props) {
             <h5 className="card-title challenge-title">{props.title}</h5>
           </Link>
           <p className="card-text challenge-text">Progress</p>
-          <p className="card-text challenge-text progress-chart">
+          <div className="card-text challenge-text progress-chart">
             <p className="card-text challenge-text fill-progress-chart" />
-          </p>
+          </div>
           <p className="card-text challenge-text">
             {props.numUsers} active challengers
           </p>

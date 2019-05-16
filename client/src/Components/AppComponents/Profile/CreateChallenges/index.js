@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./style.css";
-import { Input, FormBtn } from "../../UiComponents/Form";
-import API from "../../../utils/API";
+import { Input, FormBtn } from "../../../BootstrapComponents/Form";
+import API from "../../../../utils/API";
 // import { Redirect } from "react-router-dom";
 
 class CreateChallegnes extends Component {

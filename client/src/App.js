@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import "./App.css";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import PrivateRoute from "./Components/Pages/PrivateRoute"
-import Nav from "./Components/UiComponents/Nav";
-import Login from "./Components/Pages/Login/";
-import NoMatch from "./Components/Pages/NoMatch/";
-import Signup from "./Components/Pages/SignUp/";
-import Profile from "./Components/Pages/Profile";
+import PrivateRoute from "./Components/AppComponents/Auth/PrivateRoute"
+import Nav from "./Components/BootstrapComponents/Nav";
+import Login from "./Components/AppComponents/Auth/Login";
+import NoMatch from "./Components/AppComponents/Auth/NoMatch";
+import Signup from "./Components/AppComponents/Auth/SignUp";
+import Profile from "./Components/AppComponents/Profile/ProfileWrapper";
 
 class App extends Component {
   state = {
