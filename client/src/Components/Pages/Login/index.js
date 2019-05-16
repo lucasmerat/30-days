@@ -21,7 +21,7 @@ function Login(props) {
       <Row>
         <Col size="md-4" />
         <Col size="md-4">
-          <a href="http://localhost:5000/api/login">
+          <a href={instaLink}>
             <InstagramLoginButton />
           </a>
           <a href={googleLink}>Sign In with Google</a>

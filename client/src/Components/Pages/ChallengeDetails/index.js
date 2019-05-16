@@ -1,8 +1,10 @@
 import React, { Component } from "react";
-import { Input, FormBtn, FormBtnlink } from "../../UiComponents/Form";
+import { Input, FormBtn} from "../../UiComponents/Form";
+// import { Input, FormBtn, FormBtnlink } from "../../UiComponents/Form";
 import "./ChallengeDetails.css";
 import API from "../../../utils/API";
-import { Modal, Button } from "react-bootstrap";
+import { Modal} from "react-bootstrap";
+// import { Modal, Button } from "react-bootstrap";
 
 class ChallengeDetails extends Component {
   componentDidMount() {
@@ -28,7 +30,8 @@ class ChallengeDetails extends Component {
       body: this.state.postBody,
       image: this.state.postImage,
       challenge: this.props.match.params.id,
-      user: this.props.userId
+      user: this.props.userId,
+      createdAt:new Date()
     };
     this.props.postToChallenge(post);
   };

@@ -9,7 +9,6 @@ class Timeline extends Component {
   };
   loadPosts = () => {
     API.getPosts(this.props.userId).then(posts => {
-      console.log(posts);
       this.setState({
         posts: posts.data
       });
