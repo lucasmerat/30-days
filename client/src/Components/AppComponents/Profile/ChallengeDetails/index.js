@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import { Input, FormBtn} from "../../UiComponents/Form";
+import { Input, FormBtn } from "../../../BootstrapComponents/Form/";
 // import { Input, FormBtn, FormBtnlink } from "../../UiComponents/Form";
 import "./ChallengeDetails.css";
-import API from "../../../utils/API";
-import { Modal} from "react-bootstrap";
+import API from "../../../../utils/API";
+import { Modal } from "react-bootstrap";
 // import { Modal, Button } from "react-bootstrap";
 
 class ChallengeDetails extends Component {
@@ -31,7 +31,7 @@ class ChallengeDetails extends Component {
       image: this.state.postImage,
       challenge: this.props.match.params.id,
       user: this.props.userId,
-      createdAt:new Date()
+      createdAt: new Date()
     };
     this.props.postToChallenge(post);
   };
@@ -95,7 +95,7 @@ class ChallengeDetails extends Component {
                   });
                   this.setState({
                     numUsers: this.state.numUsers + 1
-                  })
+                  });
                 }}
                 href="#"
                 className="btn btn-primary join-btn "
@@ -137,10 +137,10 @@ class ChallengeDetails extends Component {
               {this.state.days &&
                 this.state.days.map((day, index) => {
                   return (
-                    <p key={day}>
+                    <div className= "day-section" key={index}>
                       <b>Day {index + 1} </b> <hr />{" "}
                       {day === null ? "Break" : day}
-                    </p>
+                    </div>
                   );
                 })}
             </div>

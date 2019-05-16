@@ -1,6 +1,6 @@
 import React from "react";
 import moment from "moment";
-import "./style.css";
+import "./BrowseChallenges.css";
 import ChallengeCard from "../ChallengeCard";
 
 export default function BrowseChallenges({ challenges, userId, loadChallenges, joinChallenge }) {

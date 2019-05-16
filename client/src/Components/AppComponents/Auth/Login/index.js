@@ -1,7 +1,7 @@
 import React from "react";
 import { InstagramLoginButton } from "react-social-login-buttons";
-import { Col, Row, Container } from "../../UiComponents/Grid";
-import { Input, FormBtn, FormBtnlink } from "../../UiComponents/Form";
+import { Col, Row, Container } from "../../../BootstrapComponents/Grid";
+import { Input, FormBtn, FormBtnlink } from "../../../BootstrapComponents/Form";
 import { Redirect } from "react-router-dom";
 
 function Login(props) {

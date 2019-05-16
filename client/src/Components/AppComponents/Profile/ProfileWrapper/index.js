@@ -7,7 +7,7 @@ import DoneChallenges from "../DoneChallenges";
 import ChallengeDetails from "../ChallengeDetails";
 import Timeline from "../Timeline";
 import CreateChallenges from "../CreateChallenges";
-import API from "../../../utils/API";
+import API from "../../../../utils/API";
 import { Switch, Route } from "react-router-dom";
 import "./style.css";
 
