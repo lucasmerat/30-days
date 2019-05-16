@@ -12,13 +12,18 @@ module.exports = function(app) {
     res.redirect(process.env.INSTAGRAM_AUTH_URL);
   });
 
- //Google Login API routes
-  app.get('/api/auth/google',
-  passport.authenticate('google', { scope: ['profile'] }));
+  //Google Login API routes
+  app.get(
+    "/api/auth/google",
+    passport.authenticate("google", { scope: ["profile"] })
+  );
 
-  app.get('/api/auth/google/callback',passport.authenticate('google'),(req,res)=>{
-    res.cookie('userId',  req.user.id, {maxAge: 604800000});
-    if (process.env.NODE_ENV === "development") {
+  app.get(
+    "/api/auth/google/callback",
+    passport.authenticate("google"),
+    (req, res) => {
+      res.cookie("userId", req.user.id, { maxAge: 604800000 });
+      if (process.env.NODE_ENV === "development") {
         res.redirect("http://localhost:3000/profile");
       } else {
         res.redirect("/profile");
@@ -39,7 +44,17 @@ module.exports = function(app) {
 
   //Create Post
   app.post("/api/newpost", function(req, res) {
-    db.Post.findOneAndUpdate({title:req.body.title,body:req.body.body,image:req.body.image,user:req.body.user},req.body,{upsert:true, returnNewDocument:true, new:true})
+    db.Post.findOneAndUpdate(
+      {
+        title: req.body.title,
+        body: req.body.body,
+        image: req.body.image,
+        user: req.body.user,
+        challenge: req.body.challenge
+      },
+      req.body,
+      { upsert: true, returnNewDocument: true, new: true }
+    )
       .then(function(dbPost) {
         res.json(dbPost);
       })
@@ -50,7 +65,27 @@ module.exports = function(app) {
 
   //Create Challenge
   app.post("/api/newChallenge", function(req, res) {
-    db.Challenge.findOneAndUpdate({title:req.body.title,description:req.body.description,image:req.body.image,days:req.body.days},req.body,{upsert:true, returnNewDocument:true, new:true})
+    db.Challenge.findOneAndUpdate(
+      {
+        title: req.body.title,
+        description: req.body.description,
+        image: req.body.image,
+        days: req.body.days
+      },
+      req.body,
+      { upsert: true, returnNewDocument: true, new: true }
+    )
+      .then(function(dbChallenge) {
+        res.json(dbChallenge);
+      })
+      .catch(function(err) {
+        res.json(err);
+      });
+  });
+
+  //Delete challenge by id
+  app.delete("/api/deleteChallenge/:id",function(req,res){
+    db.Challenge.findOneAndDelete({_id:req.params.id})
       .then(function(dbChallenge) {
         res.json(dbChallenge);
       })
@@ -85,7 +120,7 @@ module.exports = function(app) {
 
   // Get Challenges only belonging to a certain user
   app.get("/api/challenges/:id", function(req, res) {
-    db.User.findOne({ _id:req.params.id })
+    db.User.findOne({ _id: req.params.id })
       .populate("challenge")
       .then(function(dbUser) {
         res.json(dbUser.challenge);
@@ -97,7 +132,8 @@ module.exports = function(app) {
 
   // Get all challenges user doesn't belong to
   app.get("/api/notchallenges/:id", function(req, res) {
-    db.Challenge.find({user:{$nin:[req.params.id]}}).sort({createdAt: 'desc'})
+    db.Challenge.find({ user: { $nin: [req.params.id] } })
+      .sort({ createdAt: "desc" })
       .populate("user")
       .then(function(dbChallenge) {
         res.json(dbChallenge);
@@ -118,7 +154,7 @@ module.exports = function(app) {
         res.json(err);
       });
   });
-  
+
   //Add a user to a challenge
   //Only adds user to a challenge if not already there
   app.post("/api/addchallengeuser/:id", function(req, res) {
@@ -142,7 +178,7 @@ module.exports = function(app) {
       });
   });
 
-  //Remove a user from a challenge
+  //Remove a user from a challenge - Not Used
   app.delete("/api/removechallengeuser/:id", function(req, res) {
     db.Challenge.findOneAndUpdate(
       { _id: req.params.id, user: { _id: req.body.userId } },
@@ -166,9 +202,12 @@ module.exports = function(app) {
 
   //Get all posts related to the user challenges
   app.get("/api/challengeposts/:id", function(req, res) {
-    db.User.findOne({ _id:req.params.id })
+    db.User.findOne({ _id: req.params.id })
       .then(function(dbUser) {
-        return db.Post.find({challenge:{$in:dbUser.challenge}}).sort({createdAt: 'desc'}).populate("challenge").populate("user")
+        return db.Post.find({ challenge: { $in: dbUser.challenge } })
+          .sort({ createdAt: "desc" })
+          .populate("challenge")
+          .populate("user");
       })
       .then(function(dbPost) {
         res.json(dbPost);
@@ -177,5 +216,4 @@ module.exports = function(app) {
         res.json(err);
       });
   });
-
 };

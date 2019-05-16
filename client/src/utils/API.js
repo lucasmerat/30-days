@@ -5,9 +5,13 @@ export default {
   getUser: function(id) {
     return axios.get("/api/user/"+id);
   },
-  // Create a challenges
+  // Create a challenge
   createChallenge: function(data) {
     return axios.post("/api/newChallenge",data);
+  },
+   // Delete a challenge
+  deleteChallenge: function(_id) {
+    return axios.delete("/api/deleteChallenge/"+_id);
   },
    // Get all challenges not belonging to a user
   getChallenges: function(_id) {
