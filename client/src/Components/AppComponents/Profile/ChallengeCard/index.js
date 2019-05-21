@@ -2,8 +2,12 @@ import React from "react";
 import moment from "moment";
 import { Link } from "react-router-dom";
 import { FormBtn } from "../../../BootstrapComponents/Form";
+import { ProgressBar } from "react-bootstrap";
 
 export default function ChallengeCard(props) {
+  const now = moment();
+  const created = moment(props.createdAt)
+  const daysApt = now.diff(created, 'days');
   if (props.type === "Browse") {
     return (
       <div className="card browse-card">
@@ -40,9 +44,7 @@ export default function ChallengeCard(props) {
             <h5 className="card-title challenge-title">{props.title}</h5>
           </Link>
           <p className="card-text challenge-text">Progress</p>
-          <div className="card-text challenge-text progress-chart">
-            <p className="card-text challenge-text fill-progress-chart" />
-          </div>
+          <ProgressBar now={daysApt / 30 * 100} variant={"danger"} />
           <p className="card-text challenge-text">
             {props.numUsers} active challengers
           </p>
@@ -56,9 +58,9 @@ export default function ChallengeCard(props) {
           Ends:{" "}
           {moment(props.createdAt)
             .add(30, "d")
-            .calendar()}{" "}
+            .calendar()}
           <i className="fas fa-share-alt " />
-        </p>{" "}
+        </p>
       </div>
     );
   } else if (props.type === "Done") {
@@ -79,7 +81,11 @@ export default function ChallengeCard(props) {
           </Link>
         </div>
         <p className="card-text challenge-info">
-          Ends: Finished <i className="fas fa-share-alt " />
+          Ended:{" "}
+          {moment(props.createdAt)
+            .add(30, "d")
+            .calendar()}{" "}
+          <i className="fas fa-share-alt " />
         </p>{" "}
       </div>
     );
