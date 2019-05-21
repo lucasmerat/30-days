@@ -1,4 +1,5 @@
 import React from "react";
+import moment from "moment";
 import { Link } from "react-router-dom";
 import { FormBtn } from "../../../BootstrapComponents/Form";
 
@@ -6,11 +7,7 @@ export default function ChallengeCard(props) {
   if (props.type === "Browse") {
     return (
       <div className="card browse-card">
-        <img
-          src={props.image}
-          className="card-img-top"
-          alt="..."
-        />
+        <img src={props.image} className="card-img-top" alt="..." />
         <div className="card-body">
           <Link to={`/profile/challenge/${props._id}`}>
             <h5 className="card-title challenge-title">{props.title}</h5>
@@ -19,7 +16,13 @@ export default function ChallengeCard(props) {
           <p className="card-text challenge-text">
             {props.numUsers} active challengers
           </p>
-          <FormBtn onClick={()=>{props.joinChallenge(props._id, {userId: props.userId})}} href="#" className="btn btn-primary join-btn ">
+          <FormBtn
+            onClick={() => {
+              props.joinChallenge(props._id, { userId: props.userId });
+            }}
+            href="#"
+            className="btn btn-primary join-btn "
+          >
             Join Challenge
           </FormBtn>
         </div>
@@ -31,11 +34,7 @@ export default function ChallengeCard(props) {
   } else if (props.type === "Ongoing") {
     return (
       <div className="card browse-card">
-        <img
-          src={props.image}
-          className="card-img-top"
-          alt="..."
-        />
+        <img src={props.image} className="card-img-top" alt="..." />
         <div className="card-body">
           <Link to={`/profile/challenge/${props._id}`}>
             <h5 className="card-title challenge-title">{props.title}</h5>
@@ -54,18 +53,18 @@ export default function ChallengeCard(props) {
           </Link>
         </div>
         <p className="card-text challenge-info">
-          Ends: | 10 Days Left <i className="fas fa-share-alt " />
+          Ends:{" "}
+          {moment(props.createdAt)
+            .add(30, "d")
+            .calendar()}{" "}
+          <i className="fas fa-share-alt " />
         </p>{" "}
       </div>
     );
   } else if (props.type === "Done") {
     return (
       <div className="card browse-card">
-        <img
-          src={props.image}
-          className="card-img-top"
-          alt="..."
-        />
+        <img src={props.image} className="card-img-top" alt="..." />
         <div className="card-body">
           <Link to={`/profile/challenge/${props._id}`}>
             <h5 className="card-title challenge-title">{props.title}</h5>
