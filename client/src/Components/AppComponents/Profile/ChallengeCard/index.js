@@ -6,8 +6,8 @@ import { ProgressBar } from "react-bootstrap";
 
 export default function ChallengeCard(props) {
   const now = moment();
-  const created = moment(props.createdAt)
-  const daysApt = now.diff(created, 'days');
+  const start = moment(props.startDate)
+  const daysApt = now.diff(start, 'days');
   if (props.type === "Browse") {
     return (
       <div className="card browse-card">
@@ -31,7 +31,7 @@ export default function ChallengeCard(props) {
           </FormBtn>
         </div>
         <p className="card-text challenge-info">
-          Starts: | 30 Days <i className="fas fa-share-alt " />
+          Starts: {moment(props.startDate).format("MM/DD/YYYY")}| 30 Days <i className="fas fa-share-alt " />
         </p>
       </div>
     );
@@ -56,7 +56,7 @@ export default function ChallengeCard(props) {
         </div>
         <p className="card-text challenge-info">
           Ends:{" "}
-          {moment(props.createdAt)
+          {moment(props.startDate)
             .add(30, "d")
             .calendar()}
           <i className="fas fa-share-alt " />
@@ -82,7 +82,7 @@ export default function ChallengeCard(props) {
         </div>
         <p className="card-text challenge-info">
           Ended:{" "}
-          {moment(props.createdAt)
+          {moment(props.startDate)
             .add(30, "d")
             .calendar()}{" "}
           <i className="fas fa-share-alt " />

@@ -3,18 +3,33 @@ import "./style.css";
 import { Input, FormBtn } from "../../../BootstrapComponents/Form";
 import API from "../../../../utils/API";
 // import { Redirect } from "react-router-dom";
+// var createReactClass = require('create-react-class');
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import moment from "moment";
 
 class CreateChallegnes extends Component {
   state = {
     title:"",
     description:"",
     image: "",
-    days: this.props.numDays.map(() => "")
+    days: this.props.numDays.map(() => ""),
+    startDate: new Date()
   }
+
   handleTitleChange = (e) =>{
    this.setState({
      title: e.target.value
    })
+  }
+  handleDateChange = (date) => {
+    let selectedDate = moment(date)
+    if (selectedDate.isBefore(moment())){
+      date = new Date ();
+    }
+    this.setState({
+      startDate: date
+    });
   }
   handleDescriptionChange = (e) =>{
     this.setState({
@@ -53,6 +68,8 @@ class CreateChallegnes extends Component {
               <Input value={this.state.title} onChange={this.handleTitleChange}/>
               <label> Short description</label>
               <Input value={this.state.description} onChange={this.handleDescriptionChange}/>
+              <label> Start Date</label>
+              <DatePicker selected={this.state.startDate} onChange={this.handleDateChange} />
               <label>Select an Image For Your Workout </label>
               <div className="row">
                 <div className="col-4">
@@ -174,6 +191,7 @@ class CreateChallegnes extends Component {
                 </div>
               </div>
             </div>
+            
             <div className="row">
               {this.props.numDays &&
                 this.props.numDays.map(day => {

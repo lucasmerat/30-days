@@ -13,8 +13,9 @@ export default function BrowseChallenges({
     <div className="row">
       {challenges && challenges.length > 0 ? (
         challenges.map(challenge => {
-          let endDate = moment(challenge.createdAt).add(30, "days");
-          if (endDate.isAfter(moment())) {
+          let firstDate = moment(challenge.startDate);
+          let endDate = moment(challenge.startDate).add(30, "days");
+          if (endDate.isAfter(moment()) && firstDate.isAfter(moment())) {
             return (
               <ChallengeCard
                 key={challenge._id}
@@ -26,6 +27,7 @@ export default function BrowseChallenges({
                 image={challenge.image}
                 joinChallenge={joinChallenge}
                 userId={userId}
+                startDate={challenge.startDate}
                 type="Browse"
               />
             );
