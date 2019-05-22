@@ -1,5 +1,11 @@
 .left-nav{
-  background-color:rgb(106, 103, 99); 
+  /* background-color:rgb(106, 103, 99);  */
+  background-color:#343a40;
+  padding:0px;
+}
+.right-nav{
+  padding:0px;
+
 }
 
 li{

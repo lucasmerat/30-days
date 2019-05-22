@@ -38,3 +38,7 @@
   overflow: hidden;
   position: relative;
 }
+#root > div > div > div.col-3.profile-nav.profile-float > div:nth-child(1) > div.col-6.info-container > div.user-name > h3{
+  padding-top:1.5em;
+  font-size:1.4em;
+}
