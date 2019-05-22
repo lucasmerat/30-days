@@ -5,7 +5,7 @@
 }
 div.card.browse-card{
  height:20em;
- width:15em;
+ width:14em;
   
 }
 #root > div > div > div:nth-child(3) > div > img{
@@ -25,7 +25,6 @@ div.card.browse-card{
 p.card-text.challenge-info {
   background-color: white;
   padding: 2%;
- 
   height:2em;
   font-size:0.8em;
 }
