@@ -2,17 +2,14 @@ import React, { Component } from "react";
 import "./style.css";
 import { Input, FormBtn } from "../../../BootstrapComponents/Form";
 import API from "../../../../utils/API";
-// import { Redirect } from "react-router-dom";
-// var createReactClass = require('create-react-class');
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import moment from "moment";
 
 class CreateChallegnes extends Component {
   state = {
     title:"",
     description:"",
-    image: "",
+    image: "https://images.vexels.com/media/users/3/138766/isolated/preview/aa86bc7fc758d324029168656a5b6874-fitness-woman-silhouette-by-vexels.png",
     days: this.props.numDays.map(() => ""),
     startDate: new Date()
   }
@@ -23,14 +20,11 @@ class CreateChallegnes extends Component {
    })
   }
   handleDateChange = (date) => {
-    let selectedDate = moment(date)
-    if (selectedDate.isBefore(moment())){
-      date = new Date ();
-    }
     this.setState({
       startDate: date
     });
   }
+
   handleDescriptionChange = (e) =>{
     this.setState({
       description: e.target.value
@@ -65,11 +59,21 @@ class CreateChallegnes extends Component {
             <h5 className="card-title challenge-title">Create a workout</h5>
             <div className="row">
               <label> Title of workout</label>
-              <Input value={this.state.title} onChange={this.handleTitleChange}/>
+              <Input
+                value={this.state.title}
+                onChange={this.handleTitleChange}
+              />
               <label> Short description</label>
-              <Input value={this.state.description} onChange={this.handleDescriptionChange}/>
+              <Input
+                value={this.state.description}
+                onChange={this.handleDescriptionChange}
+              />
               <label> Start Date</label>
-              <DatePicker selected={this.state.startDate} onChange={this.handleDateChange} />
+              <DatePicker
+                selected={this.state.startDate}
+                onChange={this.handleDateChange}
+                minDate={new Date()}
+              />
               <label>Select an Image For Your Workout </label>
               <div className="row">
                 <div className="col-4">
@@ -81,7 +85,10 @@ class CreateChallegnes extends Component {
                       id="https://images.vexels.com/media/users/3/138766/isolated/preview/aa86bc7fc758d324029168656a5b6874-fitness-woman-silhouette-by-vexels.png"
                       onClick={this.handleImageChange}
                     />
-                    <label className="custom-control-label" htmlFor="https://images.vexels.com/media/users/3/138766/isolated/preview/aa86bc7fc758d324029168656a5b6874-fitness-woman-silhouette-by-vexels.png">
+                    <label
+                      className="custom-control-label"
+                      htmlFor="https://images.vexels.com/media/users/3/138766/isolated/preview/aa86bc7fc758d324029168656a5b6874-fitness-woman-silhouette-by-vexels.png"
+                    >
                       {" "}
                       <img
                         className="challenge-img-pick"
@@ -100,7 +107,10 @@ class CreateChallegnes extends Component {
                       id="https://images.vexels.com/media/users/3/131346/isolated/preview/e35291e5e0befe8215c03b06c92c161f-man-fitness-training-silhouette-by-vexels.png"
                       onChange={this.handleImageChange}
                     />
-                    <label className="custom-control-label" htmlFor="https://images.vexels.com/media/users/3/131346/isolated/preview/e35291e5e0befe8215c03b06c92c161f-man-fitness-training-silhouette-by-vexels.png">
+                    <label
+                      className="custom-control-label"
+                      htmlFor="https://images.vexels.com/media/users/3/131346/isolated/preview/e35291e5e0befe8215c03b06c92c161f-man-fitness-training-silhouette-by-vexels.png"
+                    >
                       {" "}
                       <img
                         className="challenge-img-pick"
@@ -120,7 +130,10 @@ class CreateChallegnes extends Component {
                       id="https://images.vexels.com/media/users/3/138770/isolated/preview/e00461c64feae7746c6ab1cd50268f85-fitness-woman-silhouette-lifting-hips-by-vexels.png"
                       onChange={this.handleImageChange}
                     />
-                    <label className="custom-control-label" htmlFor="https://images.vexels.com/media/users/3/138770/isolated/preview/e00461c64feae7746c6ab1cd50268f85-fitness-woman-silhouette-lifting-hips-by-vexels.png">
+                    <label
+                      className="custom-control-label"
+                      htmlFor="https://images.vexels.com/media/users/3/138770/isolated/preview/e00461c64feae7746c6ab1cd50268f85-fitness-woman-silhouette-lifting-hips-by-vexels.png"
+                    >
                       {" "}
                       <img
                         className="challenge-img-pick"
@@ -141,7 +154,10 @@ class CreateChallegnes extends Component {
                       id="https://i0.wp.com/abjsfitness.com/wp-content/uploads/2018/09/429472415c458712f85bc19b240091e5-bodybuilder-double-biceps-pose-silhouette-by-vexels.png?resize=512%2C460&ssl=1"
                       onChange={this.handleImageChange}
                     />
-                    <label className="custom-control-label" htmlFor="https://i0.wp.com/abjsfitness.com/wp-content/uploads/2018/09/429472415c458712f85bc19b240091e5-bodybuilder-double-biceps-pose-silhouette-by-vexels.png?resize=512%2C460&ssl=1">
+                    <label
+                      className="custom-control-label"
+                      htmlFor="https://i0.wp.com/abjsfitness.com/wp-content/uploads/2018/09/429472415c458712f85bc19b240091e5-bodybuilder-double-biceps-pose-silhouette-by-vexels.png?resize=512%2C460&ssl=1"
+                    >
                       {" "}
                       <img
                         className="challenge-img-pick"
@@ -160,7 +176,10 @@ class CreateChallegnes extends Component {
                       id="https://images.vexels.com/media/users/3/138773/isolated/preview/1cb1b8e931e5f9d9bdc4abe479cde54b-fitness-woman-silhouette-run-by-vexels.png"
                       onChange={this.handleImageChange}
                     />
-                    <label className="custom-control-label" htmlFor="https://images.vexels.com/media/users/3/138773/isolated/preview/1cb1b8e931e5f9d9bdc4abe479cde54b-fitness-woman-silhouette-run-by-vexels.png">
+                    <label
+                      className="custom-control-label"
+                      htmlFor="https://images.vexels.com/media/users/3/138773/isolated/preview/1cb1b8e931e5f9d9bdc4abe479cde54b-fitness-woman-silhouette-run-by-vexels.png"
+                    >
                       {" "}
                       <img
                         className="challenge-img-pick"
@@ -179,7 +198,10 @@ class CreateChallegnes extends Component {
                       id="https://images.vexels.com/media/users/3/132736/isolated/preview/c5beec0aff097139052f79f2e19a3a51-woman-doing-exercise-fitness-silhouette-by-vexels.png"
                       onChange={this.handleImageChange}
                     />
-                    <label className="custom-control-label" htmlFor="https://images.vexels.com/media/users/3/132736/isolated/preview/c5beec0aff097139052f79f2e19a3a51-woman-doing-exercise-fitness-silhouette-by-vexels.png">
+                    <label
+                      className="custom-control-label"
+                      htmlFor="https://images.vexels.com/media/users/3/132736/isolated/preview/c5beec0aff097139052f79f2e19a3a51-woman-doing-exercise-fitness-silhouette-by-vexels.png"
+                    >
                       {" "}
                       <img
                         className="challenge-img-pick"
@@ -191,14 +213,23 @@ class CreateChallegnes extends Component {
                 </div>
               </div>
             </div>
-            
+
             <div className="row">
               {this.props.numDays &&
                 this.props.numDays.map(day => {
                   return (
-                    <div style={{ width: "100%", textAlign: "left" }} key={day}>
+                    <div
+                      style={{ width: "100%", textAlign: "left" }}
+                      key={day}
+                    >
                       <label>Day {day}</label>
-                      <Input value={this.state.days[day-1]} key={day} name={"days"} day={day} onChange={this.handleDayChange}/>
+                      <Input
+                        value={this.state.days[day - 1]}
+                        key={day}
+                        name={"days"}
+                        day={day}
+                        onChange={this.handleDayChange}
+                      />
                     </div>
                   );
                 })}
