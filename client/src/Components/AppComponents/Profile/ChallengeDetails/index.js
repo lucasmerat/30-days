@@ -3,6 +3,7 @@ import { Input, FormBtn } from "../../../BootstrapComponents/Form/";
 import "./ChallengeDetails.css";
 import API from "../../../../utils/API";
 import { Modal } from "react-bootstrap";
+import moment from "moment";
 
 class ChallengeDetails extends Component {
   componentDidMount() {
@@ -16,7 +17,8 @@ class ChallengeDetails extends Component {
     showModal: false,
     postImage: null,
     postTitle: null,
-    postBody: null
+    postBody: null,
+    startDate:new Date()
   };
   loadChallenge = () => {
     API.getChallengebyId(this.props.match.params.id)
@@ -26,7 +28,8 @@ class ChallengeDetails extends Component {
           challengeDescription: res.data.description,
           days: res.data.days,
           numUsers: res.data.user.length,
-          image: res.data.image
+          image: res.data.image,
+          startDate:res.data.startDate
         })
       )
       .catch(err => console.log(err));
@@ -140,8 +143,8 @@ class ChallengeDetails extends Component {
                 this.state.days.map((day, index) => {
                   return (
                     <div className= "day-section" key={index}>
-                      <b>Day {index + 1} </b> <hr />{" "}
-                      {day === null ? "Break" : day}
+                      <b>{moment(this.state.startDate).add(index, "d").format("MM/DD/YYYY")}</b> <hr />{" "}
+                      {day === "" ? "Break" : day}
                     </div>
                   );
                 })}
