@@ -6,14 +6,13 @@ import ChallengeCard from "../ChallengeCard";
 export default function BrowseChallenges({
   challenges,
   userId,
-  loadChallenges,
   joinChallenge
 }) {
   return (
     <div className="row">
       {challenges && challenges.length > 0 ? (
         challenges.map(challenge => {
-          let firstDate = moment(challenge.startDate);
+          let firstDate = moment(challenge.startDate).add(1, "days");
           let endDate = moment(challenge.startDate).add(30, "days");
           if (endDate.isAfter(moment()) && firstDate.isAfter(moment())) {
             return (
