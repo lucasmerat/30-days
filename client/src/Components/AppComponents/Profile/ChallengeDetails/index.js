@@ -78,14 +78,22 @@ class ChallengeDetails extends Component {
       <div className="row">
         <div className="card challenge-details-card">
           <div className="card-body">
-            <img alt="..." src={this.state.image} className="details-image" />
-            <h5 className="card-title challenge-title">
+          <div className="row">
+          <div className="col-4">
+          <img alt="..." src={this.state.image} className="details-image" />
+          </div>
+          <div className="col-8">
+          <h5 className="card-title challenge-title">
               {this.state.challengeTitle}
             </h5>
             <div className="card-body">
               <div>{this.state.numUsers} challengers</div>
               {this.state.challengeDescription}
             </div>
+          </div>
+          </div>
+           
+           
             {/* Checks that user is not already part of challenge and shows button if they are not */}
             {!this.props.userChallenges.some(
               challenge => challenge._id === this.props.match.params.id
