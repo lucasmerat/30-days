@@ -3,6 +3,8 @@ import "./style.css";
 import { Input, FormBtn } from "../../../BootstrapComponents/Form";
 import API from "../../../../utils/API";
 import DatePicker from "react-datepicker";
+import setMinutes from "date-fns/setMinutes";
+import setHours from "date-fns/setHours";
 import "react-datepicker/dist/react-datepicker.css";
 
 class CreateChallegnes extends Component {
@@ -11,7 +13,7 @@ class CreateChallegnes extends Component {
     description:"",
     image: "https://images.vexels.com/media/users/3/138766/isolated/preview/aa86bc7fc758d324029168656a5b6874-fitness-woman-silhouette-by-vexels.png",
     days: this.props.numDays.map(() => ""),
-    startDate: new Date()
+    startDate: setHours(setMinutes(new Date(), 0), 0)
   }
 
   handleTitleChange = (e) =>{
@@ -20,8 +22,11 @@ class CreateChallegnes extends Component {
    })
   }
   handleDateChange = (date) => {
+    let selectedDate = setHours(setMinutes(date, 0), 0);
+    console.log(date);
+    console.log(selectedDate);
     this.setState({
-      startDate: date
+      startDate: selectedDate
     });
   }
 

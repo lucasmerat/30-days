@@ -7,7 +7,7 @@ export default function OngoingChallenges({challenges, user}) {
   return (
     <div className="row">
           {challenges && challenges.length > 0 ? (challenges.map(challenge => {
-          let endDate = moment(challenge.startDate).add(30, "days");
+          let endDate = moment(challenge.startDate).add(31, "days");
           if (endDate.isAfter(moment())) {
             return (<ChallengeCard
               key={challenge._id}

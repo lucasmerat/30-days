@@ -58,7 +58,7 @@ export default function ChallengeCard(props) {
           Ends:{" "}
           {moment(props.startDate)
             .add(30, "d")
-            .calendar()}
+            .format("MM/DD/YYYY")}
           <i className="fas fa-share-alt " />
         </p>
       </div>
@@ -84,7 +84,7 @@ export default function ChallengeCard(props) {
           Ended:{" "}
           {moment(props.startDate)
             .add(30, "d")
-            .calendar()}{" "}
+            .format("MM/DD/YYYY")}{" "}
           <i className="fas fa-share-alt " />
         </p>{" "}
       </div>

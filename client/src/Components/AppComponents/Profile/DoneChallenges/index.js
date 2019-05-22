@@ -8,7 +8,7 @@ export default function DoneChallegnes({ challenges }) {
     <div className="row">
       {challenges && challenges.length > 0 ? (
         challenges.map(challenge => {
-          let endDate = moment(challenge.startDate).add(30, "days");
+          let endDate = moment(challenge.startDate).add(31, "days");
           if (endDate.isBefore(moment())) {
             return (
               <ChallengeCard
