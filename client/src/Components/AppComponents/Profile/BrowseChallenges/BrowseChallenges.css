@@ -3,8 +3,15 @@
   background-color: rgb(106, 103, 99);
   padding: 0px;
 }
-.card-img-top {
-  height: 13em;
+div.card.browse-card{
+ height:20em;
+ width:15em;
+  
+}
+#root > div > div > div:nth-child(3) > div > img{
+  height:5em;
+  width:5em;
+  margin:auto;
 }
 .challenge-title {
   font-size: 2em;
@@ -15,15 +22,19 @@
   font-size: 1em;
 }
 
-.challenge-info {
+p.card-text.challenge-info {
   background-color: white;
-  padding: 5%;
+  padding: 2%;
+ 
+  height:2em;
+  font-size:0.8em;
 }
 .fa-share-alt {
   float: right;
 }
 .card-body {
   text-align: center;
+  
 }
 
 .card {
@@ -80,4 +91,10 @@ body {
 
 .card > .remove:hover {
   color: #d50000;
+}
+#root > div > div > div > div > div > p{
+  font-size: 0.8em;
+}
+#root > div > div > div > div > div > a > h5{
+  font-size:1em;
 }
