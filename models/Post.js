@@ -8,7 +8,7 @@ var PostSchema = new Schema({
   body:String,
   createdAt:{
     type:Date,
-    default:Date.now
+    default:Date.now()
   },
   challenge: {
     type: Schema.Types.ObjectId,
