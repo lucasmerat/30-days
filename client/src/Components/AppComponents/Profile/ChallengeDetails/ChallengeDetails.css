@@ -29,3 +29,6 @@
   width:100%;
   padding:105;
 }
+#root > div > div > div:nth-child(3) > div > div > div.workout-days > div > b{
+  font-size:0.7em;
+}
