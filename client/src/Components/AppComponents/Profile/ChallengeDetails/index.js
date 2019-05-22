@@ -117,7 +117,7 @@ class ChallengeDetails extends Component {
               </FormBtn>
             ) : (
               <>
-                { moment(this.state.startDate).add(30, "days").isAfter(moment())?(
+                { moment(this.state.startDate).add(31, "days").isAfter(moment())&&(moment(this.state.startDate).isBefore(moment()))?(
                 <div>
                 <FormBtn onClick={() => {this.handleShowModal();}} href="#" className="btn btn-primary join-btn ">
                   Post to challenge
