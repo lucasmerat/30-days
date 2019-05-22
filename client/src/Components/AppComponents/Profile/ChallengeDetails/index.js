@@ -108,14 +108,10 @@ class ChallengeDetails extends Component {
                 Join Challenge
               </FormBtn>
             ) : (
-              <div>
-                <FormBtn
-                  onClick={() => {
-                    this.handleShowModal();
-                  }}
-                  href="#"
-                  className="btn btn-primary join-btn "
-                >
+              <>
+                { moment(this.state.startDate).add(30, "days").isAfter(moment())?(
+                <div>
+                <FormBtn onClick={() => {this.handleShowModal();}} href="#" className="btn btn-primary join-btn ">
                   Post to challenge
                 </FormBtn>
                 <Modal show={this.state.show} onHide={this.handleCloseModal}>
@@ -135,7 +131,8 @@ class ChallengeDetails extends Component {
                     <FormBtn onClick={this.handleAddPost}>Add Post</FormBtn>
                   </Modal.Footer>
                 </Modal>
-              </div>
+                </div>):(null)}
+              </>
             )}
             <hr />
             <div className="workout-days">
