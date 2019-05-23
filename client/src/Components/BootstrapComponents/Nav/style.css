@@ -6,6 +6,8 @@
 @media screen and (max-width:640px){
     .navbar{
         width:355px;
+        position:fixed;
+        z-index: 1;
     }
   
   }
