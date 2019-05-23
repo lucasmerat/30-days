@@ -45,5 +45,7 @@ a.nav-link:active{
   li{
     font-size: 0.4em;
   }
-
+  #root > div > div > div.row > div > nav{
+    width:368px;
+  }
 }
