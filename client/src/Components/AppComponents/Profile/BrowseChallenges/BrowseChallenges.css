@@ -99,3 +99,9 @@ body {
 #root > div > div > div > div > div > a > h5{
   font-size:1em;
 }
+@media screen and (max-width:640px){
+  #root > div > div > div:nth-child(3) > div{
+    margin:auto;
+    margin-top:1em;
+  }
+}
