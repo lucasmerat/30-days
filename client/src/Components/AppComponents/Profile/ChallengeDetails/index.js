@@ -149,7 +149,7 @@ class ChallengeDetails extends Component {
                   return (
                     <div className= "day-section" key={index}>
                       <b>{moment(this.state.startDate).add(index, "d").format("MM/DD/YYYY")}</b> <hr />{" "}
-                      {day === "" ? "Break" : day}
+                     <h7>{day === "" ? "Break" : day}</h7> 
                     </div>
                   );
                 })}
