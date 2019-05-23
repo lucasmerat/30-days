@@ -1,7 +1,6 @@
 import React from "react";
-import { InstagramLoginButton } from "react-social-login-buttons";
+import { InstagramLoginButton, GoogleLoginButton } from "react-social-login-buttons";
 import { Col, Row, Container } from "../../../BootstrapComponents/Grid";
-import { Input, FormBtn, FormBtnlink } from "../../../BootstrapComponents/Form";
 import { Redirect } from "react-router-dom";
 
 function Login(props) {
@@ -24,18 +23,8 @@ function Login(props) {
           <a href={instaLink}>
             <InstagramLoginButton />
           </a>
-          <a href={googleLink}>Sign In with Google</a>
-          <form>
-            <Input name="username" placeholder="Username (required)" />
-            <Input name="password" placeholder="Password (required)" />
-
-            <FormBtn href="/profile">Login</FormBtn>
-          </form>
-          <FormBtnlink className="btn btn-link" href="/signup">
-            Sign up
-          </FormBtnlink>
+          <a href={googleLink}><GoogleLoginButton/></a>
         </Col>
-        <Col size="md-4" />
       </Row>
     </Container>
   );
