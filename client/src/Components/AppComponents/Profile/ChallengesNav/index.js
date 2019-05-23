@@ -5,7 +5,7 @@ import "./style.css";
 
 function ChallengesNav() {
   return (
-    <div className="row">
+    <div className="row ">
     {/* <div className="col-3 left-nav"></div> */}
     <div className="col-12 right-nav">
     <nav className="navbar navbar-dark bg-dark ">
