@@ -72,4 +72,12 @@
     padding-left:1px;
    
   }
+  .user-about{
+    visibility: hidden;
+  }
+  #root > div > div > div.col-3.profile-nav.profile-float > div.row.buttons-row > div:nth-child(1) > button > a{
+    position: fixed;
+    top:20px;
+    left:270px;
+  }
 }
