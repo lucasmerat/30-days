@@ -44,8 +44,18 @@ a.nav-link:active{
 @media screen and (max-width:640px){
   li{
     font-size: 0.4em;
+    margin-left:0px;
+    margin-right:0px;
   }
   #root > div > div > div.row > div > nav{
     width:368px;
+  }
+  #root > div > div > div:nth-child(1) > div > nav > ul{
+    padding-left:50px;
+    padding-right:0px;
+  }
+  #root > div > div > div:nth-child(1) > div > nav{
+    padding-right:0px;
+    margin-right:0px;
   }
 }

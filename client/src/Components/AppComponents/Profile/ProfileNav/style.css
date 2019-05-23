@@ -42,3 +42,34 @@
   padding-top:1.5em;
   font-size:1.4em;
 }
+
+@media screen and (max-width:640px){
+  #root > div > div > div.col-3.profile-nav{
+    width:75px;
+    height:40px;
+    position:fixed;
+    top:78px;
+    margin:0px;
+    padding:3px;
+  } 
+  #root > div > div > div.col-3.profile-nav.profile-float > div:nth-child(1) > div:nth-child(1) > img{
+    width:30px;
+  }
+  #root > div > div > div.col-3.profile-nav.profile-float > div:nth-child(1) > div.col-6.info-container > div.user-name > h3{
+    visibility: hidden;
+  }
+  #root > div > div > div.col-3.profile-nav.profile-float > div.row.buttons-row > div:nth-child(2) > button{
+   position:fixed;
+   top:82px;
+   left:40px;
+   font-size:0.3em;
+   padding:0px;
+   margin:0px;
+   width:30px;
+   
+  }
+  #root > div > div > div.col-3.profile-nav.profile-float > div.row.buttons-row > div:nth-child(2) > button > a{
+    padding-left:1px;
+   
+  }
+}

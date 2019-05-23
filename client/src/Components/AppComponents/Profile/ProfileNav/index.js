@@ -50,7 +50,7 @@ function ProfileNav({ userName, profilePic,bio }) {
                   </div>
                   <div className="col-4">
                   <FormBtn className="edit-profile-btn">
-                    <Link className="nav-link" to="/profile/create">Create a Workout</Link>
+                    <Link className="nav-link" to="/profile/create">Create </Link>
                   </FormBtn>
                   </div>
                   </div>              
