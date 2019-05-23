@@ -1,6 +1,6 @@
 import React from "react";
 import "./style.css";
-import { FormBtn, FormBtnlink } from "../../../BootstrapComponents/Form";
+import { FormBtn} from "../../../BootstrapComponents/Form";
 import { Link } from "react-router-dom";
 
 function ProfileNav({ userName, profilePic, bio }) {
