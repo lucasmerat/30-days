@@ -49,6 +49,8 @@ p.card-text.challenge-info {
 }
 body {
   background-color: rgb(67, 66, 66);
+  margin-right:0px;
+  padding-right:0px;
 }
 
 .card > .img-container {

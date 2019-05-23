@@ -1,3 +1,11 @@
 .navbar{
     background-color: #e74b3c;
+ 
 }
+
+@media screen and (max-width:640px){
+    .navbar{
+        width:355px;
+    }
+  
+  }
