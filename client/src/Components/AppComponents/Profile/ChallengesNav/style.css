@@ -40,3 +40,10 @@ a.nav-link:active{
 #root > div > nav{
   
 }
+
+@media screen and (max-width:640px){
+  li{
+    font-size: 0.4em;
+  }
+
+}
