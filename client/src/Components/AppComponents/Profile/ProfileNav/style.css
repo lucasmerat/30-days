@@ -80,5 +80,6 @@
     position: fixed;
     top:20px;
     left:270px;
+    z-index:1;
   }
 }
