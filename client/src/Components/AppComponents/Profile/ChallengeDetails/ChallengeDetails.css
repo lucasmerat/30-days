@@ -32,3 +32,37 @@
 #root > div > div > div:nth-child(3) > div > div > div.workout-days > div > b{
   font-size:0.7em;
 }
+
+@media screen and (max-width:640px){
+  .challenge-details-card .day-section{
+    width:23%;
+    height:5em;
+  }
+  .challenge-details-card .day-section:nth-child(4),.day-section:nth-child(8),.day-section:nth-child(12),.day-section:nth-child(16),.day-section:nth-child(20),.day-section:nth-child(24),.day-section:nth-child(28),.day-section:nth-child(30){
+    border-right:2px solid #D0E4F5;
+  }
+  .challenge-details-card .day-section:nth-child(7) , .day-section:nth-child(14),.day-section:nth-child(21),.day-section:nth-child(28),.day-section:nth-child(30){
+    border-right: 0px solid #D0E4F5;
+  }
+  .challenge-details-card .day-section{
+    border-bottom: 0px solid #D0E4F5;
+  }
+  .challenge-details-card .day-section:nth-child(24){
+    border-bottom: 0px solid #D0E4F5;
+  }
+  .challenge-details-card .day-section:nth-child(28),.day-section:nth-child(30){
+    border-right: 2px solid #D0E4F5;
+  }
+  .challenge-details-card .day-section:nth-child(27), .day-section:nth-child(28),.day-section:nth-child(29),.day-section:nth-child(30){
+    border-bottom: 2px solid #D0E4F5;
+  }
+  #root > div > div > div:nth-child(3) > div > div > div.workout-days > div > b{
+    font-size:7px;;
+  }
+  #root > div > div > div:nth-child(3) > div > div > div.workout-days > div > hr{
+    margin:2px;
+  }
+  #root > div > div > div:nth-child(3) > div > div > div.workout-days > div > h7{
+    font-size:0.4em;
+  }
+}
