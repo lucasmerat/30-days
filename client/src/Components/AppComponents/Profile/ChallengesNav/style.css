@@ -42,6 +42,11 @@ a.nav-link:active{
 }
 
 @media screen and (max-width:640px){
+  #root > div > div > div:nth-child(1) > div > nav{
+    position:fixed;
+    top:77px;
+    z-index: 0;
+  }
   li{
     font-size: 0.4em;
     margin-left:0px;

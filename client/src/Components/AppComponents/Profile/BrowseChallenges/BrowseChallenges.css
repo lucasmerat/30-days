@@ -103,5 +103,11 @@ body {
   #root > div > div > div:nth-child(3) > div{
     margin:auto;
     margin-top:1em;
+    z-index:-2;
+  }
+  #root > div > div > div:nth-child(3) > div:nth-child(1){
+    margin:auto;
+    margin-top:8em;
+    
   }
 }
