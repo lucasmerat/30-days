@@ -31,7 +31,8 @@ export default function ChallengeCard(props) {
           </FormBtn>
         </div>
         <p className="card-text challenge-info">
-          Starts: {moment(props.startDate).format("MM/DD/YYYY")}| 30 Days <i className="fas fa-share-alt " />
+          Starts: {moment(props.startDate).format("MM/DD/YYYY")}| 30 Days 
+          {/* <i className="fas fa-share-alt " /> */}
         </p>
       </div>
     );
@@ -59,7 +60,7 @@ export default function ChallengeCard(props) {
           {moment(props.startDate)
             .add(30, "d")
             .format("MM/DD/YYYY")}
-          <i className="fas fa-share-alt " />
+          {/* <i className="fas fa-share-alt " /> */}
         </p>
       </div>
     );
