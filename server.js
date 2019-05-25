@@ -13,7 +13,6 @@ const passport = require("passport");
 mongoose.connect(
   MONGO_URI,
   {
-    useNewUrlParser: true,
     dbName: "project3"
   },
   function(err) {
