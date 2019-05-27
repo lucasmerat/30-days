@@ -34,7 +34,7 @@ export default function BrowseChallenges({
             } else return null;
           })
         ) : (
-          <div>No Challenges available</div>
+          <div className="no-challenges">No workouts available... try creating one</div>
         )}
       </div>
     </div>

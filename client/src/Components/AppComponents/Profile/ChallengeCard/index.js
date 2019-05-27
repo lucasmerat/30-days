@@ -19,7 +19,7 @@ export default function ChallengeCard(props) {
           </Link>
           <p className="card-text challenge-text">{props.description}</p>
           <p className="card-text challenge-text">
-            {props.numUsers} active challengers
+            {props.numUsers} active athletes
           </p>
           <FormBtn
             onClick={() => {
@@ -28,7 +28,7 @@ export default function ChallengeCard(props) {
             href="#"
             className="btn btn-primary join-btn "
           >
-            Join Challenge
+            Join Workout
           </FormBtn>
         </div>
         <p className="card-text challenge-info">
@@ -48,11 +48,11 @@ export default function ChallengeCard(props) {
           <p className="card-text challenge-text">Progress</p>
           <ProgressBar now={daysApt / 30 * 100} variant={"danger"} />
           <p className="card-text challenge-text">
-            {props.numUsers} active challengers
+            {props.numUsers} active athletes
           </p>
           <Link to={`/profile/challenge/${props._id}`}>
             <FormBtn href="#" className="btn btn-primary join-btn ">
-              View Challenge
+              View workout
             </FormBtn>
           </Link>
         </div>
@@ -74,11 +74,11 @@ export default function ChallengeCard(props) {
             <h5 className="card-title challenge-title">{props.title}</h5>
           </Link>
           <p className="card-text challenge-text">
-            {props.numUsers} finished challengers
+            {props.numUsers} finished athletes
           </p>
           <Link to={`/profile/challenge/${props._id}`}>
             <FormBtn href="#" className="btn btn-primary join-btn ">
-              View Challenge
+              View workout
             </FormBtn>
           </Link>
         </div>

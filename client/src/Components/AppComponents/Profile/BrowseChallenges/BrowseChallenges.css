@@ -101,6 +101,12 @@ body {
     justify-content: center;
 
 }
+
+.no-challenges{
+  color:white;
+  font-size:1.5em;
+  margin-top: 10px;
+}
 @media screen and (max-width:640px){
   .with-margin-row{
     margin:auto;

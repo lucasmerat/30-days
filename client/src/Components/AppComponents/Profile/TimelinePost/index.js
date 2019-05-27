@@ -30,7 +30,7 @@ export default function TimelinePost({
               </div>
               <div className="ml-2">
                 <div className="h5 m-0">{username}</div>
-                <div className="h5 m-0">From challenge: <Link to={`/profile/challenge/${challengeId}`}> {challengeName}</Link></div> 
+                <div className="h5 m-0">From workout: <Link className="workout-link" to={`/profile/challenge/${challengeId}`}> {challengeName}</Link></div> 
               </div>
             </div>
           </div>

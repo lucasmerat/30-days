@@ -90,7 +90,7 @@ class ChallengeDetails extends Component {
               {this.state.challengeTitle}
             </h5>
             <div className="card-body">
-              <div>{this.state.numUsers} challengers</div>
+              <div>{this.state.numUsers} active athletes</div>
               {this.state.challengeDescription}
             </div>
           </div>
@@ -113,7 +113,7 @@ class ChallengeDetails extends Component {
                 href="#"
                 className="btn btn-primary join-btn "
               >
-                Join Challenge
+                Join Workout
               </FormBtn>
             ) : (
               <>

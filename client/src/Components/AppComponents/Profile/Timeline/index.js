@@ -21,8 +21,8 @@ class Timeline extends Component {
     return (
       <div className="row">
         <div className="timeline-with-margin-row">
-          <div className="card timeline-card">
-            <div className="card-body">
+          <div className="timeline-card">
+            <div>
               {this.state.posts &&
                 this.state.posts.map(post => {
                   return (
