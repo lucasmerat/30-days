@@ -12,7 +12,7 @@ export default function ChallengeCard(props) {
   if (props.type === "Browse") {
     return (
       <div className="card browse-card">
-        <img src={props.image} className="card-img-top" alt="..." />
+        <img src={props.image} className="card-img-top img-fluid" alt="..." />
         <div className="card-body">
           <Link to={`/profile/challenge/${props._id}`}>
             <h5 className="card-title challenge-title">{props.title}</h5>
