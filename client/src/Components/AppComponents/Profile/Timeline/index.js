@@ -22,6 +22,7 @@ class Timeline extends Component {
       <div className="row">
         <div className="timeline-with-margin-row">
           <div className="timeline-card">
+            <div className="with-margin-row">
             <div>
               {this.state.posts &&
                 this.state.posts.map(post => {
@@ -40,6 +41,7 @@ class Timeline extends Component {
                   );
                 })}
               <div className="card-body" />
+            </div>
             </div>
           </div>
         </div>
