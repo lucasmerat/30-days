@@ -20,11 +20,11 @@ function Login(props) {
     <Container fluid>
       <Row >
         <Col size="md-4" />
-        <Col size="md-4">
-          <a href={instaLink}>
+        <Col classes="social-button-box" size="md-4">
+          <a className="social-button" href={instaLink}>
             <InstagramLoginButton />
           </a>
-          <a href={googleLink}><GoogleLoginButton/></a>
+          <a className="social-button" href={googleLink}><GoogleLoginButton/></a>
         </Col>
       </Row>
     </Container>

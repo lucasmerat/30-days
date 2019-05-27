@@ -1,3 +1,14 @@
-#root > div > div > div > div:nth-child(2){
-    padding-top:60%;
+.social-button:hover{
+    text-decoration: none;
+}
+
+@media screen and (max-width:640px){
+
+.social-button-box {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 }
