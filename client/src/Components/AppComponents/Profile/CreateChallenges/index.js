@@ -89,6 +89,7 @@ class CreateChallegnes extends Component {
                       name="onlyOne"
                       id="https://images.vexels.com/media/users/3/138766/isolated/preview/aa86bc7fc758d324029168656a5b6874-fitness-woman-silhouette-by-vexels.png"
                       onClick={this.handleImageChange}
+                      checked
                     />
                     <label
                       className="custom-control-label"
