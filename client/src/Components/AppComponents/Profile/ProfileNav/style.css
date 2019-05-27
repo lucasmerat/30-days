@@ -1,4 +1,4 @@
-#root > div > div > div:nth-child(2) > div > div.row.challenge-summary-row > ul{
+.challenge-summary-row > ul{
   margin-top:10%;
   margin-left:0%;
 }
@@ -6,11 +6,11 @@
 .profile-float{
   float:left;
 }
-#root > div > div > div.col-4.profile-nav.profile-float > div.row.buttons-row > div:nth-child(1) > button > a{
+.logout-profile-btn{
   color:#e74b3c;
 }
 
-#root > div > div > div.col-4.profile-nav.profile-float > div.row.buttons-row > div:nth-child(1) > button > a:hover {
+.logout-profile-btn:hover {
   color:#962f26;
 }
 
@@ -25,9 +25,7 @@
 .buttons-row{
   padding-top:10%;
 }
-/* #root > div > div > div:nth-child(2) > div{
-  padding-top:0px;
-} */
+
 .profile-img{
   background-color: #fafafa;
   width:100%;
@@ -38,13 +36,14 @@
   overflow: hidden;
   position: relative;
 }
-#root > div > div > div.col-3.profile-nav.profile-float > div:nth-child(1) > div.col-6.info-container > div.user-name > h3{
+.User-name{
   padding-top:1.5em;
   font-size:1.4em;
 }
 
+
 @media screen and (max-width:640px){
-  #root > div > div > div.col-3.profile-nav{
+  .profile-nav{
     width:75px;
     height:40px;
     position:fixed;
@@ -55,7 +54,7 @@
   #root > div > div > div.col-3.profile-nav.profile-float > div:nth-child(1) > div:nth-child(1) > img{
     width:30px;
   }
-  #root > div > div > div.col-3.profile-nav.profile-float > div:nth-child(1) > div.col-6.info-container > div.user-name > h3{
+  .User-name{
     visibility: hidden;
   }
   #root > div > div > div.col-3.profile-nav.profile-float > div.row.buttons-row > div:nth-child(2) > button{
@@ -70,18 +69,22 @@
  
   }
  
-  #root > div > div > div.col-3.profile-nav.profile-float > div.row.buttons-row > div:nth-child(2) > button > a{
+.profile-nav.profile-float > div.row.buttons-row > div:nth-child(2) > button > a{
     padding-left:1px;
    
   }
   .user-about{
     visibility: hidden;
   }
-  #root > div > div > div.col-3.profile-nav.profile-float > div.row.buttons-row > div:nth-child(1) > button{
+ .logout-link{
     position: fixed;
     top:15px;
     left:260px;
     z-index:1;
-   
   }
+  #root > div > div > div.col-3.profile-nav.profile-float > div.row.buttons-row > div:nth-child(1) > button{
+   background-color:transparent;
+   border:transparent;
+  }
+ 
 }
