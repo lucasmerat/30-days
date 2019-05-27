@@ -46,6 +46,7 @@ a.nav-link:active{
     position:fixed;
     top:77px;
     z-index: 0;
+  
   }
   li{
     font-size: 0.4em;
@@ -53,7 +54,7 @@ a.nav-link:active{
     margin-right:0px;
   }
   #root > div > div > div.row > div > nav{
-    width:368px;
+    width:100%;
   }
   #root > div > div > div:nth-child(1) > div > nav > ul{
     padding-left:50px;
