@@ -2,7 +2,7 @@ import React from "react";
 import { InstagramLoginButton, GoogleLoginButton } from "react-social-login-buttons";
 import { Col, Row, Container } from "../../../BootstrapComponents/Grid";
 import { Redirect } from "react-router-dom";
-import "./Login.css";
+import "./login.css";
 
 function Login(props) {
   let instaLink;
