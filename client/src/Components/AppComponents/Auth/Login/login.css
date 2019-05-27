@@ -2,6 +2,19 @@
     text-decoration: none;
 }
 
+.social-button-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #e54c3c;
+    padding: 50px;
+    box-shadow: 0px 0px 17px 10px #221b1b78;
+}
+
+.login-row{
+    margin-top: 15%;
+}
+
 @media screen and (max-width:640px){
 
 .social-button-box {
