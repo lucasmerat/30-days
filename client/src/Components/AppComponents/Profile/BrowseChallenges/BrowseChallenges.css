@@ -96,6 +96,11 @@ body {
 .card > .remove:hover {
   color: #d50000;
 }
+
+.with-margin-row{
+    justify-content: center;
+
+}
 @media screen and (max-width:640px){
   .with-margin-row{
     margin:auto;

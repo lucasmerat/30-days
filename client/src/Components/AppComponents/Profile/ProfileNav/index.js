@@ -32,7 +32,7 @@ function ProfileNav({ userName, profilePic }) {
       <div className="user-name col-12 info-container">
             <h3 className="User-name">{userName}</h3>
         </div>
-        <div className="col-12">
+        <div className="col-12 profile-img-box">
           <img className="profile-img img-fluid" alt="profile" src={profilePic} />
         </div>
           

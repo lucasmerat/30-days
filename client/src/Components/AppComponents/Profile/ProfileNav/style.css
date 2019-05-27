@@ -25,7 +25,15 @@
   padding-top: 10%;
 }
 
+.profile-img-box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .profile-img {
+  width:80% !important;
+  justify-content: center;
   background-color: #fafafa;
   border-radius: 50%;
   -webkit-box-sizing: border-box;
