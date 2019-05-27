@@ -20,27 +20,27 @@ class Timeline extends Component {
   render() {
     return (
       <div className="row">
-        <div className="timeline-with-margin-row">
-          <div className="card timeline-card">
-            <div className="card-body">
-              {this.state.posts &&
-                this.state.posts.map(post => {
-                  return (
-                    <TimelinePost
-                      key={post._id}
-                      username={post.user.username}
-                      profilePicture={post.user.profile_picture}
-                      challengeName={post.challenge.title}
-                      postTitle={post.title}
-                      createdAt={post.createdAt}
-                      postBody={post.body}
-                      postImage={post.image}
-                      challengeId={post.challenge._id}
-                    />
-                  );
-                })}
-              <div className="card-body" />
-            </div>
+          <div className="timeline-card">
+            <div className="with-margin-row">
+              <div>
+                {this.state.posts &&
+                  this.state.posts.map(post => {
+                    return (
+                      <TimelinePost
+                        key={post._id}
+                        username={post.user.username}
+                        profilePicture={post.user.profile_picture}
+                        challengeName={post.challenge.title}
+                        postTitle={post.title}
+                        createdAt={post.createdAt}
+                        postBody={post.body}
+                        postImage={post.image}
+                        challengeId={post.challenge._id}
+                      />
+                    );
+                  })}
+                <div className="card-body" />
+              </div>
           </div>
         </div>
       </div>

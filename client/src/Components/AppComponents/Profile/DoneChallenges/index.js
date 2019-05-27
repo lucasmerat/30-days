@@ -26,7 +26,7 @@ export default function DoneChallegnes({ challenges }) {
           } else return null;
         })
       ) : (
-        <div>No Challenges available</div>
+        <div>No workouts available</div>
       )}
     </div>
   );

@@ -79,6 +79,7 @@ class ChallengeDetails extends Component {
   render() {
     return this.props.userChallenges ? (
       <div className="row">
+        <div className="with-margin-row" />
         <div className="card challenge-details-card">
           <div className="card-body">
           <div className="row">
@@ -86,11 +87,11 @@ class ChallengeDetails extends Component {
           <img alt="..." src={this.state.image} className="details-image" />
           </div>
           <div className="col-8">
-          <h5 className="card-title challenge-title">
+          <h5 className="card-title challenge-details-title">
               {this.state.challengeTitle}
             </h5>
             <div className="card-body">
-              <div>{this.state.numUsers} challengers</div>
+              <div>{this.state.numUsers} active athletes</div>
               {this.state.challengeDescription}
             </div>
           </div>
@@ -113,14 +114,14 @@ class ChallengeDetails extends Component {
                 href="#"
                 className="btn btn-primary join-btn "
               >
-                Join Challenge
+                Join Workout
               </FormBtn>
             ) : (
               <>
                 { moment(this.state.startDate).add(31, "days").isAfter(moment())&&(moment(this.state.startDate).isBefore(moment()))?(
                 <div>
                 <FormBtn onClick={() => {this.handleShowModal();}} href="#" className="btn btn-primary join-btn ">
-                  Post to challenge
+                  Post to workout timeline
                 </FormBtn>
                 <Modal show={this.state.show} onHide={this.handleCloseModal}>
                   <Modal.Header closeButton>
@@ -149,7 +150,7 @@ class ChallengeDetails extends Component {
                   return (
                     <div className= "day-section" key={index}>
                       <b>{moment(this.state.startDate).add(index, "d").format("MM/DD/YYYY")}</b> <hr />{" "}
-                     <h7>{day === "" ? "Break" : day}</h7> 
+                     <p className="workout-day-description">{day === "" ? "Break" : day}</p> 
                     </div>
                   );
                 })}
