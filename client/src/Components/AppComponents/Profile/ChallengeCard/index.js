@@ -3,6 +3,7 @@ import moment from "moment";
 import { Link } from "react-router-dom";
 import { FormBtn } from "../../../BootstrapComponents/Form";
 import { ProgressBar } from "react-bootstrap";
+import "./ChallengeCard.css";
 
 export default function ChallengeCard(props) {
   const now = moment();
