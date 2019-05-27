@@ -120,7 +120,7 @@ class ChallengeDetails extends Component {
                 { moment(this.state.startDate).add(31, "days").isAfter(moment())&&(moment(this.state.startDate).isBefore(moment()))?(
                 <div>
                 <FormBtn onClick={() => {this.handleShowModal();}} href="#" className="btn btn-primary join-btn ">
-                  Post to challenge
+                  Post to workout timeline
                 </FormBtn>
                 <Modal show={this.state.show} onHide={this.handleCloseModal}>
                   <Modal.Header closeButton>
@@ -149,7 +149,7 @@ class ChallengeDetails extends Component {
                   return (
                     <div className= "day-section" key={index}>
                       <b>{moment(this.state.startDate).add(index, "d").format("MM/DD/YYYY")}</b> <hr />{" "}
-                     <h7>{day === "" ? "Break" : day}</h7> 
+                     <p className="workout-day-description">{day === "" ? "Break" : day}</p> 
                     </div>
                   );
                 })}
