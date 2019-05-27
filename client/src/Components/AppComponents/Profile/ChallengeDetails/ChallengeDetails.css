@@ -6,6 +6,10 @@
     color:whitesmoke;
   }
 
+.challenge-details-title{
+  font-size:2em !important;
+}
+
 .workout-day-description{
   font-size: 12px;
 }
@@ -39,6 +43,9 @@
 }
 
 @media screen and (max-width:640px){
+  .modal-content{
+    width: 95% !important;
+  }
   .challenge-details-card .day-section{
     width:23%;
     height:5em;

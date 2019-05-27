@@ -79,6 +79,7 @@ class ChallengeDetails extends Component {
   render() {
     return this.props.userChallenges ? (
       <div className="row">
+        <div className="with-margin-row" />
         <div className="card challenge-details-card">
           <div className="card-body">
           <div className="row">
@@ -86,7 +87,7 @@ class ChallengeDetails extends Component {
           <img alt="..." src={this.state.image} className="details-image" />
           </div>
           <div className="col-8">
-          <h5 className="card-title challenge-title">
+          <h5 className="card-title challenge-details-title">
               {this.state.challengeTitle}
             </h5>
             <div className="card-body">
