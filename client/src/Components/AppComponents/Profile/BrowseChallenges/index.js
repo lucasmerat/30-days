@@ -10,31 +10,33 @@ export default function BrowseChallenges({
 }) {
   return (
     <div className="row">
-      {challenges && challenges.length > 0 ? (
-        challenges.map(challenge => {
-          let firstDate = moment(challenge.startDate).add(1,"days");
-          let endDate = moment(challenge.startDate).add(31, "days");
-          if (endDate.isAfter(moment()) && firstDate.isAfter(moment())) {
-            return (
-              <ChallengeCard
-                key={challenge._id}
-                _id={challenge._id}
-                title={challenge.title}
-                description={challenge.description}
-                numUsers={challenge.user.length}
-                createdAt={challenge.createdAt}
-                image={challenge.image}
-                joinChallenge={joinChallenge}
-                userId={userId}
-                startDate={challenge.startDate}
-                type="Browse"
-              />
-            );
-          } else return null;
-        })
-      ) : (
-        <div>No Challenges available</div>
-      )}
+      <div className="with-margin-row">
+        {challenges && challenges.length > 0 ? (
+          challenges.map(challenge => {
+            let firstDate = moment(challenge.startDate).add(1, "days");
+            let endDate = moment(challenge.startDate).add(31, "days");
+            if (endDate.isAfter(moment()) && firstDate.isAfter(moment())) {
+              return (
+                <ChallengeCard
+                  key={challenge._id}
+                  _id={challenge._id}
+                  title={challenge.title}
+                  description={challenge.description}
+                  numUsers={challenge.user.length}
+                  createdAt={challenge.createdAt}
+                  image={challenge.image}
+                  joinChallenge={joinChallenge}
+                  userId={userId}
+                  startDate={challenge.startDate}
+                  type="Browse"
+                />
+              );
+            } else return null;
+          })
+        ) : (
+          <div>No Challenges available</div>
+        )}
+      </div>
     </div>
   );
 }

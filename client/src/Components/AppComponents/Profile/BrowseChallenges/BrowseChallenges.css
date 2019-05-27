@@ -1,3 +1,9 @@
+.with-margin-row{
+    width:100%;
+    display:flex;
+    flex-wrap: wrap;
+  }
+
 .browse-card {
   height: 100%;
   background-color: rgb(106, 103, 99);
@@ -8,13 +14,13 @@ div.card.browse-card{
  width:14em;
   
 }
-#root > div > div > div:nth-child(3) > div > img{
+.card-img-top{
   height:5em;
   width:5em;
   margin:auto;
 }
 .challenge-title {
-  font-size: 2em;
+  font-size: 1em;
   color: whitesmoke;
 }
 .challenge-text {
@@ -22,10 +28,7 @@ div.card.browse-card{
   font-size: 1em;
 }
 
-p.card-text.challenge-info {
-  background-color: white;
-  padding: 2%;
-  height:2em;
+.challenge-text {
   font-size:0.8em;
 }
 .fa-share-alt {
@@ -93,21 +96,14 @@ body {
 .card > .remove:hover {
   color: #d50000;
 }
-#root > div > div > div > div > div > p{
-  font-size: 0.8em;
-}
-#root > div > div > div > div > div > a > h5{
-  font-size:1em;
+
+.with-margin-row{
+    justify-content: center;
+
 }
 @media screen and (max-width:640px){
-  #root > div > div > div:nth-child(3) > div{
-    margin:auto;
-    margin-top:1em;
-    z-index:-2;
-  }
-  #root > div > div > div:nth-child(3) > div:nth-child(1){
+  .with-margin-row{
     margin:auto;
     margin-top:8em;
-    
   }
 }

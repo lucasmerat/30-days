@@ -5,7 +5,10 @@
 }
 .right-nav{
   padding:0px;
+}
 
+.nav-link{
+  color:white;
 }
 
 li{
@@ -22,9 +25,6 @@ li:last-child {
   border-right: none;
   
 }
-a.nav-link{
-  color:white;
-}
 
 a.nav-link:hover{
   color:rgb(220, 218, 218);
@@ -33,35 +33,23 @@ a.nav-link:active{
   color:rgb(244, 28, 28);
 }
 
-#root > div > div > div:nth-child(1) > div.col-8{
-  padding-left:0px;
-}
-
-#root > div > nav{
-  
-}
-
 @media screen and (max-width:640px){
-  #root > div > div > div:nth-child(1) > div > nav{
+  .nav-bar{
     position:fixed;
     top:77px;
-    z-index: 0;
-  
+    z-index: 1;
+    width:100%;
   }
   li{
     font-size: 0.4em;
     margin-left:0px;
     margin-right:0px;
   }
-  #root > div > div > div.row > div > nav{
-    width:100%;
-  }
-  #root > div > div > div:nth-child(1) > div > nav > ul{
-    padding-left:50px;
+  .nav-list{
+    padding-left:0px;
     padding-right:0px;
   }
-  #root > div > div > div:nth-child(1) > div > nav{
-    padding-right:0px;
-    margin-right:0px;
+  .nav-link{
+    font-size: 10px;
   }
 }

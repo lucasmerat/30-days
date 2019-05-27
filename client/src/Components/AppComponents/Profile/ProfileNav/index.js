@@ -3,7 +3,7 @@ import "./style.css";
 import { FormBtn} from "../../../BootstrapComponents/Form";
 import { Link } from "react-router-dom";
 
-function ProfileNav({ userName, profilePic, bio }) {
+function ProfileNav({ userName, profilePic }) {
   function readCookie() {
     var allcookies = document.cookie;
     var cookiearray = [];
@@ -29,30 +29,26 @@ function ProfileNav({ userName, profilePic, bio }) {
   return (
     <div className="col-3 profile-nav profile-float">
       <div className="row">
-        <div className="col-6">
-          <img className="profile-img" alt="profile" src={profilePic} />
-        </div>
-        <div className="col-6 info-container">
-          <div className="user-name">
+      <div className="user-name col-12 info-container">
             <h3 className="User-name">{userName}</h3>
-          </div>
-          <div className="user-about">
-            <h6>{bio}</h6>
-          </div>
         </div>
+        <div className="col-12 profile-img-box">
+          <img className="profile-img img-fluid" alt="profile" src={profilePic} />
+        </div>
+          
       </div>
       <div className="row buttons-row">
-        <div className="col-4">
-          <FormBtn className="logout-profile-btn">
-            <Link className="nav-link logout-link" to="/" onClick={LogOut}>
-              Log Out
+      <div className="button-col col-12">
+          <FormBtn className="profile-nav-btn create-workout-link">
+            <Link className="nav-link" to="/profile/create">
+              Create workout
             </Link>
           </FormBtn>
         </div>
-        <div className="col-4">
-          <FormBtn className="edit-profile-btn">
-            <Link className="nav-link" to="/profile/create">
-              Create
+        <div className="button-col col-12">
+          <FormBtn className="profile-nav-btn logout-link">
+            <Link className="nav-link" to="/" onClick={LogOut}>
+              Log Out
             </Link>
           </FormBtn>
         </div>

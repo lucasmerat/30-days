@@ -3,6 +3,7 @@ import moment from "moment";
 import { Link } from "react-router-dom";
 import { FormBtn } from "../../../BootstrapComponents/Form";
 import { ProgressBar } from "react-bootstrap";
+import "./ChallengeCard.css";
 
 export default function ChallengeCard(props) {
   const now = moment();
@@ -11,7 +12,7 @@ export default function ChallengeCard(props) {
   if (props.type === "Browse") {
     return (
       <div className="card browse-card">
-        <img src={props.image} className="card-img-top" alt="..." />
+        <img src={props.image} className="card-img-top img-fluid" alt="..." />
         <div className="card-body">
           <Link to={`/profile/challenge/${props._id}`}>
             <h5 className="card-title challenge-title">{props.title}</h5>

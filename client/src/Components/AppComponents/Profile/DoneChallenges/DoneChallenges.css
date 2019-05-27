@@ -3,22 +3,10 @@
     background-color: rgb(106, 103, 99);
     padding:0px;
 }
-.card-img-top{
-    height:13em;
-}
-.challenge-title{
-font-size: 2em;
-color:whitesmoke;
-}
-.challenge-text{
-    color:whitesmoke;
-    font-size:1em;
- }
-
 
 .challenge-info{
     background-color:white;
-    padding:5%;
+    padding:0%;
 }
 .fa-share-alt{
     float:right;

@@ -1,90 +1,111 @@
-.challenge-summary-row > ul{
-  margin-top:10%;
-  margin-left:0%;
+.challenge-summary-row > ul {
+  margin-top: 10%;
+  margin-left: 0%;
 }
 
-.profile-float{
-  float:left;
+.profile-float {
+  float: left;
 }
-.logout-profile-btn{
-  color:#e74b3c;
+.logout-profile-btn {
+  color: #e74b3c;
 }
 
 .logout-profile-btn:hover {
-  color:#962f26;
+  color: #962f26;
 }
 
-.profile-nav{
+.profile-nav {
   background-color: rgb(106, 103, 99);
-  color:whitesmoke;
-  padding-top:0px;
-  padding:3%;
-  height:150vh;
-
+  color: whitesmoke;
+  padding-top: 0px;
+  padding: 1%;
+  height: 150vh;
 }
-.buttons-row{
-  padding-top:10%;
+.buttons-row {
+  padding-top: 10%;
 }
 
-.profile-img{
+.profile-img-box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-img {
+  width:80% !important;
+  justify-content: center;
   background-color: #fafafa;
-  width:100%;
   border-radius: 50%;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  margin: 0 auto;
   overflow: hidden;
   position: relative;
+  margin: 0px !important;
 }
-.User-name{
-  padding-top:1.5em;
-  font-size:1.4em;
+.User-name {
+  font-size: 2.5em;
+  text-align: center;
 }
 
+.button-col {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+}
 
-@media screen and (max-width:640px){
-  .profile-nav{
-    width:75px;
-    height:40px;
-    position:fixed;
-    top:78px;
-    margin:0px;
-    padding:3px;
-  } 
-  #root > div > div > div.col-3.profile-nav.profile-float > div:nth-child(1) > div:nth-child(1) > img{
-    width:30px;
-  }
-  .User-name{
-    visibility: hidden;
-  }
-  #root > div > div > div.col-3.profile-nav.profile-float > div.row.buttons-row > div:nth-child(2) > button{
-   position:fixed;
-   top:82px;
-   left:40px;
-   z-index:2;
-   font-size:0.3em;
-   padding:0px;
-   margin:0px;
-   width:30px;
- 
-  }
- 
-.profile-nav.profile-float > div.row.buttons-row > div:nth-child(2) > button > a{
-    padding-left:1px;
-   
-  }
-  .user-about{
-    visibility: hidden;
-  }
- .logout-link{
+.profile-nav-btn {
+  width: 85%;
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (max-width: 640px) {
+  .profile-nav-btn {
     position: fixed;
-    top:15px;
-    left:260px;
-    z-index:1;
+    background-color: #343a40 !important;
+    border-color: #343a40 !important;
+    top: 82px;
+    left: 40px;
+    z-index: 2;
+    font-size: 0.3em;
+    padding: 0px;
+    margin: 0px;
   }
-  #root > div > div > div.col-3.profile-nav.profile-float > div.row.buttons-row > div:nth-child(1) > button{
-   background-color:transparent;
-   border:transparent;
+
+  .profile-nav {
+    width: 75px;
+    height: 40px;
+    position: fixed;
+    top: 78px;
+    margin: 0px;
+    padding: 3px;
   }
- 
+
+  .profile-img {
+    top: -174px;
+    left: 296px;
+    z-index: 1;
+    width: 80% !important;
+  }
+  .User-name {
+    visibility: hidden;
+  }
+
+  .user-about {
+    visibility: hidden;
+  }
+  .logout-link {
+    position: fixed;
+    top: 24px;
+    left: 239px;
+    z-index: 1;
+    width: 55px;
+  }
+  .create-workout-link {
+    position: fixed;
+    top: 24px;
+    left: 170px;
+    z-index: 1;
+    width: 65px;
+  }
 }
