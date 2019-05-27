@@ -10,13 +10,16 @@
 .btn-success:hover{
     background-color:#df2f1f !important;
     border-color:#e74b3c !important;
+    color:white !important;
 }
 
 .btn-success:active{
     background-color:#af3c31 !important;
     border-color:#e74b3c !important;
+    color:white !important;
 }
 .btn-success:focus{
     background-color:#af3c31 !important;
     border-color:#e74b3c !important;
+    color:white !important;
 }
