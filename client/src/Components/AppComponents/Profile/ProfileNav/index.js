@@ -3,7 +3,7 @@ import "./style.css";
 import { FormBtn} from "../../../BootstrapComponents/Form";
 import { Link } from "react-router-dom";
 
-function ProfileNav({ userName, profilePic, bio }) {
+function ProfileNav({ userName, profilePic }) {
   function readCookie() {
     var allcookies = document.cookie;
     var cookiearray = [];
@@ -39,15 +39,15 @@ function ProfileNav({ userName, profilePic, bio }) {
       </div>
       <div className="row buttons-row">
       <div className="button-col col-12">
-          <FormBtn className="profile-nav-btn">
+          <FormBtn className="profile-nav-btn create-workout-link">
             <Link className="nav-link" to="/profile/create">
               Create workout
             </Link>
           </FormBtn>
         </div>
         <div className="button-col col-12">
-          <FormBtn className="profile-nav-btn">
-            <Link className="nav-link logout-link" to="/" onClick={LogOut}>
+          <FormBtn className="profile-nav-btn logout-link">
+            <Link className="nav-link" to="/" onClick={LogOut}>
               Log Out
             </Link>
           </FormBtn>

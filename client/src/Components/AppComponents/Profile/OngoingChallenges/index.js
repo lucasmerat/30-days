@@ -5,7 +5,7 @@ import "./style.css";
 // import { FormBtn } from "../../UiComponents/Form";
 export default function OngoingChallenges({challenges, user}) {
   return (
-    <div className="row">
+    <div className="row ongoing-row">
           {challenges && challenges.length > 0 ? (challenges.map(challenge => {
           let endDate = moment(challenge.startDate).add(31, "days");
           if (endDate.isAfter(moment())) {

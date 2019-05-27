@@ -4,8 +4,9 @@
 }
 
 @media screen and (max-width:640px){
-    .navbar{
-        width:100%;
+
+    .top-nav{
+        width:96%;
         position:fixed;
         z-index: 0;
     }
