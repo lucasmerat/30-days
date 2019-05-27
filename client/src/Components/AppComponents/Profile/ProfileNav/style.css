@@ -80,6 +80,7 @@
     margin: 0px;
     padding: 3px;
     z-index: 2;
+    background-color:transparent;
   }
 
   .profile-img {
