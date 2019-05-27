@@ -34,7 +34,7 @@ function ProfileNav({ userName, profilePic, bio }) {
         </div>
         <div className="col-6 info-container">
           <div className="user-name">
-            <h3>{userName}</h3>
+            <h3 className="User-name">{userName}</h3>
           </div>
           <div className="user-about">
             <h6>{bio}</h6>
