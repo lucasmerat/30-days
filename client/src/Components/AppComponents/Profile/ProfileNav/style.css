@@ -79,10 +79,12 @@
     top: 78px;
     margin: 0px;
     padding: 3px;
+    z-index: 2;
+    background-color:transparent;
   }
 
   .profile-img {
-    top: -174px;
+    top: -127px;
     left: 296px;
     z-index: 1;
     width: 80% !important;
