@@ -2,7 +2,7 @@ import React from "react";
 import { InstagramLoginButton, GoogleLoginButton } from "react-social-login-buttons";
 import { Col, Row, Container } from "../../../BootstrapComponents/Grid";
 import { Redirect } from "react-router-dom";
-import "./login.css";
+import "./Login.css";
 
 function Login(props) {
   let instaLink;
@@ -18,9 +18,10 @@ function Login(props) {
     <Redirect to="/profile/browse" />
   ) : (
     <Container fluid>
-      <Row >
+      <Row classes="login-row">
         <Col size="md-4" />
         <Col classes="social-button-box" size="md-4">
+          <img className="login-logo img-fluid" src="/assets/images/LogoLarge.jpg" alt=""/>
           <a className="social-button" href={instaLink}>
             <InstagramLoginButton />
           </a>
