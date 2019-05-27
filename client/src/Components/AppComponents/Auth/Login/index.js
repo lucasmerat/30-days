@@ -20,7 +20,7 @@ function Login(props) {
     <Container fluid>
       <Row >
         <Col size="md-4" />
-        <Col size="md-4">
+        <Col classes="social-button-box" size="md-4">
           <a className="social-button" href={instaLink}>
             <InstagramLoginButton />
           </a>
