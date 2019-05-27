@@ -20,10 +20,6 @@
 .challenge-title{
   font-size: 1em;
 }
-.challenge-text{
-    color:whitesmoke;
-    font-size:1em;
- }
 
  .card-img-top{
   height:5em;
@@ -33,7 +29,7 @@
 
 .challenge-info{
     background-color:white;
-    padding:5%;
+    padding:0%;
 }
 .fa-share-alt{
     float:right;

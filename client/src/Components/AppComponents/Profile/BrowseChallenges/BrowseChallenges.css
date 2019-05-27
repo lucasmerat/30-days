@@ -28,10 +28,7 @@ div.card.browse-card{
   font-size: 1em;
 }
 
-p.card-text.challenge-info {
-  background-color: white;
-  padding: 2%;
-  height:2em;
+.challenge-text {
   font-size:0.8em;
 }
 .fa-share-alt {
