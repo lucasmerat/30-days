@@ -121,7 +121,7 @@ module.exports = function(app) {
   // Get Challenges only belonging to a certain user
   app.get("/api/challenges/:id", function(req, res) {
     db.User.findOne({ _id: req.params.id })
-      .populate("challenge")
+      .populate({path:'challenge',options:{ sort:{startDate : 1}}})
       .then(function(dbUser) {
         res.json(dbUser.challenge);
       })
@@ -133,7 +133,7 @@ module.exports = function(app) {
   // Get all challenges user doesn't belong to
   app.get("/api/notchallenges/:id", function(req, res) {
     db.Challenge.find({ user: { $nin: [req.params.id] } })
-      .sort({ createdAt: "desc" })
+      .sort({ startDate: 1})
       .populate("user")
       .then(function(dbChallenge) {
         res.json(dbChallenge);
