@@ -38,7 +38,7 @@ a.nav-link:active{
     position:fixed;
     top:77px;
     z-index: 1;
-    width:100%;
+    width:395px;
   }
   li{
     font-size: 0.4em;
