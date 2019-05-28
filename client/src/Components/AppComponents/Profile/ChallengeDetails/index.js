@@ -1,9 +1,10 @@
 import React, { Component } from "react";
+import moment from "moment";
+import Countdown from "react-countdown-now";
 import { Input, FormBtn } from "../../../BootstrapComponents/Form/";
 import "./ChallengeDetails.css";
 import API from "../../../../utils/API";
 import { Modal } from "react-bootstrap";
-import moment from "moment";
 
 class ChallengeDetails extends Component {
   componentDidMount() {
@@ -18,7 +19,7 @@ class ChallengeDetails extends Component {
     postImage: null,
     postTitle: null,
     postBody: null,
-    startDate: new Date()
+    startDate: null
   };
   loadChallenge = () => {
     API.getChallengebyId(this.props.match.params.id)
@@ -89,25 +90,43 @@ class ChallengeDetails extends Component {
                   src={this.state.image}
                   className="details-image"
                 />
+                {this.state.numUsers === 1 ? (
+                  <div className="num-athletes">
+                    {this.state.numUsers} active athlete
+                  </div>
+                ) : (
+                  <div className="num-athletes">
+                    {this.state.numUsers} active athletes
+                  </div>
+                )}
               </div>
               <div className="col-8">
                 <h5 className="card-title challenge-details-title">
                   {this.state.challengeTitle}
                 </h5>
                 <h5>
-                      {moment(this.state.startDate).diff(moment(), "days") >
-                      0 ? (
-                        <div>
-                          Workout begins in{" "}
-                          {moment(this.state.startDate).diff(moment(), "days")}{" "}
-                          days{" "}
+                  {moment(this.state.startDate).diff(moment(), "days") > 0 ? (
+                    <div>
+                      Workout begins in{" "}
+                      <div className="timer-box">
+                        <Countdown date={moment(this.state.startDate)} />
+                      </div>
+                    </div>
+                  ) : (
+                    <div>
+                      <span>Workout ends in</span>{" "}
+                      <div className="timer-box">
+                        <Countdown
+                          date={moment(this.state.startDate).add(30, "days")}
+                        />{" "}
+                        <div className="countdown-intervals">
+                          Days | Hrs | Min | Sec
                         </div>
-                      ) : (
-                        <div>Workout ends in {30 + moment(this.state.startDate).diff(moment(), "days")} days </div>
-                      )}
-                    </h5>
+                      </div>
+                    </div>
+                  )}
+                </h5>
                 <div className="card-body">
-                  <div>{this.state.numUsers} active athletes</div>
                   <div className="challenge-description">
                     {this.state.challengeDescription}
                   </div>
