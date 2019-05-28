@@ -56,10 +56,11 @@ class ChallengeDetails extends Component {
       postBody: e.target.value
     });
   };
-  handleAddPost = () => {
+  handleAddPost = e => {
+    e.preventDefault();
     this.setState({ show: false });
     const post = {
-      postDay: moment().diff(moment(this.state.startDate), 'days') + 1,
+      postDay: moment().diff(moment(this.state.startDate), "days") + 1,
       body: this.state.postBody,
       image: this.state.postImage,
       challenge: this.props.match.params.id,
@@ -165,19 +166,40 @@ class ChallengeDetails extends Component {
                       show={this.state.show}
                       onHide={this.handleCloseModal}
                     >
-                      <Modal.Header closeButton>
-                        <Modal.Title>Share with other challengers!</Modal.Title>
-                      </Modal.Header>
-                      <Modal.Body>
-                        <form action="/" />
-                        <label>What were your thoughts on the workout?</label>
-                        <Input onChange={this.handlePostBodyChange} />
-                        <label>Share an image</label>
-                        <Input type="file" onChange={this.handleFileSelect} />
-                      </Modal.Body>
-                      <Modal.Footer>
-                        <FormBtn onClick={this.handleAddPost}>Add Post</FormBtn>
-                      </Modal.Footer>
+                      <form onSubmit={this.handleAddPost}>
+                        <Modal.Header closeButton>
+                          <Modal.Title>
+                            Share with other challengers!
+                          </Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>
+                          <div className="modal-question-box">
+                            <label>
+                              What were your thoughts on the workout?
+                            </label>
+                            <textarea
+                              onChange={this.handlePostBodyChange}
+                              className="create-workout-input"
+                              required
+                            />
+                            <label>Share an image</label>
+                            <div className="upload-btn-wrapper">
+                            <button className="upload-btn btn btn-success">Upload a file</button>
+                              <input
+                                type="file"
+                                onChange={this.handleFileSelect}
+                              />
+                            </div>
+                          </div>
+                        </Modal.Body>
+                        <Modal.Footer>
+                          <input
+                            type="submit"
+                            value="Add Post"
+                            className="btn btn-success"
+                          />
+                        </Modal.Footer>
+                      </form>
                     </Modal>
                   </div>
                 ) : null}
@@ -196,7 +218,7 @@ class ChallengeDetails extends Component {
                       </b>{" "}
                       <hr />{" "}
                       <p className="workout-day-description">
-                        {day === "" ? "Break" : day}
+                        {day === "" ? "Rest Day" : day}
                       </p>
                     </div>
                   );

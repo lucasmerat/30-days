@@ -51,6 +51,27 @@
   margin-top: 8px;
 }
 
+.title-description-box {
+  width: 100%;
+}
+
+.create-workout-input {
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #ced4da;
+  padding: 5px;
+}
+
+.post-to-timeline-button{
+  margin-top:15px;
+  width: 150px;
+}
+
+.post-to-timeline-box{
+  display:flex;
+  justify-content: center;
+}
+
 @media screen and (max-width: 640px) {
   .workout-day-input {
     margin: 5px;
