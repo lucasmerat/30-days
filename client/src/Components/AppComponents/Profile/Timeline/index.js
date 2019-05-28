@@ -21,8 +21,7 @@ class Timeline extends Component {
     return (
       <div className="row">
         <div className="timeline-card">
-          <div className="with-margin-row">
-            <div>
+          <div className="timeline-with-margin-row">
               {this.state.posts && this.state.posts.length > 0 ? (
                 this.state.posts.map(post => {
                   return (
@@ -31,8 +30,8 @@ class Timeline extends Component {
                       username={post.user.username}
                       profilePicture={post.user.profile_picture}
                       challengeName={post.challenge.title}
-                      postTitle={post.title}
                       createdAt={post.createdAt}
+                      postDay={post.postDay}
                       postBody={post.body}
                       postImage={post.image}
                       challengeId={post.challenge._id}
@@ -44,7 +43,6 @@ class Timeline extends Component {
               )}
               <div className="card-body" />
             </div>
-          </div>
         </div>
       </div>
     );

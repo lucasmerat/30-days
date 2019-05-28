@@ -1,5 +1,5 @@
 import React from "react";
-import { FormBtn} from "../../../BootstrapComponents/Form/";
+import { FormBtn } from "../../../BootstrapComponents/Form/";
 import { Link } from "react-router-dom";
 import "./TimelinePost.css";
 import moment from "moment";
@@ -8,14 +8,15 @@ export default function TimelinePost({
   username,
   profilePicture,
   challengeName,
-  postTitle,
   createdAt,
   postBody,
   postImage,
+  postDay,
   challengeId
 }) {
+
   return (
-    <div>
+    <div className="timeline-post-box">
       <div className="card post-card gedf-card">
         <div className="card-header post-header">
           <div className="d-flex justify-content-between align-items-center">
@@ -30,24 +31,25 @@ export default function TimelinePost({
               </div>
               <div className="ml-2">
                 <div className="h5 m-0">{username}</div>
-                <div className="h5 m-0">From workout: <Link className="workout-link" to={`/profile/challenge/${challengeId}`}> {challengeName}</Link></div> 
+                <div className="h5 m-0">
+                  From workout:{" "}
+                  <Link
+                    className="workout-link"
+                    to={`/profile/challenge/${challengeId}`}
+                  >
+                    {" "}
+                    {challengeName}
+                  </Link>
+                  <p className="time-posted">{moment(createdAt).calendar()}</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <div className="card-body post-body">
-          <div className="text-white h7 card-date-post mb-2">
-            {" "}
-            <i className="fa fa-clock-o" />{moment(createdAt).calendar()}
-          </div>
-          <h5 className="card-title card-title-post">
-            {postTitle}
-          </h5>
-          <img className="img-fluid" src={postImage} alt="" />
-
-          <p className="card-text card-text-post my-2">
-            {postBody}
-          </p>
+        <div className="card-body post-content">
+          <h4 className="card-title card-title-post">Posted on Day {postDay}</h4>
+          <h5 className="card-text card-text-post my-3 post-body">{postBody}</h5>
+          {postImage ? (<img className="img-fluid" src={postImage} alt="" />): (null)}
         </div>
         <div className="card-footer">
           <FormBtn className="edit-profile-btn">Like</FormBtn>
