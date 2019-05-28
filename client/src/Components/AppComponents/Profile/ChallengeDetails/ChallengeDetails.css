@@ -38,7 +38,8 @@
   width:100%;
   padding:105;
 }
-#root > div > div > div:nth-child(3) > div > div > div.workout-days > div > b{
+
+.day-section{
   font-size:0.7em;
 }
 
@@ -68,13 +69,13 @@
   .challenge-details-card .day-section:nth-child(27), .day-section:nth-child(28),.day-section:nth-child(29),.day-section:nth-child(30){
     border-bottom: 2px solid #D0E4F5;
   }
-  #root > div > div > div:nth-child(3) > div > div > div.workout-days > div > b{
+ div.workout-days > div > b{
     font-size:7px;;
   }
-  #root > div > div > div:nth-child(3) > div > div > div.workout-days > div > hr{
+ div.workout-days > div > hr{
     margin:2px;
   }
-  #root > div > div > div:nth-child(3) > div > div > div.workout-days > div > h7{
+  div.workout-days > div > h7{
     font-size:0.4em;
   }
 }
