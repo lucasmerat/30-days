@@ -40,7 +40,7 @@ class Timeline extends Component {
                   );
                 })
               ) : (
-                <div class="no-timeline-posts-msg">No timeline posts... join some workouts and start posting progress</div>
+                <div className="no-timeline-posts-msg">No timeline posts... join some workouts and start posting progress</div>
               )}
               <div className="card-body" />
             </div>

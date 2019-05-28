@@ -1,3 +1,7 @@
+#root{
+  overflow-x:hidden;
+}
+
 .challenge-summary-row > ul {
   margin-top: 10%;
   margin-left: 0%;
