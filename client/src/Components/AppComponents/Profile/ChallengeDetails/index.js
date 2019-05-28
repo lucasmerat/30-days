@@ -196,7 +196,7 @@ class ChallengeDetails extends Component {
                       </b>{" "}
                       <hr />{" "}
                       <p className="workout-day-description">
-                        {day === "" ? "Break" : day}
+                        {day === "" ? "Rest Day" : day}
                       </p>
                     </div>
                   );
