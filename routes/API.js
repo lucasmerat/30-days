@@ -84,8 +84,8 @@ module.exports = function(app) {
   });
 
   //Delete challenge by id
-  app.delete("/api/deleteChallenge/:id",function(req,res){
-    db.Challenge.findOneAndDelete({_id:req.params.id})
+  app.delete("/api/deleteChallenge/:id", function(req, res) {
+    db.Challenge.findOneAndDelete({ _id: req.params.id })
       .then(function(dbChallenge) {
         res.json(dbChallenge);
       })
@@ -121,7 +121,7 @@ module.exports = function(app) {
   // Get Challenges only belonging to a certain user
   app.get("/api/challenges/:id", function(req, res) {
     db.User.findOne({ _id: req.params.id })
-      .populate({path:'challenge',options:{ sort:{startDate : 1}}})
+      .populate({ path: "challenge", options: { sort: { startDate: 1 } } })
       .then(function(dbUser) {
         res.json(dbUser.challenge);
       })
@@ -133,7 +133,7 @@ module.exports = function(app) {
   // Get all challenges user doesn't belong to
   app.get("/api/notchallenges/:id", function(req, res) {
     db.Challenge.find({ user: { $nin: [req.params.id] } })
-      .sort({ startDate: 1})
+      .sort({ startDate: 1 })
       .populate("user")
       .then(function(dbChallenge) {
         res.json(dbChallenge);
@@ -207,7 +207,8 @@ module.exports = function(app) {
         return db.Post.find({ challenge: { $in: dbUser.challenge } })
           .sort({ createdAt: "desc" })
           .populate("challenge")
-          .populate("user");
+          .populate("user")
+          .populate("likes");
       })
       .then(function(dbPost) {
         res.json(dbPost);
@@ -215,5 +216,35 @@ module.exports = function(app) {
       .catch(function(err) {
         res.json(err);
       });
+  });
+
+  //Add like to a post
+  app.post("/api/likePost/:postid/:userid", function(req, res) {
+      db.Post.findOneAndUpdate(
+        { _id: req.params.postid },
+        { $addToSet: { likes:  req.params.userid } },
+        { new: true }
+      )
+    .then(function(dbPost) {
+      res.json(dbPost);
+    })
+    .catch(function(err) {
+      res.json(err);
+    });
+  });
+
+  //Unlike a post
+  app.post("/api/unlikePost/:postid/:userid", function(req, res) {
+      db.Post.findOneAndUpdate(
+        { _id: req.params.postid },
+        { $pull: { likes:  req.params.userid } },
+        { new: true }
+      )
+    .then(function(dbPost) {
+      res.json(dbPost);
+    })
+    .catch(function(err) {
+      res.json(err);
+    });
   });
 };
