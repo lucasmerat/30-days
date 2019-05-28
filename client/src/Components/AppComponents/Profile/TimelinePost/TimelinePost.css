@@ -16,3 +16,15 @@
     text-decoration: none;
 }
 
+.timeline-post-box{
+    justify-content: center;
+    display: flex;
+}
+
+.time-posted{
+    margin-bottom: 0px;
+}
+
+.post-body{
+    text-align: left;
+}

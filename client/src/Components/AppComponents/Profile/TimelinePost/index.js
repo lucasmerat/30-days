@@ -25,7 +25,7 @@ unlikePost = (postId) => {
 
  render(){
   return (
-    <div>
+    <div className="timeline-post-box">
       <div className="card post-card gedf-card">
         <div className="card-header post-header">
           <div className="d-flex justify-content-between align-items-center">
@@ -39,25 +39,29 @@ unlikePost = (postId) => {
                 />
               </div>
               <div className="ml-2">
+                <div className="h5 m-0">{username}</div>
+                <div className="h5 m-0">
+                  From workout:{" "}
+                  <Link
+                    className="workout-link"
+                    to={`/profile/challenge/${challengeId}`}
+                  >
+                    {" "}
+                    {this.props.challengeName}
+                  </Link>
+                  <p className="time-posted">{moment(this.props.createdAt).calendar()}</p>
+                </div>
                 <div className="h5 m-0">{this.props.username}</div>
                 <div className="h5 m-0">From workout: <Link className="workout-link" to={`/profile/challenge/${this.props.challengeId}`}> {this.props.challengeName}</Link></div> 
               </div>
             </div>
           </div>
         </div>
-        <div className="card-body post-body">
-          <div className="text-white h7 card-date-post mb-2">
-            {" "}
-            <i className="fa fa-clock-o" />{moment(this.props.createdAt).calendar()}
-          </div>
-          <h5 className="card-title card-title-post">
-            {this.props.postTitle}
-          </h5>
-          <img className="img-fluid" src={this.props.postImage} alt="" />
-
-          <p className="card-text card-text-post my-2">
-            {this.props.postBody}
-          </p>
+        <div className="card-body post-content">
+          <h4 className="card-title card-title-post">Posted on Day {this.props.postDay}</h4>
+          <h5 className="card-text card-text-post my-3 post-body">{this.props.postBody}</h5>
+          {postImage ? (<img className="img-fluid" src={this.props.postImage} alt="" />): (null)}
+       
         </div>
         <div className="card-footer">
             {
