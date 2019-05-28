@@ -8,7 +8,7 @@ function ChallengesNav() {
     <div className="row nav-bar">
     {/* <div className="col-3 left-nav"></div> */}
     <div className="col-12 right-nav">
-    <nav className="navbar navbar-dark bg-dark ">
+    <nav className="navbar navbar-dark bg-dark challenge-nav">
  
  <ul className="nav-list">
    <li className="nav-item active">

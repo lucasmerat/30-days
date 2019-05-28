@@ -71,6 +71,11 @@
     width:40px;
   }
 
+  .profile-nav-btn:hover, .profile-nav-btn:focus {
+    background-color: #282d31 !important;
+    border-color: #282d31 !important;
+  }
+
   .profile-nav {
     width: 75px;
     height: 40px;

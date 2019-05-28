@@ -2,6 +2,8 @@
   margin: auto;
   margin-top: 5%;
   width: 80%;
+  margin-top: 20px;
+  height: 100%;
   padding: 3%;
   color: whitesmoke;
 }
@@ -33,11 +35,6 @@
 
 .create-challenge-card-body {
   text-align: left;
-}
-
-.create-challenge-card{
-  margin-top: 20px;
-  height: 100%;
 }
 
 .create-challenge-row {
