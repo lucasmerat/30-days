@@ -1,50 +1,65 @@
-.create-challenge-card{
-  margin:auto;
-  margin-top:5%;
-  width:80%;
-  padding:3%;
-  color:whitesmoke;
+.create-challenge-card {
+  margin: auto;
+  margin-top: 5%;
+  width: 80%;
+  padding: 3%;
+  color: whitesmoke;
 }
-.challenge-img-pick{
-  width:50%;
-  float:left;
+.challenge-img-pick {
+  width: 50%;
+  float: left;
 }
 
-.workout-day-input{
-  margin:5px;
+.workout-day-input {
+  margin: 5px;
   width: 31%;
 }
 
-.day-input-row{
+.day-input-row {
   justify-content: center;
 }
 
-.custom-control-label{
+.custom-control-label {
   display: flex;
-    align-items: center;
-    justify-content: center;
+  align-items: center;
+  justify-content: center;
 }
 
 .start-date {
   text-align: left;
   margin-bottom: 10px;
-  width:100%;
+  width: 100%;
 }
 
 .create-challenge-card-body {
-  text-align: left;  
+  text-align: left;
 }
 
-.create-challenge-row{
+.create-challenge-row {
   margin: 0px;
 }
 
-.picker{
+.picker {
   border-radius: 5px;
   border: 1px solid #ced4da;
-  padding:5px;
+  padding: 5px;
 }
 
-.add-workout-header{
-  margin-top:8px;
+.add-workout-header {
+  margin-top: 8px;
+}
+
+.create-challenge-card{
+  margin-top: 20px;
+}
+
+@media screen and (max-width: 640px) {
+  .workout-day-input {
+    margin: 5px;
+    width: 28%;
+  }
+
+  .challenge-img-pick {
+    width: 100%;
+  }
 }
