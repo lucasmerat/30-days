@@ -25,7 +25,9 @@ function Login(props) {
           <a className="social-button" href={instaLink}>
             <InstagramLoginButton />
           </a>
-          <a className="social-button" href={googleLink}><GoogleLoginButton/></a>
+          <a className="social-button" href={googleLink}>
+            <GoogleLoginButton/>
+          </a>
         </Col>
       </Row>
     </Container>
