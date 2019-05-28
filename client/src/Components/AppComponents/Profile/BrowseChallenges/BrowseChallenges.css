@@ -19,10 +19,6 @@ div.card.browse-card{
   width:5em;
   margin:auto;
 }
-.challenge-title {
-  font-size: 1em;
-  color: whitesmoke;
-}
 .challenge-text {
   color: whitesmoke;
   font-size: 1em;
@@ -100,6 +96,12 @@ body {
 .with-margin-row{
     justify-content: center;
 
+}
+
+.no-challenges{
+  color:white;
+  font-size:1.5em;
+  margin-top: 10px;
 }
 @media screen and (max-width:640px){
   .with-margin-row{

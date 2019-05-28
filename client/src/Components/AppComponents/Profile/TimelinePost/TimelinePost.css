@@ -22,4 +22,13 @@
 }
 .card-text-post{
     text-align: left;
+
+.workout-link{
+    color:#df2f1f;
+}
+
+.workout-link:hover{
+    color:#b4362b;
+    text-decoration: none;
+
 }

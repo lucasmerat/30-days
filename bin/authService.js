@@ -32,9 +32,9 @@ module.exports = function(req, res) {
         if (err) res.send(err);
           res.cookie('userId',  dbUser.id, {maxAge: 604800000});
           if (process.env.NODE_ENV === "development") {
-              res.redirect("http://localhost:3000/profile");
+              res.redirect("http://localhost:3000/profile/browse");
             } else {
-              res.redirect("/profile");
+              res.redirect("/profile/browse");
             }
       }); 
     }
