@@ -21,7 +21,18 @@ unlikePost = (postId) => {
     this.setState({liked:false});
     this.props.loadPosts();
   })
-};
+}
+likeUpdate = () => {
+  this.props.userLikes.map(likes=>{
+    if (likes.username===this.props.username){
+      this.setState({liked:true});
+    }
+    return null;
+  })
+}
+componentDidMount(){
+  this.likeUpdate()
+}
 
  render(){
   return (
