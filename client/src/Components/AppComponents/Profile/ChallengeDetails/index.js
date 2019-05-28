@@ -103,7 +103,7 @@ class ChallengeDetails extends Component {
                           days{" "}
                         </div>
                       ) : (
-                        <div>Workout ends in {30 + moment(this.state.startDate).diff(moment(), "days")} days</div>
+                        <div>Workout ends in {30 + moment(this.state.startDate).diff(moment(), "days")} days </div>
                       )}
                     </h5>
                 <div className="card-body">
