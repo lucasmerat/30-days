@@ -1,5 +1,6 @@
 #root{
   overflow-x:hidden;
+  overflow-y:hidden;
 }
 
 .challenge-summary-row > ul {
