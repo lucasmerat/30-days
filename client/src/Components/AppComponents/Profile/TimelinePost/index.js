@@ -35,17 +35,17 @@ export default function TimelinePost({
             </div>
           </div>
         </div>
-        <div className="card-body">
-          <div className="text-white h7 mb-2">
+        <div className="card-body post-body">
+          <div className="text-white h7 card-date-post mb-2">
             {" "}
             <i className="fa fa-clock-o" />{moment(createdAt).calendar()}
           </div>
-          <h5 className="card-title">
+          <h5 className="card-title card-title-post">
             {postTitle}
           </h5>
           <img className="img-fluid" src={postImage} alt="" />
 
-          <p className="card-text my-2">
+          <p className="card-text card-text-post my-2">
             {postBody}
           </p>
         </div>
