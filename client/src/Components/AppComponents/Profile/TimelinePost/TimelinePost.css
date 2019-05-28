@@ -7,22 +7,6 @@
     background-color: #434242;
 }
 
-.post-body{
-    width:900px;
-}
-
-.timeline-card{
-    height:100%;
-}
-.card-title-post{
-    text-align: left;
-}
-.card-date-post{
-    text-align: left;
-}
-.card-text-post{
-    text-align: left;
-
 .workout-link{
     color:#df2f1f;
 }
@@ -30,5 +14,5 @@
 .workout-link:hover{
     color:#b4362b;
     text-decoration: none;
-
 }
+
