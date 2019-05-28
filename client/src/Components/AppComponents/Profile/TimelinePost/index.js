@@ -1,20 +1,29 @@
-import React from "react";
-import { FormBtn } from "../../../BootstrapComponents/Form/";
+import React,{Component} from "react";
+import { FormBtn} from "../../../BootstrapComponents/Form/";
 import { Link } from "react-router-dom";
 import "./TimelinePost.css";
 import moment from "moment";
+import API from "../../../../utils/API";
 
-export default function TimelinePost({
-  username,
-  profilePicture,
-  challengeName,
-  createdAt,
-  postBody,
-  postImage,
-  postDay,
-  challengeId
-}) {
 
+class TimelinePost extends Component{
+state={
+  liked:false
+}
+likePost = (postId) => {
+  API.likePost(postId,this.props.userId).then(posts => {
+    this.setState({liked:true});
+    this.props.loadPosts();
+  })
+};
+unlikePost = (postId) => {
+  API.unlikePost(postId,this.props.userId).then(posts => {
+    this.setState({liked:false});
+    this.props.loadPosts();
+  })
+};
+
+ render(){
   return (
     <div className="timeline-post-box">
       <div className="card post-card gedf-card">
@@ -25,7 +34,7 @@ export default function TimelinePost({
                 <img
                   className="rounded-circle"
                   width="45"
-                  src={profilePicture}
+                  src={this.props.profilePicture}
                   alt=""
                 />
               </div>
@@ -38,23 +47,32 @@ export default function TimelinePost({
                     to={`/profile/challenge/${challengeId}`}
                   >
                     {" "}
-                    {challengeName}
+                    {this.props.challengeName}
                   </Link>
-                  <p className="time-posted">{moment(createdAt).calendar()}</p>
+                  <p className="time-posted">{moment(this.props.createdAt).calendar()}</p>
                 </div>
+                <div className="h5 m-0">{this.props.username}</div>
+                <div className="h5 m-0">From workout: <Link className="workout-link" to={`/profile/challenge/${this.props.challengeId}`}> {this.props.challengeName}</Link></div> 
               </div>
             </div>
           </div>
         </div>
         <div className="card-body post-content">
-          <h4 className="card-title card-title-post">Posted on Day {postDay}</h4>
-          <h5 className="card-text card-text-post my-3 post-body">{postBody}</h5>
-          {postImage ? (<img className="img-fluid" src={postImage} alt="" />): (null)}
+          <h4 className="card-title card-title-post">Posted on Day {this.props.postDay}</h4>
+          <h5 className="card-text card-text-post my-3 post-body">{this.props.postBody}</h5>
+          {postImage ? (<img className="img-fluid" src={this.props.postImage} alt="" />): (null)}
+       
         </div>
         <div className="card-footer">
-          <FormBtn className="edit-profile-btn">Like</FormBtn>
+            {
+              this.state.liked===false?<FormBtn className="edit-profile-btn" onClick={()=>{this.likePost(this.props.postId)}}>Like</FormBtn>:<FormBtn key={Math.random()}className="edit-profile-btn" onClick={()=>{this.unlikePost(this.props.postId)}}>Unlike</FormBtn>
+            }
+          <span> {this.props.likes}  {this.props.likes===1?"like":"likes"}</span>
         </div>
       </div>
     </div>
   );
 }
+}
+
+export default TimelinePost;

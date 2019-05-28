@@ -14,6 +14,7 @@ class Timeline extends Component {
       });
     });
   };
+
   componentDidMount() {
     this.loadPosts();
   }
@@ -27,14 +28,20 @@ class Timeline extends Component {
                   return (
                     <TimelinePost
                       key={post._id}
+                      postId ={post._id}
                       username={post.user.username}
                       profilePicture={post.user.profile_picture}
                       challengeName={post.challenge.title}
                       createdAt={post.createdAt}
                       postDay={post.postDay}
+                      likes={post.likes.length}
+                      userLikes={post.likes}
                       postBody={post.body}
                       postImage={post.image}
                       challengeId={post.challenge._id}
+                      loadPosts={this.loadPosts}
+                      userId={this.props.userId}
+
                     />
                   );
                 })

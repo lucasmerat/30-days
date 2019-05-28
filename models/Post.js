@@ -17,7 +17,11 @@ var PostSchema = new Schema({
   user: {
     type: Schema.Types.ObjectId,
     ref: "User"
-  }
+  },
+  likes: [{
+    type: Schema.Types.ObjectId,
+    ref: "User"
+  }]
 });
 
 
