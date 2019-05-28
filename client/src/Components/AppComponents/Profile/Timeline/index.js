@@ -18,7 +18,6 @@ class Timeline extends Component {
     this.loadPosts();
   }
   render() {
-    console.log(this.state.posts);
     return (
       <div className="row">
         <div className="timeline-card">
