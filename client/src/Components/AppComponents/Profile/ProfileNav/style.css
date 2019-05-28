@@ -64,12 +64,11 @@
     position: fixed;
     background-color: #343a40 !important;
     border-color: #343a40 !important;
-    top: 82px;
-    left: 40px;
-    z-index: 2;
     font-size: 0.3em;
     padding: 0px;
     margin: 0px;
+    height:20px;
+    width:40px;
   }
 
   .profile-nav {
@@ -98,16 +97,20 @@
   }
   .logout-link {
     position: fixed;
-    top: 24px;
-    left: 239px;
+    top: 30px;
+    left: 230px;
     z-index: 1;
-    width: 55px;
+    width: 70px;
+    height: 27px;
+    font-size: 10px;
   }
   .create-workout-link {
     position: fixed;
-    top: 24px;
-    left: 170px;
+    top: 30px;
+    left: 156px;
     z-index: 1;
-    width: 65px;
+    width: 70px;
+    height: 27px;
+    font-size: 10px;
   }
 }
