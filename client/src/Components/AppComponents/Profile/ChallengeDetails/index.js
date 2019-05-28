@@ -59,7 +59,7 @@ class ChallengeDetails extends Component {
   handleAddPost = () => {
     this.setState({ show: false });
     const post = {
-      postDay: moment(this.state.startDate).diff(moment(), 'days') + 1,
+      postDay: moment().diff(moment(this.state.startDate), 'days') + 1,
       body: this.state.postBody,
       image: this.state.postImage,
       challenge: this.props.match.params.id,
