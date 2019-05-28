@@ -18,7 +18,7 @@ class ChallengeDetails extends Component {
     postImage: null,
     postTitle: null,
     postBody: null,
-    startDate:new Date()
+    startDate: new Date()
   };
   loadChallenge = () => {
     API.getChallengebyId(this.props.match.params.id)
@@ -29,7 +29,7 @@ class ChallengeDetails extends Component {
           days: res.data.days,
           numUsers: res.data.user.length,
           image: res.data.image,
-          startDate:res.data.startDate
+          startDate: res.data.startDate
         })
       )
       .catch(err => console.log(err));
@@ -73,7 +73,7 @@ class ChallengeDetails extends Component {
       createdAt: new Date()
     };
     this.props.postToChallenge(post);
-    this.props.history.push("/profile/timeline")
+    this.props.history.push("/profile/timeline");
   };
 
   render() {
@@ -82,22 +82,39 @@ class ChallengeDetails extends Component {
         <div className="with-margin-row" />
         <div className="card challenge-details-card">
           <div className="card-body">
-          <div className="row">
-          <div className="col-4">
-          <img alt="..." src={this.state.image} className="details-image" />
-          </div>
-          <div className="col-8">
-          <h5 className="card-title challenge-details-title">
-              {this.state.challengeTitle}
-            </h5>
-            <div className="card-body">
-              <div>{this.state.numUsers} active athletes</div>
-              {this.state.challengeDescription}
+            <div className="row">
+              <div className="col-4">
+                <img
+                  alt="..."
+                  src={this.state.image}
+                  className="details-image"
+                />
+              </div>
+              <div className="col-8">
+                <h5 className="card-title challenge-details-title">
+                  {this.state.challengeTitle}
+                </h5>
+                <h5>
+                      {moment(this.state.startDate).diff(moment(), "days") >
+                      0 ? (
+                        <div>
+                          Workout begins in{" "}
+                          {moment(this.state.startDate).diff(moment(), "days")}{" "}
+                          days{" "}
+                        </div>
+                      ) : (
+                        <div>Workout ends in {30 + moment(this.state.startDate).diff(moment(), "days")} days</div>
+                      )}
+                    </h5>
+                <div className="card-body">
+                  <div>{this.state.numUsers} active athletes</div>
+                  <div className="challenge-description">
+                    {this.state.challengeDescription}
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-          </div>
-           
-           
+
             {/* Checks that user is not already part of challenge and shows button if they are not */}
             {!this.props.userChallenges.some(
               challenge => challenge._id === this.props.match.params.id
@@ -118,29 +135,42 @@ class ChallengeDetails extends Component {
               </FormBtn>
             ) : (
               <>
-                { moment(this.state.startDate).add(31, "days").isAfter(moment())&&(moment(this.state.startDate).isBefore(moment()))?(
-                <div>
-                <FormBtn onClick={() => {this.handleShowModal();}} href="#" className="btn btn-primary join-btn ">
-                  Post to workout timeline
-                </FormBtn>
-                <Modal show={this.state.show} onHide={this.handleCloseModal}>
-                  <Modal.Header closeButton>
-                    <Modal.Title>Share with other challengers!</Modal.Title>
-                  </Modal.Header>
-                  <Modal.Body>
-                    <form action="/" />
-                    <label>Title</label>
-                    <Input onChange={this.handlePostTitleChange} />
-                    <label>Post body</label>
-                    <Input onChange={this.handlePostBodyChange} />
-                    <label>Image</label>
-                    <Input type="file" onChange={this.handleFileSelect} />
-                  </Modal.Body>
-                  <Modal.Footer>
-                    <FormBtn onClick={this.handleAddPost}>Add Post</FormBtn>
-                  </Modal.Footer>
-                </Modal>
-                </div>):(null)}
+                {moment(this.state.startDate)
+                  .add(31, "days")
+                  .isAfter(moment()) &&
+                moment(this.state.startDate).isBefore(moment()) ? (
+                  <div>
+                    <FormBtn
+                      onClick={() => {
+                        this.handleShowModal();
+                      }}
+                      href="#"
+                      className="btn btn-primary join-btn "
+                    >
+                      Post to workout timeline
+                    </FormBtn>
+                    <Modal
+                      show={this.state.show}
+                      onHide={this.handleCloseModal}
+                    >
+                      <Modal.Header closeButton>
+                        <Modal.Title>Share with other challengers!</Modal.Title>
+                      </Modal.Header>
+                      <Modal.Body>
+                        <form action="/" />
+                        <label>Title</label>
+                        <Input onChange={this.handlePostTitleChange} />
+                        <label>Post body</label>
+                        <Input onChange={this.handlePostBodyChange} />
+                        <label>Image</label>
+                        <Input type="file" onChange={this.handleFileSelect} />
+                      </Modal.Body>
+                      <Modal.Footer>
+                        <FormBtn onClick={this.handleAddPost}>Add Post</FormBtn>
+                      </Modal.Footer>
+                    </Modal>
+                  </div>
+                ) : null}
               </>
             )}
             <hr />
@@ -148,9 +178,16 @@ class ChallengeDetails extends Component {
               {this.state.days &&
                 this.state.days.map((day, index) => {
                   return (
-                    <div className= "day-section" key={index}>
-                      <b>{moment(this.state.startDate).add(index, "d").format("MM/DD/YYYY")}</b> <hr />{" "}
-                     <p className="workout-day-description">{day === "" ? "Break" : day}</p> 
+                    <div className="day-section" key={index}>
+                      <b>
+                        {moment(this.state.startDate)
+                          .add(index, "d")
+                          .format("MM/DD/YYYY")}
+                      </b>{" "}
+                      <hr />{" "}
+                      <p className="workout-day-description">
+                        {day === "" ? "Break" : day}
+                      </p>
                     </div>
                   );
                 })}
