@@ -44,6 +44,15 @@ export default {
   //Return all the posts related to the challenges that the user is in.
   getPosts:function(userId){
     return axios.get("/api/challengeposts/"+userId)
+  },
+  //Like a post
+  likePost:function(postId,userId){
+    return axios.post(`/api/likePost/${postId}/${userId}`)
+  }
+  ,
+  //Like a post
+  unlikePost:function(postId,userId){
+    return axios.post(`/api/unlikePost/${postId}/${userId}`)
   }
 
 };
