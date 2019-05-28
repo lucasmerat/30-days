@@ -61,6 +61,33 @@
   font-weight: bold;
 }
 
+.modal-question-box{
+  display:flex;
+  flex-direction: column;
+}
+
+.share-image-input > input{
+  color:red;
+}
+
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  cursor: pointer;
+}
+.upload-btn:hover {
+  background-color: blue !important;
+}
+
+.upload-btn-wrapper input[type=file] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
 @media screen and (max-width:640px){
   .modal-content{
     width: 95% !important;
