@@ -84,13 +84,17 @@
   }
 
   .profile-img {
-    top: -127px;
+    position:fixed;
+    top: -70px;
     left: 296px;
     z-index: 1;
-    width: 80% !important;
+    width: 55px !important;
+    padding:0px;
+    margin:0px;
   }
+ 
   .User-name {
-    visibility: hidden;
+    display: none;
   }
 
   .user-about {
