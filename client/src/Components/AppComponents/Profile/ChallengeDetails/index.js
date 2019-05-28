@@ -17,7 +17,6 @@ class ChallengeDetails extends Component {
     numUsers: 0,
     showModal: false,
     postImage: null,
-    postTitle: null,
     postBody: null,
     startDate: null
   };
@@ -42,7 +41,6 @@ class ChallengeDetails extends Component {
     this.setState({ show: false });
   };
   handleFileSelect = e => {
-    console.log(e.target.files[0]);
     const reader = new FileReader();
     reader.readAsDataURL(e.target.files[0]);
     reader.onload = () => {
@@ -58,15 +56,10 @@ class ChallengeDetails extends Component {
       postBody: e.target.value
     });
   };
-  handlePostTitleChange = e => {
-    this.setState({
-      postTitle: e.target.value
-    });
-  };
   handleAddPost = () => {
     this.setState({ show: false });
     const post = {
-      title: this.state.postTitle,
+      postDay: moment(this.state.startDate).diff(moment(), 'days') + 1,
       body: this.state.postBody,
       image: this.state.postImage,
       challenge: this.props.match.params.id,
@@ -177,11 +170,9 @@ class ChallengeDetails extends Component {
                       </Modal.Header>
                       <Modal.Body>
                         <form action="/" />
-                        <label>Title</label>
-                        <Input onChange={this.handlePostTitleChange} />
-                        <label>Post body</label>
+                        <label>What were your thoughts on the workout?</label>
                         <Input onChange={this.handlePostBodyChange} />
-                        <label>Image</label>
+                        <label>Share an image</label>
                         <Input type="file" onChange={this.handleFileSelect} />
                       </Modal.Body>
                       <Modal.Footer>

@@ -46,7 +46,7 @@ module.exports = function(app) {
   app.post("/api/newpost", function(req, res) {
     db.Post.findOneAndUpdate(
       {
-        title: req.body.title,
+        postDay: req.body.postDay,
         body: req.body.body,
         image: req.body.image,
         user: req.body.user,
