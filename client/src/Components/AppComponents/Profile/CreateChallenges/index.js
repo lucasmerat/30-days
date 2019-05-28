@@ -227,7 +227,7 @@ class CreateChallegnes extends Component {
                 </div>
               </div>
             </div>
-            <h5>Add a workout for each day</h5>
+            <h5 className="add-workout-header">Add a workout for each day</h5>
             <div className="row day-input-row">
               {this.props.numDays &&
                 this.props.numDays.map(day => {
