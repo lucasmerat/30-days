@@ -26,7 +26,7 @@ export default function DoneChallegnes({ challenges }) {
           } else return null;
         })
       ) : (
-        <div>No workouts available</div>
+        <div class="no-done-workouts">No workouts joined yet</div>
       )}
     </div>
   );

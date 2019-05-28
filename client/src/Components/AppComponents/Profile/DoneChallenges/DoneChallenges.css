@@ -72,3 +72,9 @@
   .card > .remove:hover {
     color: #d50000;
   }
+
+  .no-done-workouts{
+    color:white;
+    font-size:1.5em;
+    margin-top: 10px;
+  }

@@ -65,18 +65,18 @@ class CreateChallegnes extends Component {
             <div className="create-challenge-card-body">
               <h3 className="card-title">Create a workout</h3>
               <div className="row create-challenge-row">
-                <label> Title of workout</label>
+                <h5> Title of workout</h5>
                 <Input
                   value={this.state.title}
                   onChange={this.handleTitleChange}
                 />
-                <label> Short description</label>
+                <h5> Short description</h5>
                 <Input
                   value={this.state.description}
                   onChange={this.handleDescriptionChange}
                 />
                 <div className="start-date">
-                  <label> Start Date</label>
+                  <h5> Start Date</h5>
                   <div>
                     <DatePicker
                       className="picker"
@@ -87,7 +87,7 @@ class CreateChallegnes extends Component {
                   </div>
                 </div>
                 <div className="">
-                  <label>Choose an image for your workout</label>
+                  <h5>Choose an image for your workout</h5>
                 </div>
                 <div className="row">
                   <div className="col-4">

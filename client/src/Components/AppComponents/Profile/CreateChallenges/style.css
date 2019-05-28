@@ -2,6 +2,8 @@
   margin: auto;
   margin-top: 5%;
   width: 80%;
+  margin-top: 20px;
+  height: 100%;
   padding: 3%;
   color: whitesmoke;
 }
@@ -47,10 +49,6 @@
 
 .add-workout-header {
   margin-top: 8px;
-}
-
-.create-challenge-card{
-  margin-top: 20px;
 }
 
 @media screen and (max-width: 640px) {

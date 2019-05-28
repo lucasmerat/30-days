@@ -32,6 +32,10 @@ a.nav-link:hover{
 a.nav-link:active{
   color:rgb(244, 28, 28);
 }
+.challenge-nav{
+  width: 98.8%;
+  margin-right:0px;
+}
 
 @media screen and (max-width:640px){
   .nav-bar{
@@ -51,5 +55,8 @@ a.nav-link:active{
   }
   .nav-link{
     font-size: 10px;
+  }
+  .challenge-nav{
+    width: 102.8%;
   }
 }
