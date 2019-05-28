@@ -33,7 +33,7 @@ a.nav-link:active{
   color:rgb(244, 28, 28);
 }
 .challenge-nav{
-  width: 98.8%;
+  width: 100% !important;
   margin-right:0px;
 }
 
@@ -42,7 +42,7 @@ a.nav-link:active{
     position:fixed;
     top:77px;
     z-index: 1;
-    width:395px;
+    width:106%;
   }
   li{
     font-size: 0.4em;
@@ -55,8 +55,5 @@ a.nav-link:active{
   }
   .nav-link{
     font-size: 10px;
-  }
-  .challenge-nav{
-    width: 102.8%;
   }
 }
