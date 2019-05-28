@@ -35,6 +35,11 @@
   text-align: left;
 }
 
+.create-challenge-card{
+  margin-top: 20px;
+  height: 100%;
+}
+
 .create-challenge-row {
   margin: 0px;
 }
@@ -47,10 +52,6 @@
 
 .add-workout-header {
   margin-top: 8px;
-}
-
-.create-challenge-card{
-  margin-top: 20px;
 }
 
 @media screen and (max-width: 640px) {
