@@ -27,7 +27,7 @@ export default function OngoingChallenges({ challenges, user }) {
             } else return null;
           })
         ) : (
-          <div>No Challenges available</div>
+          <div class="no-ongoing-workouts-msg">You have no active workouts... join one!</div>
         )}
       </div>
     </div>

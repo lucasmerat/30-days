@@ -1,6 +1,6 @@
 import React from "react";
 import "./style.css";
-import { FormBtn} from "../../../BootstrapComponents/Form";
+import { FormBtn } from "../../../BootstrapComponents/Form";
 import { Link } from "react-router-dom";
 
 function ProfileNav({ userName, profilePic }) {
@@ -29,28 +29,34 @@ function ProfileNav({ userName, profilePic }) {
   return (
     <div className="col-3 profile-nav profile-float">
       <div className="row">
-      <div className="user-name col-12 info-container">
-            <h3 className="User-name">{userName}</h3>
+        <div className="user-name col-12 info-container">
+          <h3 className="User-name">{userName}</h3>
         </div>
         <div className="col-12 profile-img-box">
-          <img className="profile-img img-fluid" alt="profile" src={profilePic} />
+          <img
+            className="profile-img img-fluid"
+            alt="profile"
+            src={profilePic}
+          />
         </div>
-          
       </div>
       <div className="row buttons-row">
-      <div className="button-col col-12">
-          <FormBtn className="profile-nav-btn create-workout-link">
-            <Link className="nav-link" to="/profile/create">
-              Create workout
-            </Link>
-          </FormBtn>
+        <div className="button-col col-12">
+          <Link
+            className="nav-link"
+            to="/profile/create"
+          >
+            <FormBtn className="profile-nav-btn create-workout-link">Create workout</FormBtn>
+          </Link>
         </div>
         <div className="button-col col-12">
-          <FormBtn className="profile-nav-btn logout-link">
-            <Link className="nav-link" to="/" onClick={LogOut}>
-              Log Out
-            </Link>
-          </FormBtn>
+          <Link
+            className="nav-link "
+            to="/"
+            onClick={LogOut}
+          >
+            <FormBtn className="profile-nav-btn logout-link">Log Out</FormBtn>
+          </Link>
         </div>
       </div>
       <div className="col-8" />
