@@ -9,60 +9,61 @@ import "react-datepicker/dist/react-datepicker.css";
 
 class CreateChallegnes extends Component {
   state = {
-    title:"",
-    description:"",
-    image: "https://images.vexels.com/media/users/3/138766/isolated/preview/aa86bc7fc758d324029168656a5b6874-fitness-woman-silhouette-by-vexels.png",
+    title: "",
+    description: "",
+    image:
+      "https://images.vexels.com/media/users/3/138766/isolated/preview/aa86bc7fc758d324029168656a5b6874-fitness-woman-silhouette-by-vexels.png",
     days: this.props.numDays.map(() => ""),
     startDate: setHours(setMinutes(new Date(), 0), 0)
-  }
+  };
 
-  handleTitleChange = (e) =>{
-   this.setState({
-     title: e.target.value
-   })
-  }
-  handleDateChange = (date) => {
+  handleTitleChange = e => {
+    this.setState({
+      title: e.target.value
+    });
+  };
+  handleDateChange = date => {
     let selectedDate = setHours(setMinutes(date, 0), 0);
     console.log(date);
     console.log(selectedDate);
     this.setState({
       startDate: selectedDate
     });
-  }
+  };
 
-  handleDescriptionChange = (e) =>{
+  handleDescriptionChange = e => {
     this.setState({
       description: e.target.value
-    })
-   }
-  handleDayChange = (e) =>{
-    let dayChanged= e.target.getAttribute('day') - 1;
+    });
+  };
+  handleDayChange = e => {
+    let dayChanged = e.target.getAttribute("day") - 1;
     let newState = [...this.state.days];
     newState[dayChanged] = e.target.value;
     this.setState({
       [e.target.name]: newState
-    })
-  }
-  handleImageChange = (e) =>{
+    });
+  };
+  handleImageChange = e => {
     this.setState({
       image: e.target.id
-    })
-  }
-  handleSubmit = () =>{
-    API.createChallenge({...this.state, createdAt: new Date()})
-    .then ((res)=>{
-      this.props.loadChallenges();
-      this.props.history.push(`/profile/challenge/${res.data._id}`)
-    })
-    .catch(err => console.log(err));
-  }
+    });
+  };
+  handleSubmit = () => {
+    API.createChallenge({ ...this.state, createdAt: new Date() })
+      .then(res => {
+        this.props.loadChallenges();
+        this.props.history.push(`/profile/challenge/${res.data._id}`);
+      })
+      .catch(err => console.log(err));
+  };
   render() {
     return (
       <div className="row">
         <div className="card create-challenge-card">
-          <div className="card-body">
-            <h5 className="card-title challenge-title">Create a workout</h5>
-            <div className="row">
+          <div className="create-challenge-card-body">
+            <h3 className="card-title">Create a workout</h3>
+            <div className="row create-challenge-row">
               <label> Title of workout</label>
               <Input
                 value={this.state.title}
@@ -73,13 +74,20 @@ class CreateChallegnes extends Component {
                 value={this.state.description}
                 onChange={this.handleDescriptionChange}
               />
-              <label> Start Date</label>
-              <DatePicker
-                selected={this.state.startDate}
-                onChange={this.handleDateChange}
-                minDate={new Date()}
-              />
-              <label>Select an Image For Your Workout </label>
+              <div className="start-date">
+                <label> Start Date</label>
+                <div>
+                  <DatePicker
+                    className="picker"
+                    selected={this.state.startDate}
+                    onChange={this.handleDateChange}
+                    minDate={new Date()}
+                  />
+                </div>
+              </div>
+              <div className="">
+              <label>Choose an image for your workout</label>
+              </div>
               <div className="row">
                 <div className="col-4">
                   <div className="custom-control custom-radio">
@@ -219,15 +227,12 @@ class CreateChallegnes extends Component {
                 </div>
               </div>
             </div>
-
-            <div className="row">
+            <h5>Add a workout for each day</h5>
+            <div className="row day-input-row">
               {this.props.numDays &&
                 this.props.numDays.map(day => {
                   return (
-                    <div
-                      style={{ width: "100%", textAlign: "left" }}
-                      key={day}
-                    >
+                    <div className="workout-day-input" key={day}>
                       <label>Day {day}</label>
                       <Input
                         value={this.state.days[day - 1]}

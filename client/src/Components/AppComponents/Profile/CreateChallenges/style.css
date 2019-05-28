@@ -9,3 +9,38 @@
   width:50%;
   float:left;
 }
+
+.workout-day-input{
+  margin:5px;
+  width: 31%;
+}
+
+.day-input-row{
+  justify-content: center;
+}
+
+.custom-control-label{
+  display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.start-date {
+  text-align: left;
+  margin-bottom: 10px;
+  width:100%;
+}
+
+.create-challenge-card-body {
+  text-align: left;  
+}
+
+.create-challenge-row{
+  margin: 0px;
+}
+
+.picker{
+  border-radius: 5px;
+  border: 1px solid #ced4da;
+  padding:5px;
+}
