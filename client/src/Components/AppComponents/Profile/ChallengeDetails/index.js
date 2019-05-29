@@ -79,7 +79,7 @@ class ChallengeDetails extends Component {
         <div className="card challenge-details-card">
           <div className="card-body">
             <div className="row">
-              <div className="col-4">
+              <div className="col-4 active-users-join-box">
                 <img
                   alt="..."
                   src={this.state.image}
@@ -94,45 +94,7 @@ class ChallengeDetails extends Component {
                     {this.state.numUsers} active athletes
                   </div>
                 )}
-              </div>
-              <div className="col-8 workout-description-box">
-                <h5 className="card-title challenge-details-title">
-                  {this.state.challengeTitle}
-                </h5>
-                <h5>
-                  {moment(this.state.startDate).diff(moment(), "days") > 0 ? (
-                    <div>
-                      Workout begins in{" "}
-                      <div className="timer-box">
-                        <Countdown date={moment(this.state.startDate).toDate()} precision={3} /> 
-                      </div>
-                      <div className="countdown-intervals">
-                        Days | Hrs | Min | Sec
-                      </div>
-                    </div>
-                  ) : (
-                    <div>
-                      <span>Workout ends in</span>{" "}
-                      <div className="timer-box">
-                        <Countdown
-                          date={moment(this.state.startDate).add(30, "days").toDate()} precision={3} 
-                        />{" "}
-                        <div className="countdown-intervals">
-                          Days | Hrs | Min | Sec
-                        </div>
-                      </div>
-                    </div>
-                  )}
-                </h5>
-                <div className="card-body">
-                  <div className="challenge-description">
-                    {this.state.challengeDescription}
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Checks that user is not already part of challenge and shows button if they are not */}
+                {/* Checks that user is not already part of challenge and shows button if they are not */}
             {!this.props.userChallenges.some(
               challenge => challenge._id === this.props.match.params.id
             ) ? (
@@ -164,7 +126,7 @@ class ChallengeDetails extends Component {
                       href="#"
                       className="btn btn-primary join-btn "
                     >
-                      Post to workout timeline
+                      Post to workout
                     </FormBtn>
                     <Modal
                       show={this.state.show}
@@ -211,6 +173,43 @@ class ChallengeDetails extends Component {
                 ) : null}
               </>
             )}
+              </div>
+              <div className="col-8 workout-description-box">
+                <h5 className="card-title challenge-details-title">
+                  {this.state.challengeTitle}
+                </h5>
+                <h5>
+                  {moment(this.state.startDate).diff(moment(), "days") > 0 ? (
+                    <div>
+                      Workout begins in{" "}
+                      <div className="timer-box">
+                        <Countdown date={moment(this.state.startDate).toDate()} precision={3} /> 
+                      </div>
+                      <div className="countdown-intervals">
+                        Days | Hrs | Min | Sec
+                      </div>
+                    </div>
+                  ) : (
+                    <div>
+                      <span>Workout ends in</span>{" "}
+                      <div className="timer-box">
+                        <Countdown
+                          date={moment(this.state.startDate).add(30, "days").toDate()} precision={3} 
+                        />{" "}
+                        <div className="countdown-intervals">
+                          Days | Hrs | Min | Sec
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </h5>
+                <div className="card-body">
+                  <div className="challenge-description">
+                    {this.state.challengeDescription}
+                  </div>
+                </div>
+              </div>
+            </div>
             <hr />
             <div className="workout-days">
               {this.state.days &&
