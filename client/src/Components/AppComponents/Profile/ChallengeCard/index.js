@@ -12,11 +12,11 @@ export default function ChallengeCard(props) {
   if (props.type === "Browse") {
     return (
       <div className="card browse-card">
-        <img src={props.image} className="card-img-top img-fluid" alt="..." />
-        <div className="card-body">
-          <Link to={`/profile/challenge/${props._id}`}>
+       <Link to={`/profile/challenge/${props._id}`}>
             <h5 className="card-title challenge-card-title">{props.title}</h5>
           </Link>
+        <img src={props.image} className="card-img-top img-fluid" alt="..." />
+        <div className="card-body">
           <p className="card-text challenge-text">{props.description}</p>
           <p className="card-text challenge-text">
             {props.numUsers} active athletes
@@ -40,11 +40,12 @@ export default function ChallengeCard(props) {
   } else if (props.type === "Ongoing") {
     return (
       <div className="card browse-card">
-        <img src={props.image} className="card-img-top" alt="..." />
-        <div className="card-body">
-          <Link to={`/profile/challenge/${props._id}`}>
+         <Link to={`/profile/challenge/${props._id}`}>
             <h5 className="card-title challenge-card-title">{props.title}</h5>
           </Link>
+        <img src={props.image} className="card-img-top" alt="..." />
+        <div className="card-body">
+         
           <p className="card-text challenge-text">Progress</p>
           <ProgressBar now={daysApt / 30 * 100} variant={"danger"} />
           <p className="card-text challenge-text">

@@ -8,7 +8,7 @@
   padding: 0px;
 }
 div.card.browse-card {
-  height: 20em;
+  height: 21em;
   width: 14em;
   -webkit-box-shadow: 2px 2px 12px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 2px 2px 12px 0px rgba(0, 0, 0, 0.75);
@@ -23,11 +23,9 @@ div.card.browse-card {
 .challenge-text {
   color: whitesmoke;
   font-size: 1em;
-}
-
-.challenge-text {
   font-size: 0.8em;
 }
+
 .fa-share-alt {
   float: right;
 }
@@ -91,9 +89,13 @@ div.card.browse-card {
 .challenge-card-title {
   font-size: 1.5em;
   color: whitesmoke;
+  display:flex;
+  justify-content: center;
 }
 
 .challenge-info{
     background-color:white;
     padding:0%;
+    position:relative;
+    bottom:15px;
 }
