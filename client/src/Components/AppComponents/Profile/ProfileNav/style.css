@@ -46,10 +46,15 @@
   overflow: hidden;
   position: relative;
   margin: 0px !important;
+  border: 3px solid #fff;
+  -webkit-box-shadow: 4px 4px 24px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 4px 4px 24px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 4px 4px 24px 0px rgba(0, 0, 0, 0.75);
 }
 .User-name {
   font-size: 2.5em;
   text-align: center;
+  font-family: "Lato", sans-serif;
 }
 
 .button-col {
