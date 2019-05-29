@@ -7,6 +7,21 @@
   background-color: grey;
 }
 
+.workout-description-box{
+  text-align: center;
+}
+
+.active-users-join-box{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.join-btn{
+  margin-top: 10px;
+}
+
 .challenge-details-title {
   font-size: 2em !important;
 }
@@ -161,6 +176,7 @@
 
   .workout-description-box{
     text-align: center;
+    padding: 0px;
   }
 
   .details-image{
@@ -174,5 +190,12 @@
 
   .challenge-details-with-margin-row{
     margin-top: 8em;
+  }
+
+  .join-btn{
+    margin-bottom: 10px;
+    width: 80px;
+    height: 27px;
+    font-size: .6rem;
   }
 }
