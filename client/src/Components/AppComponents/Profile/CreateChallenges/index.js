@@ -3,6 +3,7 @@ import API from "../../../../utils/API";
 import DatePicker from "react-datepicker";
 import setMinutes from "date-fns/setMinutes";
 import setHours from "date-fns/setHours";
+import moment from "moment";
 import "react-datepicker/dist/react-datepicker.css";
 import "./CreateChallenges.css";
 
@@ -246,7 +247,7 @@ class CreateChallegnes extends Component {
                     this.props.numDays.map(day => {
                       return (
                         <div className="workout-day-input" key={day}>
-                          <label>Day {day}</label>
+                          <label>{moment(this.state.startDate).add(day-1, "d").format("MM/DD/YYYY")}</label>
                           <input
                             className="create-workout-input"
                             value={this.state.days[day - 1]}
