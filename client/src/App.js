@@ -5,7 +5,6 @@ import PrivateRoute from "./Components/AppComponents/Auth/PrivateRoute"
 import Nav from "./Components/BootstrapComponents/Nav";
 import Login from "./Components/AppComponents/Auth/Login";
 import NoMatch from "./Components/AppComponents/Auth/NoMatch";
-import Signup from "./Components/AppComponents/Auth/SignUp";
 import Profile from "./Components/AppComponents/Profile/ProfileWrapper";
 import Footer from "./Components/BootstrapComponents/Footer";
 
@@ -45,7 +44,6 @@ class App extends Component {
               component={Profile}
               readCookie={this.readCookie}
             />
-            <Route exact path="/signup" component={Signup} />
             <Route component={NoMatch} />
           </Switch>
         </div>
