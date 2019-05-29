@@ -4,6 +4,7 @@
   width: 80%;
   padding: 3%;
   color: whitesmoke;
+  background-color: grey;
 }
 
 .challenge-details-title {
@@ -147,5 +148,31 @@
   }
   div.workout-days > div > h7 {
     font-size: 0.4em;
+  }
+
+  .num-athletes{
+    font-size: 15px;
+    text-align: center;
+  }
+
+  .countdown-intervals{
+    font-size: 16px;
+  }
+
+  .workout-description-box{
+    text-align: center;
+  }
+
+  .details-image{
+    height: 6em;
+    width: 6em;
+  }
+  
+  .post-button-box{
+    text-align: center;
+  }
+
+  .challenge-details-with-margin-row{
+    margin-top: 8em;
   }
 }

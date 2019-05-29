@@ -28,7 +28,7 @@ function ProfileNav({ userName, profilePic }) {
 
   return (
     <div className="col-3 profile-nav profile-float">
-      <div className="row">
+      <div className="row user-row">
         <div className="user-name col-12 info-container">
           <h3 className="User-name">{userName}</h3>
         </div>

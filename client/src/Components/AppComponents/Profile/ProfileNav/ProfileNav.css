@@ -34,6 +34,10 @@
   padding-top: 10%;
 }
 
+.user-row{
+  pointer-events: none;
+}
+
 .profile-img-box {
   display: flex;
   justify-content: center;
@@ -96,13 +100,12 @@
     width: 75px;
     height: 40px;
     position: fixed !important;
-    top: 78px;
+    top: 138px;
     margin: 0px;
     padding: 3px;
     z-index: 2;
     background-color: transparent;
     box-shadow: none;
-    pointer-events: none;
   }
 
   .profile-img {
@@ -115,6 +118,10 @@
     margin: 0px;
   }
 
+  .profile-img-box{
+    top: -60px;
+  }
+
   .User-name {
     display: none;
   }
@@ -125,7 +132,7 @@
   .logout-link {
     position: fixed;
     top: 30px;
-    left: 230px;
+    left: 225px;
     z-index: 1;
     width: 70px;
     height: 27px;
@@ -134,7 +141,7 @@
   .create-workout-link {
     position: fixed;
     top: 30px;
-    left: 156px;
+    left: 150px;
     z-index: 1;
     width: 70px;
     height: 27px;

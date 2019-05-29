@@ -75,7 +75,7 @@ class ChallengeDetails extends Component {
   render() {
     return this.props.userChallenges ? (
       <div className="row">
-        <div className="with-margin-row" />
+        <div className="challenge-details-with-margin-row">
         <div className="card challenge-details-card">
           <div className="card-body">
             <div className="row">
@@ -95,7 +95,7 @@ class ChallengeDetails extends Component {
                   </div>
                 )}
               </div>
-              <div className="col-8">
+              <div className="col-8 workout-description-box">
                 <h5 className="card-title challenge-details-title">
                   {this.state.challengeTitle}
                 </h5>
@@ -156,7 +156,7 @@ class ChallengeDetails extends Component {
                   .add(31, "days")
                   .isAfter(moment()) &&
                 moment(this.state.startDate).isBefore(moment()) ? (
-                  <div>
+                  <div className="post-button-box">
                     <FormBtn
                       onClick={() => {
                         this.handleShowModal();
@@ -231,6 +231,7 @@ class ChallengeDetails extends Component {
                 })}
             </div>
           </div>
+        </div>
         </div>
       </div>
     ) : (
