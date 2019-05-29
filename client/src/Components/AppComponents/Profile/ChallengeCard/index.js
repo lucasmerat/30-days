@@ -67,7 +67,7 @@ export default function ChallengeCard(props) {
     );
   } else if (props.type === "Done") {
     return (
-      <div className="card browse-card">
+      <div className="card browse-card ">
         <img src={props.image} className="card-img-top" alt="..." />
         <div className="card-body">
           <Link to={`/profile/challenge/${props._id}`}>
