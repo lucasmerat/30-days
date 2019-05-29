@@ -1,73 +1,83 @@
-.challenge-details-card{
-    margin:auto;
-    margin-top:5%;
-    width:80%;
-    padding:3%;
-    color:whitesmoke;
-  }
-
-.challenge-details-title{
-  font-size:2em !important;
+.challenge-details-card {
+  margin: auto;
+  margin-top: 5%;
+  width: 80%;
+  padding: 3%;
+  color: whitesmoke;
 }
 
-.workout-day-description{
+.challenge-details-title {
+  font-size: 2em !important;
+}
+
+.workout-day-description {
   font-size: 12px;
 }
 
-.challenge-details-card .day-section{  
-  width:14%;
-  height:7em;
-  float:left;
-  border: 2px solid #D0E4F5;
-  border-right:none;
-  padding:0.2%;
-  margin:0px;
-  border-bottom:none;
+.challenge-details-card .day-section {
+  width: 14%;
+  height: 7em;
+  float: left;
+  border: 2px solid #d0e4f5;
+  border-right: none;
+  padding: 0.2%;
+  margin: 0px;
+  border-bottom: none;
 }
-.challenge-details-card .day-section:nth-child(7) , .day-section:nth-child(14),.day-section:nth-child(21),.day-section:nth-child(28),.day-section:nth-child(30){
-  border-right: 2px solid #D0E4F5;
+.challenge-details-card .day-section:nth-child(7),
+.day-section:nth-child(14),
+.day-section:nth-child(21),
+.day-section:nth-child(28),
+.day-section:nth-child(30) {
+  border-right: 2px solid #d0e4f5;
 }
-.challenge-details-card .day-section:nth-child(24),.day-section:nth-child(25),.day-section:nth-child(26),.day-section:nth-child(27),.day-section:nth-child(28),.day-section:nth-child(29),.day-section:nth-child(30){
-  border-bottom: 2px solid #D0E4F5;
+.challenge-details-card .day-section:nth-child(24),
+.day-section:nth-child(25),
+.day-section:nth-child(26),
+.day-section:nth-child(27),
+.day-section:nth-child(28),
+.day-section:nth-child(29),
+.day-section:nth-child(30) {
+  border-bottom: 2px solid #d0e4f5;
 }
-.day-section:hover{
-  background-color:grey;
+.day-section:hover {
+  background-color: grey;
 }
-.details-image{
-  float:left;
-  width:100%;
-  padding:105;
+.details-image {
+  float: left;
+  width: 100%;
+  padding: 105;
 }
 
-.day-section{
-  font-size:0.7em;
+.day-section {
+  font-size: 0.7em;
 }
 
-.timer-box{
+.timer-box {
   display: flex;
   justify-content: center;
   flex-direction: column;
   font-size: 28px;
-  margin:10px;
+  margin: 10px;
 }
 
-.countdown-intervals{
+.countdown-intervals {
   font-size: 18px;
-  margin-top:4px;
+  margin-top: 4px;
 }
 
-.num-athletes{
-  font-size:20px;
+.num-athletes {
+  font-size: 20px;
   font-weight: bold;
 }
 
-.modal-question-box{
-  display:flex;
+.modal-question-box {
+  display: flex;
   flex-direction: column;
 }
 
-.share-image-input > input{
-  color:red;
+.share-image-input > input {
+  color: red;
 }
 
 .upload-btn-wrapper {
@@ -80,7 +90,7 @@
   background-color: blue !important;
 }
 
-.upload-btn-wrapper input[type=file] {
+.upload-btn-wrapper input[type="file"] {
   font-size: 100px;
   position: absolute;
   left: 0;
@@ -88,39 +98,54 @@
   opacity: 0;
 }
 
-@media screen and (max-width:640px){
-  .modal-content{
+@media screen and (max-width: 640px) {
+  .modal-content {
     width: 95% !important;
   }
-  .challenge-details-card .day-section{
-    width:23%;
-    height:5em;
+  .challenge-details-card .day-section {
+    width: 23%;
+    height: 5em;
   }
-  .challenge-details-card .day-section:nth-child(4),.day-section:nth-child(8),.day-section:nth-child(12),.day-section:nth-child(16),.day-section:nth-child(20),.day-section:nth-child(24),.day-section:nth-child(28),.day-section:nth-child(30){
-    border-right:2px solid #D0E4F5;
+  .challenge-details-card .day-section:nth-child(4),
+  .day-section:nth-child(8),
+  .day-section:nth-child(12),
+  .day-section:nth-child(16),
+  .day-section:nth-child(20),
+  .day-section:nth-child(24),
+  .day-section:nth-child(28),
+  .day-section:nth-child(30) {
+    border-right: 2px solid #d0e4f5;
   }
-  .challenge-details-card .day-section:nth-child(7) , .day-section:nth-child(14),.day-section:nth-child(21),.day-section:nth-child(28),.day-section:nth-child(30){
-    border-right: 0px solid #D0E4F5;
+  .challenge-details-card .day-section:nth-child(7),
+  .day-section:nth-child(14),
+  .day-section:nth-child(21),
+  .day-section:nth-child(28),
+  .day-section:nth-child(30) {
+    border-right: 0px solid #d0e4f5;
   }
-  .challenge-details-card .day-section{
-    border-bottom: 0px solid #D0E4F5;
+  .challenge-details-card .day-section {
+    border-bottom: 0px solid #d0e4f5;
   }
-  .challenge-details-card .day-section:nth-child(24){
-    border-bottom: 0px solid #D0E4F5;
+  .challenge-details-card .day-section:nth-child(24) {
+    border-bottom: 0px solid #d0e4f5;
   }
-  .challenge-details-card .day-section:nth-child(28),.day-section:nth-child(30){
-    border-right: 2px solid #D0E4F5;
+  .challenge-details-card .day-section:nth-child(28),
+  .day-section:nth-child(30) {
+    border-right: 2px solid #d0e4f5;
   }
-  .challenge-details-card .day-section:nth-child(27), .day-section:nth-child(28),.day-section:nth-child(29),.day-section:nth-child(30){
-    border-bottom: 2px solid #D0E4F5;
+  .challenge-details-card .day-section:nth-child(27),
+  .day-section:nth-child(28),
+  .day-section:nth-child(29),
+  .day-section:nth-child(30) {
+    border-bottom: 2px solid #d0e4f5;
   }
- div.workout-days > div > b{
-    font-size:7px;;
+  div.workout-days > div > b {
+    font-size: 7px;
   }
- div.workout-days > div > hr{
-    margin:2px;
+  div.workout-days > div > hr {
+    margin: 2px;
   }
-  div.workout-days > div > h7{
-    font-size:0.4em;
+  div.workout-days > div > h7 {
+    font-size: 0.4em;
   }
 }

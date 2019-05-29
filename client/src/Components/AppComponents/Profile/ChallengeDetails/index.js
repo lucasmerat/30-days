@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import moment from "moment";
 import Countdown from "react-countdown-now";
-import { Input, FormBtn } from "../../../BootstrapComponents/Form/";
-import "./ChallengeDetails.css";
+import { FormBtn } from "../../../BootstrapComponents/Form/";
 import API from "../../../../utils/API";
 import { Modal } from "react-bootstrap";
+import "./ChallengeDetails.css";
+
 
 class ChallengeDetails extends Component {
   componentDidMount() {
@@ -105,6 +106,9 @@ class ChallengeDetails extends Component {
                       <div className="timer-box">
                         <Countdown date={moment(this.state.startDate)} />
                       </div>
+                      <div className="countdown-intervals">
+                        Days | Hrs | Min | Sec
+                      </div>
                     </div>
                   ) : (
                     <div>
@@ -144,7 +148,7 @@ class ChallengeDetails extends Component {
                 href="#"
                 className="btn btn-primary join-btn "
               >
-               Join Workout
+                Join Workout
               </FormBtn>
             ) : (
               <>
@@ -184,7 +188,9 @@ class ChallengeDetails extends Component {
                             />
                             <label>Share an image</label>
                             <div className="upload-btn-wrapper">
-                            <button className="upload-btn btn btn-success">Upload a file</button>
+                              <button className="upload-btn btn btn-success">
+                                Upload a file
+                              </button>
                               <input
                                 type="file"
                                 onChange={this.handleFileSelect}

@@ -1,10 +1,9 @@
 import React,{Component} from "react";
+import API from "../../../../utils/API";
+import moment from "moment";
 import { FormBtn} from "../../../BootstrapComponents/Form/";
 import { Link } from "react-router-dom";
 import "./TimelinePost.css";
-import moment from "moment";
-import API from "../../../../utils/API";
-
 
 class TimelinePost extends Component{
 state={
