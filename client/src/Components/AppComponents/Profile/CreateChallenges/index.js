@@ -62,9 +62,12 @@ class CreateChallegnes extends Component {
       <div className="row">
         <div className="with-margin-row">
           <div className="card create-challenge-card">
-            <div className="create-challenge-card-body">
+          <div className="card-title-div">
+          <h3 className="card-title">Create a workout</h3>
+          </div>
+        
+            <div className="create-challenge-card-body ">
               <form onSubmit={this.handleSubmit}>
-                <h3 className="card-title">Create a workout</h3>
                 <div className="row create-challenge-row">
                   <div className="title-description-box">
                     <h5> Title of workout</h5>
