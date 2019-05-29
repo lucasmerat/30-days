@@ -12,16 +12,16 @@ function ChallengesNav() {
  
  <ul className="nav-list">
    <li className="nav-item active">
-     <NavLink activeClassName="selectedLink" className="nav-link" to="/profile/browse/">Browse Workouts <span className="sr-only">(current)</span></NavLink>
+     <NavLink activeClassName="selectedLink" className="nav-link" to="/profile/browse/"><i class="far fa-window-restore"></i> Browse Workouts <span className="sr-only">(current)</span></NavLink>
    </li>
    <li className="nav-item">
-     <NavLink activeClassName="selectedLink" className="nav-link" to="/profile/ongoing">Ongoing Workouts</NavLink>
+     <NavLink activeClassName="selectedLink" className="nav-link" to="/profile/ongoing"><i class="fas fa-tasks"></i> Ongoing Workouts</NavLink>
    </li>
    <li className="nav-item">
-     <NavLink activeClassName="selectedLink" className="nav-link" to="/profile/done">Done</NavLink>
+     <NavLink activeClassName="selectedLink" className="nav-link" to="/profile/done"><i class="fas fa-check"></i> Done</NavLink>
    </li>
    <li className="nav-item">
-     <NavLink activeClassName="selectedLink" className="nav-link" to="/profile/timeline">Timeline</NavLink>
+     <NavLink activeClassName="selectedLink" className="nav-link" to="/profile/timeline"><i class="fas fa-list-ul"></i> Timeline</NavLink>
    </li>
  </ul>
 
