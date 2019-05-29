@@ -14,7 +14,7 @@ function ChallengesNav() {
                 className="nav-link"
                 to="/profile/browse/"
               >
-                <i class="far fa-window-restore" /> Browse Workouts{" "}
+                <i className="far fa-window-restore" /> Browse Workouts{" "}
                 <span className="sr-only">(current)</span>
               </NavLink>
             </li>
@@ -24,7 +24,7 @@ function ChallengesNav() {
                 className="nav-link"
                 to="/profile/ongoing"
               >
-                <i class="fas fa-tasks" /> Ongoing Workouts
+                <i className="fas fa-tasks" /> Ongoing Workouts
               </NavLink>
             </li>
             <li className="nav-item">
@@ -33,7 +33,7 @@ function ChallengesNav() {
                 className="nav-link"
                 to="/profile/done"
               >
-                <i class="fas fa-check" /> Done
+                <i className="fas fa-check" /> Done
               </NavLink>
             </li>
             <li className="nav-item">
@@ -42,7 +42,7 @@ function ChallengesNav() {
                 className="nav-link"
                 to="/profile/timeline"
               >
-                <i class="fas fa-list-ul" /> Timeline
+                <i className="fas fa-list-ul" /> Timeline
               </NavLink>
             </li>
           </ul>
