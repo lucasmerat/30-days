@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import API from "../../../../utils/API";
 import DatePicker from "react-datepicker";
-import setMinutes from "date-fns/setMinutes";
-import setHours from "date-fns/setHours";
+import {setMinutes,setHours,addDays} from "date-fns";
 import moment from "moment";
 import "react-datepicker/dist/react-datepicker.css";
 import "./CreateChallenges.css";
@@ -94,6 +93,8 @@ class CreateChallegnes extends Component {
                         selected={this.state.startDate}
                         onChange={this.handleDateChange}
                         minDate={new Date()}
+                        maxDate={addDays(new Date(), 14)}
+                        placeholderText="Select a date between today and 2 weeks in the future"
                       />
                     </div>
                   </div>
