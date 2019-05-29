@@ -45,7 +45,7 @@ a.nav-link:active{
     width:106%;
   }
   li{
-    font-size: 0.4em;
+    font-size: 0.3em;
     margin-left:0px;
     margin-right:0px;
   }
@@ -54,6 +54,6 @@ a.nav-link:active{
     padding-right:0px;
   }
   .nav-link{
-    font-size: 10px;
+    font-size: 9px;
   }
 }
