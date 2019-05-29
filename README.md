@@ -33,6 +33,8 @@ To use the app,
 - [path](https://nodejs.org/api/path.html)
 - [jQuery](https://jquery.com/)
 - [Cookies](https://www.npmjs.com/package/cookies)
+- [React] (https://reactjs.org/)
+
 
 
 ### Installing
