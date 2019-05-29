@@ -4,8 +4,14 @@
   width: 80%;
   margin-top: 20px;
   height: 100%;
-  padding: 3%;
+  padding: 0%;
   color: whitesmoke;
+  -webkit-box-shadow: 2px 2px 12px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 2px 2px 12px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 2px 2px 12px 0px rgba(0, 0, 0, 0.75);
+    border: 2px solid rgb(41, 38, 38);
+    padding-top:0px;
+
 }
 .challenge-img-pick {
   width: 50%;
@@ -32,9 +38,15 @@
   margin-bottom: 10px;
   width: 100%;
 }
+.card-title{
+  background-color:#343a40;
+  padding:2%;
+  width:100%;
 
+}
 .create-challenge-card-body {
   text-align: left;
+  padding:3%;
 }
 
 .create-challenge-row {
