@@ -105,6 +105,9 @@ class ChallengeDetails extends Component {
                       <div className="timer-box">
                         <Countdown date={moment(this.state.startDate)} />
                       </div>
+                      <div className="countdown-intervals">
+                          Days | Hrs | Min | Sec
+                        </div>
                     </div>
                   ) : (
                     <div>
