@@ -11,9 +11,9 @@ export default function ChallengeCard(props) {
   const daysApt = now.diff(start, 'days');
   if (props.type === "Browse") {
     return (
-      <div className="card browse-card">
+      <div className="card challenge-card browse-card col-md-3 col-s-12">
         <img src={props.image} className="card-img-top img-fluid" alt="..." />
-        <div className="card-body">
+        <div className="challenge-card-body">
           <Link to={`/profile/challenge/${props._id}`}>
             <h5 className="card-title challenge-card-title">{props.title}</h5>
           </Link>
@@ -39,9 +39,9 @@ export default function ChallengeCard(props) {
     );
   } else if (props.type === "Ongoing") {
     return (
-      <div className="card browse-card">
+      <div className="card challenge-card browse-card col-md-3 col-s-12">
         <img src={props.image} className="card-img-top" alt="..." />
-        <div className="card-body">
+        <div className="challenge-card-body">
           <Link to={`/profile/challenge/${props._id}`}>
             <h5 className="card-title challenge-card-title">{props.title}</h5>
           </Link>
@@ -55,21 +55,21 @@ export default function ChallengeCard(props) {
               View workout
             </FormBtn>
           </Link>
-        </div>
-        <p className="card-text challenge-info">
+          <p className="card-text challenge-info">
           Ends:{" "}
           {moment(props.startDate)
             .add(30, "d")
             .format("MM/DD/YYYY")}
-          {/* <i className="fas fa-share-alt " /> */}
         </p>
+        </div>
+        
       </div>
     );
   } else if (props.type === "Done") {
     return (
-      <div className="card browse-card ">
+      <div className="card challenge-card browse-card col-md-3 col-s-12">
         <img src={props.image} className="card-img-top" alt="..." />
-        <div className="card-body">
+        <div className="card-body challenge-card-body">
           <Link to={`/profile/challenge/${props._id}`}>
             <h5 className="card-title challenge-card-title">{props.title}</h5>
           </Link>
