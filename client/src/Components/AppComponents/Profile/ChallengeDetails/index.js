@@ -144,7 +144,7 @@ class ChallengeDetails extends Component {
                 href="#"
                 className="btn btn-primary join-btn "
               >
-                Join Workout
+               Join Workout
               </FormBtn>
             ) : (
               <>

@@ -46,7 +46,7 @@ function ProfileNav({ userName, profilePic }) {
             className="nav-link"
             to="/profile/create"
           >
-            <FormBtn className="profile-nav-btn create-workout-link">Create workout</FormBtn>
+            <FormBtn className="profile-nav-btn create-workout-link"> Create workout</FormBtn>
           </Link>
         </div>
         <div className="button-col col-12">

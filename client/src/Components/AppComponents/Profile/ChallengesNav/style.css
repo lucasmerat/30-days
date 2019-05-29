@@ -2,9 +2,14 @@
   /* background-color:rgb(106, 103, 99);  */
   background-color:#343a40;
   padding:0px;
+  
 }
 .right-nav{
   padding:0px;
+  -webkit-box-shadow: 2px 2px 12px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 2px 2px 12px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 2px 2px 12px 0px rgba(0, 0, 0, 0.75);
+  /* border: 2px solid rgb(41, 38, 38); */
 }
 
 .nav-link{
@@ -45,7 +50,7 @@ a.nav-link:active{
     width:106%;
   }
   li{
-    font-size: 0.4em;
+    font-size: 0.3em;
     margin-left:0px;
     margin-right:0px;
   }
@@ -54,6 +59,6 @@ a.nav-link:active{
     padding-right:0px;
   }
   .nav-link{
-    font-size: 10px;
+    font-size: 9px;
   }
 }
