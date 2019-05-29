@@ -8,6 +8,7 @@
   padding: 0px;
 }
 div.card.browse-card {
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -22,11 +23,9 @@ div.card.browse-card {
 .challenge-text {
   color: whitesmoke;
   font-size: 1em;
-}
-
-.challenge-text {
   font-size: 0.8em;
 }
+
 .fa-share-alt {
   float: right;
 }
@@ -94,7 +93,10 @@ div.card.browse-card {
 .challenge-card-title {
   font-size: 1.5em;
   color: whitesmoke;
+  display:flex;
+  justify-content: center;
 }
+
 
 .challenge-info {
   color: white;

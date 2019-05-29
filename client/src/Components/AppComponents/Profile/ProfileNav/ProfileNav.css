@@ -140,4 +140,7 @@
     height: 27px;
     font-size: 10px;
   }
+  .profile-float{
+    display: none;
+  }
 }

@@ -11,12 +11,15 @@ export default function ChallengeCard(props) {
   const daysApt = now.diff(start, 'days');
   if (props.type === "Browse") {
     return (
+
       <div className="card challenge-card browse-card col-md-3 col-s-12">
         <img src={props.image} className="card-img-top img-fluid" alt="..." />
         <div className="challenge-card-body">
           <Link to={`/profile/challenge/${props._id}`}>
             <h5 className="card-title challenge-card-title">{props.title}</h5>
           </Link>
+        <img src={props.image} className="card-img-top img-fluid" alt="..." />
+        <div className="card-body">
           <p className="card-text challenge-text">{props.description}</p>
           <p className="card-text challenge-text">
             {props.numUsers} active athletes
@@ -39,12 +42,16 @@ export default function ChallengeCard(props) {
     );
   } else if (props.type === "Ongoing") {
     return (
+
       <div className="card challenge-card browse-card col-md-3 col-s-12">
         <img src={props.image} className="card-img-top" alt="..." />
         <div className="challenge-card-body">
           <Link to={`/profile/challenge/${props._id}`}>
             <h5 className="card-title challenge-card-title">{props.title}</h5>
           </Link>
+        <img src={props.image} className="card-img-top" alt="..." />
+        <div className="card-body">
+         
           <p className="card-text challenge-text">Progress</p>
           <ProgressBar now={daysApt / 30 * 100} variant={"danger"} />
           <p className="card-text challenge-text">
