@@ -11,11 +11,13 @@
     box-shadow: 2px 2px 12px 0px rgba(0, 0, 0, 0.75);
     border: 2px solid rgb(41, 38, 38);
     padding-top:0px;
-
 }
 .challenge-img-pick {
   width: 50%;
   float: left;
+}
+.with-margin-row{
+  margin-bottom:100px;
 }
 
 .workout-day-input {
