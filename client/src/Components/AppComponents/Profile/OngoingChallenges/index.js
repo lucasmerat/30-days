@@ -6,7 +6,7 @@ import "./OngoingChallenges.css";
 export default function OngoingChallenges({ challenges, user }) {
   return (
     <div className="row">
-      <div className="with-margin-row">
+      <div className="with-margin-row row">
         {challenges && challenges.length > 0 ? (
           challenges.map(challenge => {
             let endDate = moment(challenge.startDate).add(31, "days");

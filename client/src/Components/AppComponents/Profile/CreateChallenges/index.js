@@ -4,7 +4,7 @@ import DatePicker from "react-datepicker";
 import setMinutes from "date-fns/setMinutes";
 import setHours from "date-fns/setHours";
 import "react-datepicker/dist/react-datepicker.css";
-import "./style.css";
+import "./CreateChallenges.css";
 
 class CreateChallegnes extends Component {
   state = {
@@ -75,6 +75,7 @@ class CreateChallegnes extends Component {
                       className="create-workout-input"
                       value={this.state.title}
                       onChange={this.handleTitleChange}
+                      maxLength="35"
                       required
                     />
                     <h5> Short description</h5>
@@ -82,6 +83,7 @@ class CreateChallegnes extends Component {
                       className="create-workout-input"
                       value={this.state.description}
                       onChange={this.handleDescriptionChange}
+                      maxLength="30"
                       required
                     />
                   </div>

@@ -41,10 +41,10 @@
   width: 100%;
 }
 .card-title{
-  background-color:#343a40;
+  font-weight: bold;
   padding:2%;
   width:100%;
-
+  
 }
 .create-challenge-card-body {
   text-align: left;

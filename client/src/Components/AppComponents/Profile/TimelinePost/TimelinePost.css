@@ -1,30 +1,43 @@
-.post-card{
-    width:90% !important;
-    padding: 0px !important;
+.post-card {
+  width: 90% !important;
+  padding: 0px !important;
+  -webkit-box-shadow: 2px 2px 19px -4px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 2px 2px 19px -4px rgba(0, 0, 0, 0.75);
+  box-shadow: 2px 2px 19px -4px rgba(0, 0, 0, 0.75);
+  border: 1px solid rgb(41, 38, 38);
 }
 
 .post-header {
-    background-color: #434242;
+  background-color: #434242;
 }
 
-.workout-link{
-    color:#df2f1f;
+.workout-link {
+  color: #df2f1f;
 }
 
-.workout-link:hover{
-    color:#b4362b;
-    text-decoration: none;
+.workout-link:hover {
+  color: #b4362b;
+  text-decoration: none;
 }
 
-.timeline-post-box{
-    justify-content: center;
-    display: flex;
+.timeline-post-box {
+  justify-content: center;
+  display: flex;
+  margin-top: 25px;
 }
 
-.time-posted{
-    margin-bottom: 0px;
+.time-posted {
+  margin-bottom: 0px;
 }
 
-.post-body{
-    text-align: left;
+.post-body {
+  text-align: left;
+}
+
+.post-content{
+    background-color:#6b6764;
+}
+
+.card-footer {
+    background-color:#434242;
 }

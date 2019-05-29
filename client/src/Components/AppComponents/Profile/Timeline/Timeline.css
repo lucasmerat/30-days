@@ -1,24 +1,18 @@
 .timeline-card {
-    margin:auto;
-    width:80%;
-    color:whitesmoke;
-    display: flex;
-    justify-content: center;
-    
-}
-.post-card{
-    -webkit-box-shadow: 2px 2px 12px 0px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 2px 2px 12px 0px rgba(0, 0, 0, 0.75);
-    box-shadow: 2px 2px 12px 0px rgba(0, 0, 0, 0.75);
-    border: 2px solid rgb(41, 38, 38);
-}
-.no-timeline-posts-msg{
-    color:white;
-    font-size:1.5em;
-    margin-top: 10px;
+  margin: auto;
+  width: 80%;
+  color: whitesmoke;
+  display: flex;
+  justify-content: center;
 }
 
-.timeline-with-margin-row{
-    flex-direction: column;
-    width: 80%;
+.no-timeline-posts-msg {
+  color: white;
+  font-size: 1.5em;
+  margin-top: 10px;
+}
+
+.timeline-with-margin-row {
+  flex-direction: column;
+  width: 80%;
 }
