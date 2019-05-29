@@ -62,13 +62,13 @@
   padding: 5px;
 }
 
-.post-to-timeline-button{
-  margin-top:15px;
+.post-to-timeline-button {
+  margin-top: 15px;
   width: 150px;
 }
 
-.post-to-timeline-box{
-  display:flex;
+.post-to-timeline-box {
+  display: flex;
   justify-content: center;
 }
 

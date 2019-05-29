@@ -1,8 +1,8 @@
 import React from "react";
 import moment from "moment";
 import ChallengeCard from "../ChallengeCard";
-import "./style.css";
-// import { FormBtn } from "../../UiComponents/Form";
+import "./OngoingChallenges.css";
+
 export default function OngoingChallenges({ challenges, user }) {
   return (
     <div className="row">

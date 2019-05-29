@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { Switch, Route } from "react-router-dom";
+import API from "../../../../utils/API";
 import ChallengesNav from "../ChallengesNav";
 import ProfileNav from "../ProfileNav";
 import BrowseChallenges from "../BrowseChallenges";
@@ -7,9 +9,7 @@ import DoneChallenges from "../DoneChallenges";
 import ChallengeDetails from "../ChallengeDetails";
 import Timeline from "../Timeline";
 import CreateChallenges from "../CreateChallenges";
-import API from "../../../../utils/API";
-import { Switch, Route } from "react-router-dom";
-import "./style.css";
+import "./ProfileWrapper.css";
 
 class Profile extends Component {
   state = {

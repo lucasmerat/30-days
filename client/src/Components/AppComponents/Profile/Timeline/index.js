@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import "./Timeline.css";
-import TimelinePost from "../TimelinePost";
 import API from "../../../../utils/API";
+import TimelinePost from "../TimelinePost";
+import "./Timeline.css";
 
 class Timeline extends Component {
   state = {

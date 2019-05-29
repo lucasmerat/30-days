@@ -1,7 +1,7 @@
 import React from "react";
-import "./style.css";
 import { FormBtn } from "../../../BootstrapComponents/Form";
 import { Link } from "react-router-dom";
+import "./ProfileNav.css";
 
 function ProfileNav({ userName, profilePic }) {
   function readCookie() {

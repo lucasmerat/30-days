@@ -1,27 +1,32 @@
-.with-margin-row{
-    width:100%;
-    display:flex;
-    flex-wrap: wrap;
-  }
+body {
+  background-color: rgb(67, 66, 66);
+  margin-right: 0px;
+  padding-right: 0px;
+}
+
+.with-margin-row {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
 
 .browse-card {
   height: 100%;
   background-color: rgb(106, 103, 99);
   padding: 0px;
-  
 }
-div.card.browse-card{
- height:20em;
- width:14em;
- -webkit-box-shadow: 2px 2px 12px 0px rgba(0, 0, 0, 0.75);
+div.card.browse-card {
+  height: 20em;
+  width: 14em;
+  -webkit-box-shadow: 2px 2px 12px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 2px 2px 12px 0px rgba(0, 0, 0, 0.75);
   box-shadow: 2px 2px 12px 0px rgba(0, 0, 0, 0.75);
   border: 2px solid rgb(41, 38, 38);
 }
-.card-img-top{
-  height:5em;
-  width:5em;
-  margin:auto;
+.card-img-top {
+  height: 5em;
+  width: 5em;
+  margin: auto;
 }
 .challenge-text {
   color: whitesmoke;
@@ -29,14 +34,13 @@ div.card.browse-card{
 }
 
 .challenge-text {
-  font-size:0.8em;
+  font-size: 0.8em;
 }
 .fa-share-alt {
   float: right;
 }
 .card-body {
   text-align: center;
-  
 }
 
 .card {
@@ -49,11 +53,6 @@ div.card.browse-card{
   height: 50%;
   box-shadow: 0 0.5px 2px #999, 0 1px 1px #999;
   text-align: left;
-}
-body {
-  background-color: rgb(67, 66, 66);
-  margin-right:0px;
-  padding-right:0px;
 }
 
 .card > .img-container {
@@ -97,19 +96,18 @@ body {
   color: #d50000;
 }
 
-.with-margin-row{
-    justify-content: center;
-
+.with-margin-row {
+  justify-content: center;
 }
 
-.no-challenges{
-  color:white;
-  font-size:1.5em;
+.no-challenges {
+  color: white;
+  font-size: 1.5em;
   margin-top: 10px;
 }
-@media screen and (max-width:640px){
-  .with-margin-row{
-    margin:auto;
-    margin-top:8em;
+@media screen and (max-width: 640px) {
+  .with-margin-row {
+    margin: auto;
+    margin-top: 8em;
   }
 }

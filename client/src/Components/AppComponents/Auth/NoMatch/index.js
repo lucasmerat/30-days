@@ -1,6 +1,5 @@
 import React from "react";
 import { Col, Row, Container } from "../../../BootstrapComponents/Grid";
-// import Jumbotron from "../../UiComponents/Jumbotron";
 
 function NoMatch() {
   return (
