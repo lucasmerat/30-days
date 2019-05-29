@@ -34,6 +34,8 @@ To use the app,
 - [jQuery](https://jquery.com/)
 - [Cookies](https://www.npmjs.com/package/cookies)
 - [React] (https://reactjs.org/)
+- [axios]()
+- [Docker]()
 
 
 

@@ -7,6 +7,7 @@ import Login from "./Components/AppComponents/Auth/Login";
 import NoMatch from "./Components/AppComponents/Auth/NoMatch";
 import Signup from "./Components/AppComponents/Auth/SignUp";
 import Profile from "./Components/AppComponents/Profile/ProfileWrapper";
+import Footer from "./Components/BootstrapComponents/Footer";
 
 class App extends Component {
   state = {
@@ -48,7 +49,9 @@ class App extends Component {
             <Route component={NoMatch} />
           </Switch>
         </div>
+        <Footer></Footer>
       </BrowserRouter>
+     
     );
   }
 }
