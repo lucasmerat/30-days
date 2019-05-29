@@ -1,6 +1,6 @@
-#root{
-  overflow-x:hidden;
-  overflow-y:hidden;
+#root {
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 .challenge-summary-row > ul {
@@ -24,24 +24,24 @@
   color: whitesmoke;
   padding-top: 0px;
   padding: 1%;
-  height: 80vh;
+  height: 100vh;
   position: relative !important;
-  bottom:0px;
-  top:-59px;
-  box-shadow: 4px 4px 24px 0px rgba(0, 0, 0, 0.75); 
+  bottom: 0px;
+  box-shadow: 2px 6px 12px 0px rgba(0, 0, 0, 0.75);
 }
+
 .buttons-row {
   padding-top: 10%;
 }
 
-.profile-img-box{
+.profile-img-box {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .profile-img {
-  width:80% !important;
+  width: 80% !important;
   justify-content: center;
   background-color: #fafafa;
   border-radius: 50%;
@@ -81,11 +81,12 @@
     font-size: 0.3em;
     padding: 0px;
     margin: 0px;
-    height:20px;
-    width:40px;
+    height: 20px;
+    width: 40px;
   }
 
-  .profile-nav-btn:hover, .profile-nav-btn:focus {
+  .profile-nav-btn:hover,
+  .profile-nav-btn:focus {
     background-color: #282d31 !important;
     border-color: #282d31 !important;
   }
@@ -98,19 +99,19 @@
     margin: 0px;
     padding: 3px;
     z-index: 2;
-    background-color:transparent;
+    background-color: transparent;
   }
 
   .profile-img {
-    position:fixed;
+    position: fixed;
     top: -70px;
     left: 296px;
     z-index: 1;
     width: 55px !important;
-    padding:0px;
-    margin:0px;
+    padding: 0px;
+    margin: 0px;
   }
- 
+
   .User-name {
     display: none;
   }

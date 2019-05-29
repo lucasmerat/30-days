@@ -10,10 +10,10 @@
 div.card.browse-card {
   height: 20em;
   width: 14em;
-  -webkit-box-shadow: 2px 2px 12px 0px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 2px 2px 12px 0px rgba(0, 0, 0, 0.75);
-  box-shadow: 2px 2px 12px 0px rgba(0, 0, 0, 0.75);
-  border: 2px solid rgb(41, 38, 38);
+  -webkit-box-shadow: 2px 2px 19px -4px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 2px 2px 19px -4px rgba(0, 0, 0, 0.75);
+  box-shadow: 2px 2px 19px -4px rgba(0, 0, 0, 0.75);
+  border: 1px solid rgb(41, 38, 38);
 }
 .card-img-top {
   height: 5em;
