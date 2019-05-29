@@ -104,7 +104,7 @@ class ChallengeDetails extends Component {
                     <div>
                       Workout begins in{" "}
                       <div className="timer-box">
-                        <Countdown date={moment(this.state.startDate)} />
+                        <Countdown date={moment(this.state.startDate).toDate()} precision={3} /> 
                       </div>
                       <div className="countdown-intervals">
                         Days | Hrs | Min | Sec
@@ -115,7 +115,7 @@ class ChallengeDetails extends Component {
                       <span>Workout ends in</span>{" "}
                       <div className="timer-box">
                         <Countdown
-                          date={moment(this.state.startDate).add(30, "days")}
+                          date={moment(this.state.startDate).add(30, "days").toDate()} precision={3} 
                         />{" "}
                         <div className="countdown-intervals">
                           Days | Hrs | Min | Sec

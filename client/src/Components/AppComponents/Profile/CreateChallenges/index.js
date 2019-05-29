@@ -23,8 +23,6 @@ class CreateChallegnes extends Component {
   };
   handleDateChange = date => {
     let selectedDate = setHours(setMinutes(date, 0), 0);
-    console.log(date);
-    console.log(selectedDate);
     this.setState({
       startDate: selectedDate
     });
