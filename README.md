@@ -41,7 +41,7 @@ To use the app,
 - [path](https://nodejs.org/api/path.html)
 - [jQuery](https://jquery.com/)
 - [Cookies](https://www.npmjs.com/package/cookies)
-- [React] (https://reactjs.org/)
+- [React](https://reactjs.org/docs/components-and-props.html)
 - [axios](https://github.com/axios/axios)
 - [Docker](https://www.docker.com/)
 
