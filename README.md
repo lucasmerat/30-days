@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://project-3.randolphbailey.club/">
+  <a href="https://thirtydaysapp.com/">
     <img  src="client/public/assets/images/LogoLarge.png" width="180" />
   </a>
 </p>
@@ -12,7 +12,7 @@
 
 ## Deployed app
 	
-Check out the app [here](https://project-3.randolphbailey.club/).
+Check out the app [here](https://thirtydaysapp.com/).
 
 ## Description
 

@@ -13,14 +13,9 @@ module.exports = function(app) {
   });
 
   //Google Login API routes
-  app.get(
-    "/api/auth/google",
-    passport.authenticate("google", { scope: ["profile"] })
-  );
+  app.get("/api/auth/google",passport.authenticate("google", { scope: ["profile"] }));
 
-  app.get(
-    "/api/auth/google/callback",
-    passport.authenticate("google"),
+  app.get("/api/auth/google/callback",passport.authenticate("google"),
     (req, res) => {
       res.cookie("userId", req.user.id, { maxAge: 604800000 });
       if (process.env.NODE_ENV === "development") {
@@ -99,11 +94,7 @@ module.exports = function(app) {
           });
         } else{
           res.cookie("userId", user.id.toString(), { maxAge: 604800000 });
-          if (process.env.NODE_ENV === "development") {
-            res.redirect(200,"http://localhost:3000/profile/browse");
-          } else {
-            res.redirect(200,"/profile/browse");
-          }
+          res.json(user);
         }
       }
     );
@@ -284,6 +275,22 @@ module.exports = function(app) {
         res.json(err);
       });
   });
+
+  //Change profile picture
+  app.post("/api/profilepicture/:id", function(req, res) {
+    db.User.findOneAndUpdate(
+      { _id: req.params.id },
+      { profile_picture: req.body.picture },
+      { new: true }
+    )
+    .then(function(dbUser) {
+      res.json(dbUser);
+    })
+    .catch(function(err) {
+      res.json(err);
+    });
+  });
+
 
   //Add like to a post
   app.post("/api/likePost/:postid/:userid", function(req, res) {
