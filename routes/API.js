@@ -94,11 +94,7 @@ module.exports = function(app) {
           });
         } else{
           res.cookie("userId", user.id.toString(), { maxAge: 604800000 });
-          if (process.env.NODE_ENV === "development") {
-            res.redirect(200,"http://localhost:3000/profile/browse");
-          } else {
-            res.redirect(200,"/profile/browse");
-          }
+          res.json(user);
         }
       }
     );
