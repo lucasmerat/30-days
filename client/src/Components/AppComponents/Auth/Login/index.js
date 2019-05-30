@@ -21,7 +21,11 @@ class Login extends Component {
   handleSubmit = e => {
     e.preventDefault();
     console.log("handling submit");
-    API.loginUser(this.state);
+    API.loginUser(this.state)
+    .then(res => {
+       window.location.reload();
+      })
+      .catch(err => console.log(err));;
   };
   render() {
     let instaLink;

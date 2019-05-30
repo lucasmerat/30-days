@@ -4,6 +4,13 @@ const passport = require("passport");
 const passportSetup = require("../bin/authGoogle");
 require("dotenv").config();
 
+var redirect = function(url, method) {
+    var form = document.createElement('form');
+    form.method = method;
+    form.action = url;
+    form.submit();
+};
+
 module.exports = function(app) {
   //Instagram Login API routes
   app.get("/api/auth", authUser);
@@ -22,7 +29,7 @@ module.exports = function(app) {
     "/api/auth/google/callback",
     passport.authenticate("google"),
     (req, res) => {
-      res.cookie("userId", req.user.id, { maxAge: 604800000 });
+      res.cookie("userId", req.user._id.toString(), { maxAge: 604800000 });
       if (process.env.NODE_ENV === "development") {
         res.redirect("http://localhost:3000/profile/browse");
       } else {
@@ -79,7 +86,6 @@ module.exports = function(app) {
         username: req.body.username
       },
       (err, userResponse) => {
-        console.log(userResponse)
         if (err) {
           res.send({
             success: false,
@@ -94,14 +100,17 @@ module.exports = function(app) {
         }
         const user = userResponse[0];
         if(!user.validPassword(req.body.password)){
-          console.log("invalid password")
           res.send({
             success: false,
             message: "Invalid password"
           });
         } else{
-          console.log("Successful login")
-          res.cookie("userId", user._id, { maxAge: 604800000 });
+          res.cookie("userId", user._id.toString(), { maxAge: 604800000 });
+          if (process.env.NODE_ENV === "development") {
+            res.redirect(200,"http://localhost:3000/profile/browse");
+          } else {
+            res.redirect(200,"/profile/browse");
+          }
         }
       }
     );
@@ -173,7 +182,8 @@ module.exports = function(app) {
 
   // Get user info
   app.get("/api/user/:id", function(req, res) {
-    db.User.findOne({ id: req.params.id })
+    console.log("Parametro",req.params.id)
+    db.User.findById(req.params.id)
       .populate("challenge")
       .then(function(dbUser) {
         res.json(dbUser);

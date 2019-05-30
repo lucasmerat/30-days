@@ -30,7 +30,7 @@ module.exports = function(req, res) {
       };
       User.findOneAndUpdate({id:user.id},user,{upsert:true, returnNewDocument:true, new:true},function(err,dbUser){
         if (err) res.send(err);
-          res.cookie('userId',  dbUser.id, {maxAge: 604800000});
+          res.cookie('userId',  dbUser._id.toString(), {maxAge: 604800000});
           if (process.env.NODE_ENV === "development") {
               res.redirect("http://localhost:3000/profile/browse");
             } else {
