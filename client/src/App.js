@@ -4,6 +4,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import PrivateRoute from "./Components/AppComponents/Auth/PrivateRoute"
 import Nav from "./Components/BootstrapComponents/Nav";
 import Login from "./Components/AppComponents/Auth/Login";
+import Signup from "./Components/AppComponents/Auth/Signup";
 import NoMatch from "./Components/AppComponents/Auth/NoMatch";
 import Profile from "./Components/AppComponents/Profile/ProfileWrapper";
 import Footer from "./Components/BootstrapComponents/Footer";
@@ -33,6 +34,7 @@ class App extends Component {
         <div>
           <Nav />
           <Switch>
+          <Route path="/signup" component={Signup} />
           <Route
             exact path={["/", "/login"]}
             render={props => (

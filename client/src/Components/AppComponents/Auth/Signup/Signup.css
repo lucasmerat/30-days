@@ -1,0 +1,30 @@
+.signup-box{
+    display:flex;
+    flex-direction: column;
+}
+
+.signup-button-box{
+    text-align: center;
+}
+
+.signup-input{
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    padding: 5px;
+    width:100%;
+}
+
+.signup-button-box > button {
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 1px 2px;
+    width: 150px;
+}
+
+.login-link{
+    color:#ffc107;
+    text-decoration: none;
+}
+
+.login-link:hover{
+    color:#a1801c;
+    text-decoration: none;
+}

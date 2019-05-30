@@ -31,15 +31,80 @@ module.exports = function(app) {
     }
   );
 
-  //Create User - Not used
+  //Create local user with username
   app.post("/api/signup", function(req, res) {
-    db.User.create(req.body)
-      .then(function(dbUser) {
-        res.json(dbUser);
-      })
-      .catch(function(err) {
-        res.json(err);
-      });
+    console.log(req.body);
+    req.body.username = req.body.username.toLowerCase();
+    db.User.find(
+      {
+        username: req.body.username
+      },
+      (err, existingUsers) => {
+        if (err) {
+          return res.send({
+            success: false,
+            message: "Server error"
+          });
+        } else if (existingUsers.length > 0) {
+          console.log("Existing user length is greater than 0");
+          return res.send({
+            success: false,
+            message: "Username already exists"
+          });
+        }
+        const newUser = new db.User();
+
+        newUser.username = req.body.username;
+        newUser.password = newUser.generateHash(req.body.password);
+        newUser.save((err, user) => {
+          if (err) {
+            return res.send({
+              success: false,
+              message: "Server error"
+            });
+          }
+          return res.send({
+            success: true,
+            message: "Signed up"
+          });
+        });
+      }
+    );
+  });
+
+  //Login local user with username and pass
+  app.post("/api/login/usernamepass", function(req, res) {
+    db.User.find(
+      {
+        username: req.body.username
+      },
+      (err, userResponse) => {
+        console.log(userResponse)
+        if (err) {
+          res.send({
+            success: false,
+            message: "Server error"
+          });
+        }
+        if (userResponse.length < 1) {
+          res.end({
+            success: false,
+            message: "Invalid login"
+          });
+        }
+        const user = userResponse[0];
+        if(!user.validPassword(req.body.password)){
+          console.log("invalid password")
+          res.send({
+            success: false,
+            message: "Invalid password"
+          });
+        } else{
+          console.log("Successful login")
+          res.cookie("userId", user._id, { maxAge: 604800000 });
+        }
+      }
+    );
   });
 
   //Create Post
@@ -220,31 +285,31 @@ module.exports = function(app) {
 
   //Add like to a post
   app.post("/api/likePost/:postid/:userid", function(req, res) {
-      db.Post.findOneAndUpdate(
-        { _id: req.params.postid },
-        { $addToSet: { likes:  req.params.userid } },
-        { new: true }
-      )
-    .then(function(dbPost) {
-      res.json(dbPost);
-    })
-    .catch(function(err) {
-      res.json(err);
-    });
+    db.Post.findOneAndUpdate(
+      { _id: req.params.postid },
+      { $addToSet: { likes: req.params.userid } },
+      { new: true }
+    )
+      .then(function(dbPost) {
+        res.json(dbPost);
+      })
+      .catch(function(err) {
+        res.json(err);
+      });
   });
 
   //Unlike a post
   app.post("/api/unlikePost/:postid/:userid", function(req, res) {
-      db.Post.findOneAndUpdate(
-        { _id: req.params.postid },
-        { $pull: { likes:  req.params.userid } },
-        { new: true }
-      )
-    .then(function(dbPost) {
-      res.json(dbPost);
-    })
-    .catch(function(err) {
-      res.json(err);
-    });
+    db.Post.findOneAndUpdate(
+      { _id: req.params.postid },
+      { $pull: { likes: req.params.userid } },
+      { new: true }
+    )
+      .then(function(dbPost) {
+        res.json(dbPost);
+      })
+      .catch(function(err) {
+        res.json(err);
+      });
   });
 };
