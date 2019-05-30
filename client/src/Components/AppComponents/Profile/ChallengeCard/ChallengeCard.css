@@ -8,10 +8,9 @@
   padding: 0px;
 }
 div.card.browse-card {
-
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
   box-shadow: 2px 2px 19px -4px rgba(0, 0, 0, 0.75);
   border: 1px solid rgb(41, 38, 38);
 }
@@ -23,7 +22,6 @@ div.card.browse-card {
 .challenge-text {
   color: whitesmoke;
   font-size: 1em;
-  font-size: 0.8em;
 }
 
 .fa-share-alt {
@@ -104,6 +102,10 @@ div.card.browse-card {
   padding: 0%;
   margin: 0px 0px 10px 0px !important;
   text-align: center;
+}
+
+.active-athletes{
+  margin-top:14px;
 }
 
 @media screen and (max-width: 640px) {

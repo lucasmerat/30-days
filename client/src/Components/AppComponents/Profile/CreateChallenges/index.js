@@ -267,7 +267,7 @@ class CreateChallegnes extends Component {
                   <input
                     type="submit"
                     className="btn-success btn post-to-timeline-button"
-                    value="Post to timeline"
+                    value="Create Workout"
                   />
                 </div>
               </form>

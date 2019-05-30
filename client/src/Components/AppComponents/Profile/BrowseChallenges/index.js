@@ -11,7 +11,10 @@ export default function BrowseChallenges({
   return (
     <div className="row">
       <div className="with-margin-row row">
-        {challenges && challenges.length > 0 ? (
+        {challenges &&
+        challenges.find(challenge =>
+          moment(challenge.startDate).add(1,'days').isAfter(moment())
+        ) ? (
           challenges.map(challenge => {
             let firstDate = moment(challenge.startDate).add(1, "days");
             let endDate = moment(challenge.startDate).add(31, "days");
@@ -34,7 +37,9 @@ export default function BrowseChallenges({
             } else return null;
           })
         ) : (
-          <div className="no-challenges">No workouts available... try creating one</div>
+          <div className="no-challenges">
+            No workouts available to join... try creating one
+          </div>
         )}
       </div>
     </div>
