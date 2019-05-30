@@ -33,7 +33,6 @@ module.exports = function(app) {
 
   //Create local user with username
   app.post("/api/signup", function(req, res) {
-    console.log(req.body);
     req.body.username = req.body.username.toLowerCase();
     db.User.find(
       {
@@ -175,7 +174,6 @@ module.exports = function(app) {
 
   // Get user info
   app.get("/api/user/:id", function(req, res) {
-    console.log("Parametro",req.params.id)
     db.User.findById(req.params.id)
       .populate("challenge")
       .then(function(dbUser) {
