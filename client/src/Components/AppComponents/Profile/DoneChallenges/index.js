@@ -6,6 +6,7 @@ import "./DoneChallenges.css";
 export default function DoneChallegnes({ challenges }) {
   return (
     <div className="row">
+    <div className="with-margin-row row">
       {challenges &&
       challenges.find(challenge =>
         moment(challenge.startDate)
@@ -35,6 +36,7 @@ export default function DoneChallegnes({ challenges }) {
           You haven't completed any workouts yet.
         </div>
       )}
+      </div>
     </div>
   );
 }

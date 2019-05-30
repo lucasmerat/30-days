@@ -7,65 +7,63 @@ import "./ChallengeCard.css";
 
 export default function ChallengeCard(props) {
   const now = moment();
-  const start = moment(props.startDate)
-  const daysApt = now.diff(start, 'days');
+  const start = moment(props.startDate);
+  const daysApt = now.diff(start, "days");
   if (props.type === "Browse") {
     return (
       <div className="card challenge-card browse-card col-md-3 col-s-12">
         <div className="challenge-card-body">
-          <Link to={`/profile/challenge/${props._id}`}>
-            <h5 className="card-title challenge-card-title">{props.title}</h5>
-          </Link>
-        <img src={props.image} className="card-img-top img-fluid" alt="..." />
-        <div className="card-body">
-          <p className="card-text challenge-text">{props.description}</p>
-          <p className="card-text challenge-text">
-            {props.numUsers} active athletes
+            <Link to={`/profile/challenge/${props._id}`}>
+              <h5 className="card-title challenge-card-title">{props.title}</h5>
+            </Link>
+          </div>
+          <img src={props.image} className="card-img-top img-fluid" alt="..." />
+          <div className="card-body">
+            <p className="card-text challenge-text">{props.description}</p>
+            <p className="card-text challenge-text active-athletes">
+              {props.numUsers} active athletes
+            </p>
+            <FormBtn
+              onClick={() => {
+                props.joinChallenge(props._id, { userId: props.userId });
+              }}
+              href="#"
+              className="btn btn-primary join-btn "
+            >
+              Join Workout
+            </FormBtn>
+          </div>
+          <p className="card-text challenge-info">
+            Start Date: {moment(props.startDate).format("MM/DD/YYYY")}
           </p>
-          <FormBtn
-            onClick={() => {
-              props.joinChallenge(props._id, { userId: props.userId });
-            }}
-            href="#"
-            className="btn btn-primary join-btn "
-          >
-            Join Workout
-          </FormBtn>
         </div>
-        <p className="card-text challenge-info">
-          Start Date: {moment(props.startDate).format("MM/DD/YYYY")}
-        </p>
-      </div>
-      </div>
     );
   } else if (props.type === "Ongoing") {
     return (
-
       <div className="card challenge-card browse-card col-md-3 col-s-12">
         <div className="challenge-card-body">
           <Link to={`/profile/challenge/${props._id}`}>
             <h5 className="card-title challenge-card-title">{props.title}</h5>
           </Link>
-        <img src={props.image} className="card-img-top" alt="..." />
-        <div className="card-body">
-         
-          <p className="card-text challenge-text">Progress</p>
-          <ProgressBar now={daysApt / 30 * 100} variant={"danger"} />
-          <p className="card-text challenge-text">
-            {props.numUsers} active athletes
-          </p>
-          <Link to={`/profile/challenge/${props._id}`}>
-            <FormBtn href="#" className="btn btn-primary join-btn ">
-              View workout
-            </FormBtn>
-          </Link>
-          <p className="card-text challenge-info">
-          Ends:{" "}
-          {moment(props.startDate)
-            .add(30, "d")
-            .format("MM/DD/YYYY")}
-        </p>
-        </div>
+          <img src={props.image} className="card-img-top" alt="..." />
+          <div className="card-body">
+            <p className="card-text challenge-text">Progress</p>
+            <ProgressBar now={(daysApt / 30) * 100} variant={"danger"} />
+            <p className="card-text challenge-text active-athletes">
+              {props.numUsers} active athletes
+            </p>
+            <Link to={`/profile/challenge/${props._id}`}>
+              <FormBtn href="#" className="btn btn-primary join-btn ">
+                View workout
+              </FormBtn>
+            </Link>
+            <p className="card-text challenge-info">
+              Ends:{" "}
+              {moment(props.startDate)
+                .add(30, "d")
+                .format("MM/DD/YYYY")}
+            </p>
+          </div>
         </div>
       </div>
     );
@@ -76,7 +74,7 @@ export default function ChallengeCard(props) {
           <Link to={`/profile/challenge/${props._id}`}>
             <h5 className="card-title challenge-card-title">{props.title}</h5>
           </Link>
-          <p className="card-text challenge-text">
+          <p className="card-text challenge-text active-athletes">
             {props.numUsers} finished athletes
           </p>
           <Link to={`/profile/challenge/${props._id}`}>
