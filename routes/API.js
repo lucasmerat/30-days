@@ -56,7 +56,6 @@ module.exports = function(app) {
         newUser.username = req.body.username;
         newUser.password = newUser.generateHash(req.body.password);
         newUser.id = newUser.generateHash(req.body.username);
-        console.log(newUser);
         newUser.save((err, user) => {
           if (err) {
             return res.send({
