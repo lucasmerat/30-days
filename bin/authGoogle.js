@@ -21,7 +21,7 @@ module.exports =
         full_name: profile.displayName,
         profile_picture: profile.photos[0].value,
       };
-      User.findOneAndUpdate({id:user.id},user,{upsert:true, returnNewDocument:true, new:false},function(err,dbUser){
+      User.findOneAndUpdate({id:user.id},user,{upsert:true, returnNewDocument:true, new:true},function(err,dbUser){
         if (err) res.send(err);
         done(null,dbUser);
       }); 
