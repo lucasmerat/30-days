@@ -1,6 +1,14 @@
-# 30 Days Challenge
+<p align="center">
+  <a href="https://project-3.randolphbailey.club/">
+    <img  src="client/public/assets/images/LogoLarge.png" width="180" />
+  </a>
+</p>
+<h1 align="center">
+  30 Days Challenge
+</h1>
 
-![header image]()
+
+![header image](client/public/assets/images/30Days.gif)
 
 ## Deployed app
 	
@@ -34,8 +42,8 @@ To use the app,
 - [jQuery](https://jquery.com/)
 - [Cookies](https://www.npmjs.com/package/cookies)
 - [React] (https://reactjs.org/)
-- [axios]()
-- [Docker]()
+- [axios](https://github.com/axios/axios)
+- [Docker](https://www.docker.com/)
 
 
 
