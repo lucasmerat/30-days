@@ -22,7 +22,7 @@ module.exports = function(app) {
     "/api/auth/google/callback",
     passport.authenticate("google"),
     (req, res) => {
-      res.cookie("userId", req.user._id.toString(), { maxAge: 604800000 });
+      res.cookie("userId", req.user.id, { maxAge: 604800000 });
       if (process.env.NODE_ENV === "development") {
         res.redirect("http://localhost:3000/profile/browse");
       } else {
@@ -55,6 +55,8 @@ module.exports = function(app) {
 
         newUser.username = req.body.username;
         newUser.password = newUser.generateHash(req.body.password);
+        newUser.id = newUser.generateHash(req.body.username);
+        console.log(newUser);
         newUser.save((err, user) => {
           if (err) {
             return res.send({
@@ -97,7 +99,7 @@ module.exports = function(app) {
             message: "Invalid password"
           });
         } else{
-          res.cookie("userId", user._id.toString(), { maxAge: 604800000 });
+          res.cookie("userId", user.id.toString(), { maxAge: 604800000 });
           if (process.env.NODE_ENV === "development") {
             res.redirect(200,"http://localhost:3000/profile/browse");
           } else {
@@ -174,7 +176,7 @@ module.exports = function(app) {
 
   // Get user info
   app.get("/api/user/:id", function(req, res) {
-    db.User.findById(req.params.id)
+    db.User.findOne({ id: req.params.id })
       .populate("challenge")
       .then(function(dbUser) {
         res.json(dbUser);
