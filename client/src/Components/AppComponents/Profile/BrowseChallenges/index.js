@@ -13,7 +13,7 @@ export default function BrowseChallenges({
       <div className="with-margin-row row">
         {challenges &&
         challenges.find(challenge =>
-          moment(challenge.startDate).isAfter(moment())
+          moment(challenge.startDate).add(1,'days').isAfter(moment())
         ) ? (
           challenges.map(challenge => {
             let firstDate = moment(challenge.startDate).add(1, "days");

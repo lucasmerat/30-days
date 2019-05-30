@@ -6,7 +6,12 @@ import "./DoneChallenges.css";
 export default function DoneChallegnes({ challenges }) {
   return (
     <div className="row">
-      {challenges && challenges.length > 0 ? (
+      {challenges &&
+      challenges.find(challenge =>
+        moment(challenge.startDate)
+          .add(31, "days")
+          .isBefore(moment())
+      ) ? (
         challenges.map(challenge => {
           let endDate = moment(challenge.startDate).add(31, "days");
           if (endDate.isBefore(moment())) {
@@ -26,7 +31,9 @@ export default function DoneChallegnes({ challenges }) {
           } else return null;
         })
       ) : (
-        <div class="no-done-workouts">No workouts joined yet</div>
+        <div className="no-done-workouts">
+          You haven't completed any workouts yet.
+        </div>
       )}
     </div>
   );
