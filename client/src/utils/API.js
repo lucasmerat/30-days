@@ -9,6 +9,10 @@ export default {
   loginUser: function(data){
     return axios.post("/api/login/usernamepass",data);
   },
+   // Change profile picture
+  changeProfilePicture: function(id,data) {
+    return axios.post("/api/profilepicture/"+id,data);
+  },
   // Get User
   getUser: function(id) {
     return axios.get("/api/user/"+id);
