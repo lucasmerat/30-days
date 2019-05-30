@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://project-3.randolphbailey.club/">
-    <img  src="client/public/assets/images/LogoLarge.png" width="60" />
+    <img  src="client/public/assets/images/LogoLarge.png" width="180" />
   </a>
 </p>
 <h1 align="center">
@@ -8,7 +8,7 @@
 </h1>
 
 
-![header image]()
+![header image](client/public/assets/images/30Days.gif)
 
 ## Deployed app
 	
