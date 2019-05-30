@@ -8,7 +8,10 @@ var userSchema = new Schema({
   full_name: String,
   bio: String,
   website: String,
-  profile_picture: String,
+  profile_picture:{
+    type:String,
+    default:"http://www.personalbrandingblog.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png"
+  },
   access_token: String,
   password: String,
   challenge: [{

@@ -85,7 +85,7 @@ class Profile extends Component {
     if (cookiearray.length) {
       userId = cookiearray[0].split("=")[1];
     }
-    return userId;
+    return userId.toString();
   }
   getUserInfo() {
     const userId = this.readCookie();
