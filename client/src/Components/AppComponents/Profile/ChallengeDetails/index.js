@@ -57,8 +57,7 @@ class ChallengeDetails extends Component {
       postBody: e.target.value
     });
   };
-  handleAddPost = e => {
-    e.preventDefault();
+  handleAddPost = () => {
     this.setState({ show: false });
     const post = {
       postDay: moment().diff(moment(this.state.startDate), "days") + 1,
