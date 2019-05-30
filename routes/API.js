@@ -4,13 +4,6 @@ const passport = require("passport");
 const passportSetup = require("../bin/authGoogle");
 require("dotenv").config();
 
-var redirect = function(url, method) {
-    var form = document.createElement('form');
-    form.method = method;
-    form.action = url;
-    form.submit();
-};
-
 module.exports = function(app) {
   //Instagram Login API routes
   app.get("/api/auth", authUser);
