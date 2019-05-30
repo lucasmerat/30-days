@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://project-3.randolphbailey.club/">
-    <img  src="client/public/assets/images/Logo30.png" width="60" />
+    <img  src="client/public/assets/images/LogoLarge.png" width="60" />
   </a>
 </p>
 <h1 align="center">
