@@ -1,4 +1,12 @@
-# 30 Days Challenge
+<p align="center">
+  <a href="https://project-3.randolphbailey.club/">
+    <img  src="client/public/assets/images/Logo30.png" width="60" />
+  </a>
+</p>
+<h1 align="center">
+  30 Days Challenge
+</h1>
+
 
 ![header image]()
 
