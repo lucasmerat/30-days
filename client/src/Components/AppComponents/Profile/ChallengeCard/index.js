@@ -48,7 +48,8 @@ export default function ChallengeCard(props) {
           <img src={props.image} className="card-img-top" alt="..." />
           <div className="card-body challenge-detail-body">
             <p className="card-text challenge-text">Progress</p>
-            <ProgressBar now={(daysApt / 30) * 100} variant={"danger"} />
+            <ProgressBar now ={(daysApt / 30) * 100} variant={"danger"}/>
+
             <p className="card-text challenge-text active-athletes">
               {props.numUsers} active athletes
             </p>
@@ -74,6 +75,8 @@ export default function ChallengeCard(props) {
           <Link to={`/profile/challenge/${props._id}`}>
             <h5 className="card-title challenge-card-title">{props.title}</h5>
           </Link>
+          <img src={props.image} className="card-img-top" alt="..." />
+          <div className="card-body challenge-detail-body">
           <p className="card-text challenge-text active-athletes">
             {props.numUsers} finished athletes
           </p>
@@ -88,8 +91,8 @@ export default function ChallengeCard(props) {
           {moment(props.startDate)
             .add(30, "d")
             .format("MM/DD/YYYY")}{" "}
-          <i className="fas fa-share-alt " />
         </p>{" "}
+        </div>
       </div>
     );
   }

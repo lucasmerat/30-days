@@ -95,6 +95,9 @@ div.card.browse-card {
   justify-content: center;
 }
 
+.progress{
+  width:90%;
+}
 
 .challenge-info {
   color: white;
