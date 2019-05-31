@@ -3,34 +3,19 @@ import API from "../../../../utils/API";
 import TimelinePost from "../TimelinePost";
 import "./Timeline.css";
 
-class Timeline extends Component {
-  state = {
-    posts: null
-  };
-  loadPosts = () => {
-    API.getPosts(this.props.userId).then(posts => {
-      this.setState({
-        posts: posts.data
-      });
-    });
-  };
-
-  componentDidMount() {
-    this.loadPosts();
-  }
-  render() {
+const Timeline= ({posts, userLogged, userId, loadPosts}) => {
     return (
       <div className="row">
         <div className="timeline-card">
           <div className="timeline-with-margin-row">
-              {this.state.posts && this.state.posts.length > 0 ? (
-                this.state.posts.map(post => {
+              {posts && posts.length > 0 ? (
+                posts.map(post => {
                   return (
                     <TimelinePost
                       key={post._id}
                       postId ={post._id}
                       username={post.user.username}
-                      userLogged={this.props.userLogged}
+                      userLogged={userLogged}
                       profilePicture={post.user.profile_picture}
                       challengeName={post.challenge.title}
                       createdAt={post.createdAt}
@@ -40,9 +25,8 @@ class Timeline extends Component {
                       postBody={post.body}
                       postImage={post.image}
                       challengeId={post.challenge._id}
-                      loadPosts={this.loadPosts}
-                      userId={this.props.userId}
-
+                      loadPosts={loadPosts}
+                      userId={userId}
                     />
                   );
                 })
@@ -55,6 +39,5 @@ class Timeline extends Component {
       </div>
     );
   }
-}
 
 export default Timeline;

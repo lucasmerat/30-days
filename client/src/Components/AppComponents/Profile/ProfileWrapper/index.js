@@ -16,6 +16,7 @@ class Profile extends Component {
     allChallenges: null,
     userChallenges: null,
     userData: null,
+    posts: null,
     numDays: [
       1,
       2,
@@ -69,10 +70,17 @@ class Profile extends Component {
       this.loadChallenges();
     });
   };
-  postToChallenge = (post) => {
-    API.createPost(post).then(result=>{
-      console.log(result)
-    })
+  loadPosts = () => {
+    API.getPosts(this.state.userData._id).then(posts => {
+      this.setState({
+        posts: posts.data
+      });
+    });
+  };
+  postToChallenge = post => {
+    API.createPost(post).then(result => {
+      this.loadPosts();
+    });
   };
   readCookie() {
     var allcookies = document.cookie;
@@ -94,6 +102,7 @@ class Profile extends Component {
         .then(res =>
           this.setState({ userData: res.data }, () => {
             this.loadChallenges();
+            this.loadPosts();
           })
         )
         .catch(err => console.log(err));
@@ -175,7 +184,13 @@ class Profile extends Component {
           <Route
             path={"/profile/timeline"}
             render={props => (
-              <Timeline {...props} userId={this.state.userData._id} userLogged={this.state.userData.username} />
+              <Timeline
+                {...props}
+                posts={this.state.posts}
+                userId={this.state.userData._id}
+                userLogged={this.state.userData.username}
+                loadPosts={this.loadPosts}
+              />
             )}
           />
         </Switch>
