@@ -20,8 +20,9 @@ class Login extends Component {
   };
   handleSubmit = e => {
     e.preventDefault();
-    console.log("handling submit");
-    API.loginUser(this.state)
+    const newUser = {...this.state};
+    newUser.username = newUser.username.toLowerCase();
+    API.loginUser(newUser)
       .then(res => {
         if (!res.data.success) {
           this.setState({
