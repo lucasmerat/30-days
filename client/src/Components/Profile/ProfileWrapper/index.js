@@ -70,6 +70,12 @@ class ProfileWrapper extends Component {
       this.loadChallenges();
     });
   };
+  leaveChallenge = (challengeId, userId) =>{
+    API.removeUserChallenge(challengeId, {userId: userId}).then(data=>{
+      this.loadChallenges();
+      this.props.history.push("/profile/ongoing");
+    })
+  }
   loadPosts = () => {
     API.getPosts(this.state.userData._id).then(posts => {
       this.setState({
@@ -166,6 +172,7 @@ class ProfileWrapper extends Component {
                 userChallenges={this.state.userChallenges}
                 loadChallenges={this.loadChallenges}
                 joinChallenge={this.joinChallenge}
+                leaveChallenge={this.leaveChallenge}
                 postToChallenge={this.postToChallenge}
               />
             )}

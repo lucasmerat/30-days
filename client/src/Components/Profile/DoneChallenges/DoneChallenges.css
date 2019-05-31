@@ -3,3 +3,9 @@
   font-size: 1.5em;
   margin-top: 10px;
 }
+
+@media screen and (max-width: 640px) {
+  .no-done-workouts {
+    width: 80%;
+  }
+}

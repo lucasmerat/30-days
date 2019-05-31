@@ -105,7 +105,7 @@ class ChallengeDetails extends Component {
                         });
                       }}
                       href="#"
-                      className="btn btn-success join-btn"
+                      className="btn btn-success join-btn-challenge"
                     >
                       Join Workout
                     </button>
@@ -121,8 +121,10 @@ class ChallengeDetails extends Component {
                               this.handleShowModal();
                             }}
                             href="#"
-                            className="btn btn-success join-btn"
-                        >Post to Workout</button>
+                            className="btn btn-success join-btn-challenge"
+                          >
+                            Post to Workout
+                          </button>
                           <Modal
                             show={this.state.show}
                             onHide={this.handleCloseModal}
@@ -159,7 +161,9 @@ class ChallengeDetails extends Component {
                                 <button
                                   type="submit"
                                   className="btn btn-success"
-                                >Add post</button>
+                                >
+                                  Add post
+                                </button>
                               </Modal.Footer>
                             </form>
                           </Modal>
@@ -230,6 +234,18 @@ class ChallengeDetails extends Component {
                   })}
               </div>
             </div>
+            {!this.props.userChallenges.some(
+              challenge => challenge._id === this.props.match.params.id
+            ) ? null : (
+              <div className="leave-workout-box">
+                <button
+                  className="leave-workout-box btn btn-success"
+                  onClick={()=>{this.props.leaveChallenge(this.props.match.params.id, this.props.userId)}}
+                >
+                  Leave Workout
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </div>

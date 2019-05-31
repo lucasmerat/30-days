@@ -47,7 +47,7 @@ export default {
   },
   //Remove a user from a challenge
   removeUserChallenge: function(id, data) {
-    return axios.delete("/api/removechallengeuser/"+id,data);
+    return axios.post("/api/removechallengeuser/"+id,data);
   },
   //Create a post
   createPost: function(data){

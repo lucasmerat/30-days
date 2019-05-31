@@ -80,7 +80,7 @@ class TimelinePost extends Component {
           <div className="card-footer">
             {this.state.liked === false ? (
               <input
-                className="edit-profile-btn btn btn-success"
+                className="like-btn btn btn-success"
                 onClick={() => {
                   this.likePost(this.props.postId);
                 }}
@@ -90,7 +90,7 @@ class TimelinePost extends Component {
             ) : (
               <input
                 key={Math.random()}
-                className="edit-profile-btn btn btn-success"
+                className="like-btn btn btn-success"
                 onClick={() => {
                   this.unlikePost(this.props.postId);
                 }}
