@@ -110,6 +110,9 @@ class Profile extends Component {
         <ChallengesNav />
         <ProfileNav
           userName={this.state.userData.username}
+          userId={this.state.userData._id}
+          readCookie={this.readCookie}
+          getUserInfo ={this.getUserInfo}
           profilePic={this.state.userData.profile_picture}
           bio={this.state.userData.bio}
         />
