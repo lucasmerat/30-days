@@ -96,7 +96,7 @@ class ProfileNav extends Component {
               >Change Profile Pic</button>
               {this.state.isImageBtnClicked ? (
                 <div className="add-file-box">
-                  <button
+                  <input
                     className="add-file-button"
                     type="file"
                     onChange={this.handleFileSelect}

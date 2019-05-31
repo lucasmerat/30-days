@@ -41,3 +41,13 @@
 .card-footer {
   background-color: #434242;
 }
+
+.like-btn {
+  width: 10%;
+}
+
+@media screen and (max-width: 640px) {
+  .like-btn {
+    width: 30%;
+  }
+}

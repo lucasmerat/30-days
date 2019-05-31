@@ -29,4 +29,8 @@ p.card-text.challenge-info {
     margin: auto;
     margin-top: 8em;
   }
+
+  .no-challenges {
+    width:80%;
+  }
 }

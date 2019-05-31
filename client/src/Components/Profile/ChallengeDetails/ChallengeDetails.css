@@ -5,6 +5,7 @@
   padding: 3%;
   color: whitesmoke;
   background-color: #6b6764;
+  text-align: center;
 }
 
 .workout-description-box {
@@ -17,7 +18,7 @@
   align-items: center;
 }
 
-.join-btn {
+.join-btn-challenge {
   margin-top: 10px;
 }
 
@@ -113,6 +114,10 @@
   opacity: 0;
 }
 
+.leave-workout{
+  width:15%;
+}
+
 @media screen and (max-width: 640px) {
   .modal-content {
     width: 95% !important;
@@ -189,10 +194,12 @@
 
   .challenge-details-with-margin-row {
     margin-top: 8em;
+    margin-bottom: 3em;
   }
 
-  .join-btn {
+  .join-btn-challenge {
     margin-bottom: 10px;
+    margin-top:10px;
     width: 80px;
     height: 27px;
     font-size: 0.6rem;

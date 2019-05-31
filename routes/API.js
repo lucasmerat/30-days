@@ -246,7 +246,7 @@ module.exports = function(app) {
   });
 
   //Remove a user from a challenge - Not Used
-  app.delete("/api/removechallengeuser/:id", function(req, res) {
+  app.post("/api/removechallengeuser/:id", function(req, res) {
     db.Challenge.findOneAndUpdate(
       { _id: req.params.id, user: { _id: req.body.userId } },
       { $pull: { user: req.body.userId } },
