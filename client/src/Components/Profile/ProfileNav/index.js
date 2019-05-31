@@ -76,30 +76,27 @@ class ProfileNav extends Component {
         <div className="row buttons-row">
           <div className="button-col col-12">
             <Link className="nav-link" to="/profile/create">
-              <input
-                value="Create Workout"
+              <button
                 className="profile-nav-btn create-workout-link btn btn-success"
-              />{" "}
+            >Create Workout</button>
             </Link>
           </div>
           <div className="button-col col-12">
             <Link className="nav-link " to="/" onClick={this.LogOut}>
-              <input
-                value="Log Out"
+              <button
                 className="profile-nav-btn logout-link btn btn-success"
-              />
+              >Log Out</button>
             </Link>
           </div>
           {this.props.password ? (
             <div className="button-col col-12 new-profile-image-box">
-              <input
+              <button
                 className="profile-nav-btn create-workout-link change-profile-photo btn btn-success"
                 onClick={this.handleImageChangeClick}
-                value="Change Profile Pic"
-              />
+              >Change Profile Pic</button>
               {this.state.isImageBtnClicked ? (
                 <div className="add-file-box">
-                  <input
+                  <button
                     className="add-file-button"
                     type="file"
                     onChange={this.handleFileSelect}
