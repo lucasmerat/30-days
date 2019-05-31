@@ -10,11 +10,11 @@ export default function DoneChallegnes({ challenges }) {
       {challenges &&
       challenges.find(challenge =>
         moment(challenge.startDate)
-          .add(31, "days")
+          .add(30, "days")
           .isBefore(moment())
       ) ? (
         challenges.map(challenge => {
-          let endDate = moment(challenge.startDate).add(31, "days");
+          let endDate = moment(challenge.startDate).add(30, "days");
           if (endDate.isBefore(moment())) {
             return (
               <ChallengeCard

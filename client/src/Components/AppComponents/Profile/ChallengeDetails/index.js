@@ -114,7 +114,7 @@ class ChallengeDetails extends Component {
             ) : (
               <>
                 {moment(this.state.startDate)
-                  .add(31, "days")
+                  .add(30, "days")
                   .isAfter(moment()) &&
                 moment(this.state.startDate).isBefore(moment()) ? (
                   <div className="post-button-box">
