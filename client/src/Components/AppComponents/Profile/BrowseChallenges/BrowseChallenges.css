@@ -15,9 +15,9 @@ body {
   justify-content: center;
 }
 
-p.card-text.challenge-info{
+p.card-text.challenge-info {
   position: relative;
-  bottom:0px; 
+  bottom: 0px;
 }
 .no-challenges {
   color: white;

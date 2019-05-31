@@ -91,12 +91,12 @@ div.card.browse-card {
 .challenge-card-title {
   font-size: 1.5em;
   color: whitesmoke;
-  display:flex;
+  display: flex;
   justify-content: center;
 }
 
-.progress{
-  width:90%;
+.progress {
+  width: 90%;
 }
 
 .challenge-info {
@@ -107,21 +107,21 @@ div.card.browse-card {
   text-align: center;
 }
 
-.active-athletes{
-  margin-top:14px;
+.active-athletes {
+  margin-top: 14px;
 }
 
-.challenge-detail-body{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.challenge-detail-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 @media screen and (max-width: 640px) {
   div.card.browse-card {
     width: 80%;
   }
-  .join-btn{
+  .join-btn {
     width: 150px !important;
     margin-bottom: 10px !important;
     height: 35px !important;

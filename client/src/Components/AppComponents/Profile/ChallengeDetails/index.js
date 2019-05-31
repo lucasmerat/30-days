@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import moment from "moment";
 import Countdown from "react-countdown-now";
-import { FormBtn } from "../../../BootstrapComponents/Form/";
 import API from "../../../../utils/API";
 import { Modal } from "react-bootstrap";
 import "./ChallengeDetails.css";
@@ -96,7 +95,7 @@ class ChallengeDetails extends Component {
                   {!this.props.userChallenges.some(
                     challenge => challenge._id === this.props.match.params.id
                   ) ? (
-                    <FormBtn
+                    <input
                       onClick={() => {
                         this.props.joinChallenge(this.props.match.params.id, {
                           userId: this.props.userId
@@ -106,10 +105,9 @@ class ChallengeDetails extends Component {
                         });
                       }}
                       href="#"
-                      className="btn btn-primary join-btn "
-                    >
-                      Join Workout
-                    </FormBtn>
+                      className="btn btn-success join-btn "
+                      value="Join Workout"
+                    />
                   ) : (
                     <>
                       {moment(this.state.startDate)
@@ -117,15 +115,14 @@ class ChallengeDetails extends Component {
                         .isAfter(moment()) &&
                       moment(this.state.startDate).isBefore(moment()) ? (
                         <div className="post-button-box">
-                          <FormBtn
+                          <input
                             onClick={() => {
                               this.handleShowModal();
                             }}
                             href="#"
-                            className="btn btn-primary join-btn "
-                          >
-                            Post to workout
-                          </FormBtn>
+                            className="btn btn-success join-btn"
+                            value="Post to workout"
+                          />
                           <Modal
                             show={this.state.show}
                             onHide={this.handleCloseModal}

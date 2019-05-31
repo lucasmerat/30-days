@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { FormBtn } from "../../../BootstrapComponents/Form";
 import { Link } from "react-router-dom";
 import API from "../../../../utils/API";
 import "./ProfileNav.css";
@@ -56,7 +55,7 @@ class ProfileNav extends Component {
   handleSavePhoto = () => {
     API.changeProfilePicture(this.props.userId, {
       picture: this.state.postImage
-    })
+    });
   };
   render() {
     return (
@@ -75,36 +74,40 @@ class ProfileNav extends Component {
           </div>
         </div>
         <div className="row buttons-row">
-          {this.props.password ? (
-            <div className="button-col col-12 new-profile-image-box">
-              <FormBtn
-                className="profile-nav-btn create-workout-link change-profile-photo"
-                onClick={this.handleImageChangeClick}
-              >
-                {" "}
-                Change profile photo
-              </FormBtn>
-              {this.state.isImageBtnClicked ? (
-                <div className="add-file-box">
-                  <input className="add-file-button" type="file" onChange={this.handleFileSelect} />
-                </div>
-              ) : null}
-            </div>
-          ) : null}
-
           <div className="button-col col-12">
             <Link className="nav-link" to="/profile/create">
-              <FormBtn className="profile-nav-btn create-workout-link">
-                {" "}
-                Create workout
-              </FormBtn>
+              <input
+                value="Create Workout"
+                className="profile-nav-btn create-workout-link btn btn-success"
+              />{" "}
             </Link>
           </div>
           <div className="button-col col-12">
             <Link className="nav-link " to="/" onClick={this.LogOut}>
-              <FormBtn className="profile-nav-btn logout-link">Log Out</FormBtn>
+              <input
+                value="Log Out"
+                className="profile-nav-btn logout-link btn btn-success"
+              />
             </Link>
           </div>
+          {this.props.password ? (
+            <div className="button-col col-12 new-profile-image-box">
+              <input
+                className="profile-nav-btn create-workout-link change-profile-photo btn btn-success"
+                onClick={this.handleImageChangeClick}
+                value="Change Profile Pic"
+              />
+              {this.state.isImageBtnClicked ? (
+                <div className="add-file-box">
+                  <input
+                    className="add-file-button"
+                    type="file"
+                    onChange={this.handleFileSelect}
+                  />
+                </div>
+              ) : null}
+            </div>
+          ) : null}
         </div>
         <div className="col-8" />
       </div>

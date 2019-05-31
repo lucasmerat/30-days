@@ -40,7 +40,6 @@ const ChallengeCard = ({
             className="btn btn-success join-btn"
             value="Join Workout"
           />
-
         </div>
         <p className="card-text challenge-info">
           Start Date: {moment(startDate).format("MM/DD/YYYY")}
@@ -92,7 +91,7 @@ const ChallengeCard = ({
               {numUsers} finished athletes
             </p>
             <Link to={`/profile/challenge/${_id}`}>
-            <input
+              <input
                 href="#"
                 className="btn btn-success join-btn"
                 value="View Workout"

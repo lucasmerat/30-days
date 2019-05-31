@@ -8,17 +8,17 @@
   color: whitesmoke;
   background-color: grey;
   -webkit-box-shadow: 2px 2px 12px 0px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 2px 2px 12px 0px rgba(0, 0, 0, 0.75);
-    box-shadow: 2px 2px 12px 0px rgba(0, 0, 0, 0.75);
-    border: 2px solid rgb(41, 38, 38);
-    padding-top:0px;
+  -moz-box-shadow: 2px 2px 12px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 2px 2px 12px 0px rgba(0, 0, 0, 0.75);
+  border: 2px solid rgb(41, 38, 38);
+  padding-top: 0px;
 }
 .challenge-img-pick {
   width: 50%;
   float: left;
 }
-.with-margin-row{
-  margin-bottom:100px;
+.with-margin-row {
+  margin-bottom: 100px;
 }
 
 .workout-day-input {
@@ -41,15 +41,14 @@
   margin-bottom: 10px;
   width: 100%;
 }
-.card-title{
+.card-title {
   font-weight: bold;
-  padding:2%;
-  width:100%;
-  
+  padding: 2%;
+  width: 100%;
 }
 .create-challenge-card-body {
   text-align: left;
-  padding:3%;
+  padding: 3%;
 }
 
 .create-challenge-row {

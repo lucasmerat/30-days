@@ -7,18 +7,17 @@
   background-color: #6b6764;
 }
 
-.workout-description-box{
+.workout-description-box {
   text-align: center;
 }
 
-.active-users-join-box{
+.active-users-join-box {
   display: flex;
   flex-direction: column;
   align-items: center;
-
 }
 
-.join-btn{
+.join-btn {
   margin-top: 10px;
 }
 
@@ -165,37 +164,37 @@
     font-size: 0.4em;
   }
 
-  .num-athletes{
+  .num-athletes {
     font-size: 15px;
     text-align: center;
   }
 
-  .countdown-intervals{
+  .countdown-intervals {
     font-size: 16px;
   }
 
-  .workout-description-box{
+  .workout-description-box {
     text-align: center;
     padding: 0px;
   }
 
-  .details-image{
+  .details-image {
     height: 6em;
     width: 6em;
   }
-  
-  .post-button-box{
+
+  .post-button-box {
     text-align: center;
   }
 
-  .challenge-details-with-margin-row{
+  .challenge-details-with-margin-row {
     margin-top: 8em;
   }
 
-  .join-btn{
+  .join-btn {
     margin-bottom: 10px;
     width: 80px;
     height: 27px;
-    font-size: .6rem;
+    font-size: 0.6rem;
   }
 }

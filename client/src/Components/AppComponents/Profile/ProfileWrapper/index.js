@@ -11,7 +11,7 @@ import Timeline from "../Timeline";
 import CreateChallenges from "../CreateChallenges";
 import "./ProfileWrapper.css";
 
-class Profile extends Component {
+class ProfileWrapper extends Component {
   state = {
     allChallenges: null,
     userChallenges: null,
@@ -205,4 +205,4 @@ class Profile extends Component {
   }
 }
 
-export default Profile;
+export default ProfileWrapper;

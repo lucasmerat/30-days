@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import API from "../../../../utils/API";
 import DatePicker from "react-datepicker";
-import {setMinutes,setHours,addDays} from "date-fns";
+import { setMinutes, setHours, addDays } from "date-fns";
 import moment from "moment";
 import "react-datepicker/dist/react-datepicker.css";
 import "./CreateChallenges.css";
@@ -60,10 +60,10 @@ class CreateChallegnes extends Component {
       <div className="row">
         <div className="with-margin-row">
           <div className="card create-challenge-card">
-          <div className="card-title-div">
-          <h3 className="card-title">Create a workout</h3>
-          </div>
-        
+            <div className="card-title-div">
+              <h3 className="card-title">Create a workout</h3>
+            </div>
+
             <div className="create-challenge-card-body ">
               <form onSubmit={this.handleSubmit}>
                 <div className="row create-challenge-row">
@@ -248,7 +248,11 @@ class CreateChallegnes extends Component {
                     this.props.numDays.map(day => {
                       return (
                         <div className="workout-day-input" key={day}>
-                          <label>{moment(this.state.startDate).add(day-1, "d").format("MM/DD/YYYY")}</label>
+                          <label>
+                            {moment(this.state.startDate)
+                              .add(day - 1, "d")
+                              .format("MM/DD/YYYY")}
+                          </label>
                           <input
                             className="create-workout-input"
                             value={this.state.days[day - 1]}

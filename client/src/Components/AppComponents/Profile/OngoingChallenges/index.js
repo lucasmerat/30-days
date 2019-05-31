@@ -3,7 +3,7 @@ import moment from "moment";
 import ChallengeCard from "../ChallengeCard";
 import "./OngoingChallenges.css";
 
-export default function OngoingChallenges({ challenges, user }) {
+const OngoingChallenges = ({ challenges, user }) => {
   return (
     <div className="row">
       <div className="with-margin-row row">
@@ -27,9 +27,13 @@ export default function OngoingChallenges({ challenges, user }) {
             } else return null;
           })
         ) : (
-          <div className="no-ongoing-workouts-msg">You have no active workouts... join one!</div>
+          <div className="no-ongoing-workouts-msg">
+            You have no active workouts... join one!
+          </div>
         )}
       </div>
     </div>
   );
-}
+};
+
+export default OngoingChallenges;
