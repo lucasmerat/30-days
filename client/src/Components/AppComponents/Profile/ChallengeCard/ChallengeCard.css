@@ -108,8 +108,20 @@ div.card.browse-card {
   margin-top:14px;
 }
 
+.challenge-detail-body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 @media screen and (max-width: 640px) {
   div.card.browse-card {
     width: 80%;
+  }
+  .join-btn{
+    width: 150px !important;
+    margin-bottom: 10px !important;
+    height: 35px !important;
+    font-size: 15px !important;
   }
 }

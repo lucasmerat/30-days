@@ -18,7 +18,7 @@ export default function ChallengeCard(props) {
             </Link>
           </div>
           <img src={props.image} className="card-img-top img-fluid" alt="..." />
-          <div className="card-body">
+          <div className="card-body challenge-detail-body">
             <p className="card-text challenge-text">{props.description}</p>
             <p className="card-text challenge-text active-athletes">
               {props.numUsers} active athletes
@@ -28,7 +28,7 @@ export default function ChallengeCard(props) {
                 props.joinChallenge(props._id, { userId: props.userId });
               }}
               href="#"
-              className="btn btn-primary join-btn "
+              className="btn btn-primary join-btn"
             >
               Join Workout
             </FormBtn>
@@ -46,14 +46,14 @@ export default function ChallengeCard(props) {
             <h5 className="card-title challenge-card-title">{props.title}</h5>
           </Link>
           <img src={props.image} className="card-img-top" alt="..." />
-          <div className="card-body">
+          <div className="card-body challenge-detail-body">
             <p className="card-text challenge-text">Progress</p>
             <ProgressBar now={(daysApt / 30) * 100} variant={"danger"} />
             <p className="card-text challenge-text active-athletes">
               {props.numUsers} active athletes
             </p>
             <Link to={`/profile/challenge/${props._id}`}>
-              <FormBtn href="#" className="btn btn-primary join-btn ">
+              <FormBtn href="#" className="btn btn-primary join-btn">
                 View workout
               </FormBtn>
             </Link>
@@ -78,7 +78,7 @@ export default function ChallengeCard(props) {
             {props.numUsers} finished athletes
           </p>
           <Link to={`/profile/challenge/${props._id}`}>
-            <FormBtn href="#" className="btn btn-primary join-btn ">
+            <FormBtn href="#" className="btn btn-primary join-btn">
               View workout
             </FormBtn>
           </Link>
