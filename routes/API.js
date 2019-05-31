@@ -28,7 +28,9 @@ module.exports = function(app) {
 
   //Create local user with username
   app.post("/api/signup", function(req, res) {
-    var passRegex = RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
+    var passRegex = RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/i);
+    console.log(passRegex.test(req.body.password));
+    console.log(req.body.password);
     req.body.username = req.body.username.toLowerCase();
     db.User.find(
       {
