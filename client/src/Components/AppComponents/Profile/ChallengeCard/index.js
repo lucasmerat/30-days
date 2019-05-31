@@ -88,7 +88,6 @@ export default function ChallengeCard(props) {
           {moment(props.startDate)
             .add(29, "d")
             .format("MM/DD/YYYY")}{" "}
-          <i className="fas fa-share-alt " />
         </p>{" "}
       </div>
     );
