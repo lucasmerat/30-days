@@ -112,7 +112,8 @@ class Profile extends Component {
           userName={this.state.userData.username}
           userId={this.state.userData._id}
           readCookie={this.readCookie}
-          getUserInfo ={this.getUserInfo}
+          getUserInfo={this.getUserInfo}
+          password={this.state.userData.password}
           profilePic={this.state.userData.profile_picture}
           bio={this.state.userData.bio}
         />

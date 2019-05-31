@@ -34,7 +34,7 @@ class ProfileNav extends Component {
   handleImageChangeClick = e => {
     console.log("Setting to true");
     this.setState({
-      isImageBtnClicked: true
+      isImageBtnClicked: !this.state.isImageBtnClicked
     });
   };
   handleFileSelect = e => {
@@ -45,7 +45,7 @@ class ProfileNav extends Component {
         this.handleSavePhoto();
         this.setState({
           isImageBtnClicked: false
-        })
+        });
       });
     };
 
@@ -82,20 +82,23 @@ class ProfileNav extends Component {
           </div>
         </div>
         <div className="row buttons-row">
-          <div className="button-col col-12">
-            <FormBtn
-              className="profile-nav-btn create-workout-link"
-              onClick={this.handleImageChangeClick}
-            >
-              {" "}
-              Change profile photo
-            </FormBtn>
-            {this.state.isImageBtnClicked ? (
-              <div>
-                <input type="file" onChange={this.handleFileSelect} />
-              </div>
-            ) : null}
-          </div>
+          {this.props.password ? (
+            <div className="button-col col-12 new-profile-image-box">
+              <FormBtn
+                className="profile-nav-btn create-workout-link change-profile-photo"
+                onClick={this.handleImageChangeClick}
+              >
+                {" "}
+                Change profile photo
+              </FormBtn>
+              {this.state.isImageBtnClicked ? (
+                <div className="add-file-box">
+                  <input className="add-file-button" type="file" onChange={this.handleFileSelect} />
+                </div>
+              ) : null}
+            </div>
+          ) : null}
+
           <div className="button-col col-12">
             <Link className="nav-link" to="/profile/create">
               <FormBtn className="profile-nav-btn create-workout-link">
