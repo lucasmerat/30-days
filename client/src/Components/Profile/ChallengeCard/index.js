@@ -68,13 +68,13 @@ const ChallengeCard = ({
                 value="View Workout"
               />
             </Link>
-            <p className="card-text challenge-info">
-              Ends:{" "}
-              {moment(startDate)
-                .add(30, "d")
-                .format("MM/DD/YYYY")}
-            </p>
           </div>
+          <p className="card-text challenge-info">
+            Ends:{" "}
+            {moment(startDate)
+              .add(30, "d")
+              .format("MM/DD/YYYY")}
+          </p>
         </div>
       </div>
     );

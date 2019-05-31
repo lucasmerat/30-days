@@ -4,7 +4,7 @@ import {
   InstagramLoginButton,
   GoogleLoginButton
 } from "react-social-login-buttons";
-import API from "../../../../utils/API";
+import API from "../../../utils/API";
 import "./Login.css";
 
 class Login extends Component {

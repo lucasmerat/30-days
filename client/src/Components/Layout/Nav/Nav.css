@@ -1,0 +1,11 @@
+.navbar {
+  background-color: #e74b3c;
+}
+
+@media screen and (max-width: 640px) {
+  .top-nav {
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+  }
+}

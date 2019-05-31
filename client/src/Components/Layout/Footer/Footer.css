@@ -1,0 +1,30 @@
+.page-footer {
+  background-color: #e74b3c;
+  height: 35px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer-text {
+  color: white;
+  padding-left: 8%;
+  float: left;
+}
+.footer-text:hover {
+  color: rgb(201, 200, 200);
+}
+.copy-rights {
+  position: relative;
+  left: 550px;
+  bottom: 18px;
+  font-size: 0.4em;
+  padding-top: 10%;
+  color: white;
+}
+
+@media screen and (max-width: 640px) {
+  .footer-nav {
+    width: 100%;
+  }
+}

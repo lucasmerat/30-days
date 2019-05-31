@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom";
-import API from "../../../../utils/API";
+import API from "../../../utils/API";
 import ChallengesNav from "../ChallengesNav";
 import ProfileNav from "../ProfileNav";
 import BrowseChallenges from "../BrowseChallenges";

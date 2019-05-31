@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import API from "../../../../utils/API";
+import API from "../../../utils/API";
 import moment from "moment";
-import { FormBtn } from "../../../BootstrapComponents/Form/";
 import { Link } from "react-router-dom";
 import "./TimelinePost.css";
 
@@ -80,24 +79,23 @@ class TimelinePost extends Component {
           </div>
           <div className="card-footer">
             {this.state.liked === false ? (
-              <FormBtn
-                className="edit-profile-btn"
+              <input
+                className="edit-profile-btn btn btn-success"
                 onClick={() => {
                   this.likePost(this.props.postId);
                 }}
-              >
-                Like
-              </FormBtn>
+                value="Like"
+              />
+                
             ) : (
-              <FormBtn
+              <input
                 key={Math.random()}
-                className="edit-profile-btn"
+                className="edit-profile-btn btn btn-success"
                 onClick={() => {
                   this.unlikePost(this.props.postId);
                 }}
-              >
-                Unlike
-              </FormBtn>
+                value="Unlike"
+              />
             )}
             <span>
               {" "}

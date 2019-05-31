@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import moment from "moment";
 import Countdown from "react-countdown-now";
-import API from "../../../../utils/API";
+import API from "../../../utils/API";
 import { Modal } from "react-bootstrap";
 import "./ChallengeDetails.css";
 
