@@ -89,7 +89,7 @@ export default function ChallengeCard(props) {
         <p className="card-text challenge-info">
           Ended:{" "}
           {moment(props.startDate)
-            .add(30, "d")
+            .add(29, "d")
             .format("MM/DD/YYYY")}{" "}
         </p>{" "}
         </div>

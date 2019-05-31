@@ -9,7 +9,7 @@ export default function OngoingChallenges({ challenges, user }) {
       <div className="with-margin-row row">
         {challenges && challenges.length > 0 ? (
           challenges.map(challenge => {
-            let endDate = moment(challenge.startDate).add(31, "days");
+            let endDate = moment(challenge.startDate).add(30, "days");
             if (endDate.isAfter(moment())) {
               return (
                 <ChallengeCard

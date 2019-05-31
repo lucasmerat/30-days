@@ -17,7 +17,7 @@ export default function BrowseChallenges({
         ) ? (
           challenges.map(challenge => {
             let firstDate = moment(challenge.startDate).add(1, "days");
-            let endDate = moment(challenge.startDate).add(31, "days");
+            let endDate = moment(challenge.startDate).add(30, "days");
             if (endDate.isAfter(moment()) && firstDate.isAfter(moment())) {
               return (
                 <ChallengeCard
