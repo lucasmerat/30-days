@@ -95,7 +95,7 @@ class ChallengeDetails extends Component {
                   {!this.props.userChallenges.some(
                     challenge => challenge._id === this.props.match.params.id
                   ) ? (
-                    <input
+                    <button
                       onClick={() => {
                         this.props.joinChallenge(this.props.match.params.id, {
                           userId: this.props.userId
@@ -105,9 +105,10 @@ class ChallengeDetails extends Component {
                         });
                       }}
                       href="#"
-                      className="btn btn-success join-btn "
-                      value="Join Workout"
-                    />
+                      className="btn btn-success join-btn"
+                    >
+                      Join Workout
+                    </button>
                   ) : (
                     <>
                       {moment(this.state.startDate)
@@ -115,14 +116,13 @@ class ChallengeDetails extends Component {
                         .isAfter(moment()) &&
                       moment(this.state.startDate).isBefore(moment()) ? (
                         <div className="post-button-box">
-                          <input
+                          <button
                             onClick={() => {
                               this.handleShowModal();
                             }}
                             href="#"
                             className="btn btn-success join-btn"
-                            value="Post to workout"
-                          />
+                        >Post to Workout</button>
                           <Modal
                             show={this.state.show}
                             onHide={this.handleCloseModal}
@@ -156,11 +156,10 @@ class ChallengeDetails extends Component {
                                 </div>
                               </Modal.Body>
                               <Modal.Footer>
-                                <input
+                                <button
                                   type="submit"
-                                  value="Add Post"
                                   className="btn btn-success"
-                                />
+                                >Add post</button>
                               </Modal.Footer>
                             </form>
                           </Modal>

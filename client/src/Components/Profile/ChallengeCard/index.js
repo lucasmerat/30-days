@@ -32,14 +32,13 @@ const ChallengeCard = ({
           <p className="card-text challenge-text active-athletes">
             {numUsers} active athletes
           </p>
-          <input
+          <button
             onClick={() => {
               joinChallenge(_id, { userId: userId });
             }}
             href="#"
             className="btn btn-success join-btn"
-            value="Join Workout"
-          />
+          >Join Workout</button>
         </div>
         <p className="card-text challenge-info">
           Start Date: {moment(startDate).format("MM/DD/YYYY")}
@@ -62,11 +61,9 @@ const ChallengeCard = ({
               {numUsers} active athletes
             </p>
             <Link to={`/profile/challenge/${_id}`}>
-              <input
-                href="#"
-                className="btn btn-success join-btn"
-                value="View Workout"
-              />
+              <button href="#" className="btn btn-success join-btn">
+                View Workout
+              </button>
             </Link>
           </div>
           <p className="card-text challenge-info">
@@ -91,11 +88,9 @@ const ChallengeCard = ({
               {numUsers} finished athletes
             </p>
             <Link to={`/profile/challenge/${_id}`}>
-              <input
-                href="#"
-                className="btn btn-success join-btn"
-                value="View Workout"
-              />
+              <button href="#" className="btn btn-success join-btn">
+                View Workout
+              </button>
             </Link>
           </div>
           <p className="card-text challenge-info">
