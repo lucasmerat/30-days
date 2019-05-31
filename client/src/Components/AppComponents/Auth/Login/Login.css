@@ -41,6 +41,10 @@
     text-decoration: none;
 }
 
+.error-message{
+    color:#ffc107;
+}
+
 .signup-btn:hover{
     color:#a1801c;
     text-decoration: none;

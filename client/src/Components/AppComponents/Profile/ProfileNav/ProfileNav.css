@@ -78,6 +78,23 @@
   justify-content: center;
 }
 
+.new-profile-image-box{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+}
+
+.add-file-box{
+  font-size: 12px;
+}
+
+.add-file-button{
+  position:relative;
+  left: 56px;
+}
+
 @media screen and (max-width: 640px) {
   .profile-nav-btn {
     position: fixed;
@@ -146,6 +163,10 @@
     width: 70px;
     height: 27px;
     font-size: 10px;
+  }
+
+  .change-profile-photo{
+    display:none;
   }
   
 }

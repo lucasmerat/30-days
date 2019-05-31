@@ -52,6 +52,7 @@ module.exports = function(app) {
         newUser.password = newUser.generateHash(req.body.password);
         newUser.id = newUser.generateHash(req.body.username);
         newUser.save((err, user) => {
+          console.log(user)
           if (err) {
             return res.send({
               success: false,
@@ -75,19 +76,19 @@ module.exports = function(app) {
       },
       (err, userResponse) => {
         if (err) {
-          res.send({
+          return res.send({
             success: false,
             message: "Server error"
           });
         }
         if (userResponse.length < 1) {
-          res.end({
+          return res.send({
             success: false,
-            message: "Invalid login"
+            message: "Invalid username"
           });
         }
-        const user = userResponse[0];
-        if(!user.validPassword(req.body.password)){
+        let user = userResponse[0];
+        if(!user.validPassword(req.body.password) && userResponse){
           res.send({
             success: false,
             message: "Invalid password"

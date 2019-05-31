@@ -11,7 +11,8 @@ import "./Login.css";
 class Login extends Component {
   state = {
     username: "",
-    password: ""
+    password: "",
+    errorMessage: ""
   };
   handleChange = e => {
     this.setState({
@@ -22,10 +23,16 @@ class Login extends Component {
     e.preventDefault();
     console.log("handling submit");
     API.loginUser(this.state)
-    .then(res => {
-       window.location.reload();
+      .then(res => {
+        if (!res.data.success) {
+          this.setState({
+            errorMessage: res.data.message
+          });
+        } else {
+          window.location.reload();
+        }
       })
-      .catch(err => console.log(err));;
+      .catch(err => console.log(err));
   };
   render() {
     let instaLink;
@@ -71,6 +78,7 @@ class Login extends Component {
                   className="login-input"
                   required
                 />
+                <div className="error-message">{this.state.errorMessage.length > 0 && <p>{this.state.errorMessage}</p>}</div>
                 <div className="button-box">
                   <button type="submit" className="btn btn-warning my-3">
                     Login
