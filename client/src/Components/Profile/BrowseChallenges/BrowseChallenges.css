@@ -1,0 +1,32 @@
+body {
+  background-color: rgb(67, 66, 66);
+  margin-right: 0px;
+  padding-right: 0px;
+}
+
+.with-margin-row {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.with-margin-row {
+  justify-content: center;
+}
+
+p.card-text.challenge-info {
+  position: relative;
+  bottom: 0px;
+}
+.no-challenges {
+  color: white;
+  font-size: 1.5em;
+  margin-top: 10px;
+}
+@media screen and (max-width: 640px) {
+  .with-margin-row {
+    margin: auto;
+    margin-top: 8em;
+  }
+}
