@@ -175,7 +175,7 @@ class Profile extends Component {
           <Route
             path={"/profile/timeline"}
             render={props => (
-              <Timeline {...props} userId={this.state.userData._id} />
+              <Timeline {...props} userId={this.state.userData._id} userLogged={this.state.userData.username} />
             )}
           />
         </Switch>

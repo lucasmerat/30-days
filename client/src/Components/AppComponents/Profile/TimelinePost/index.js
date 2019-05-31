@@ -23,7 +23,7 @@ unlikePost = (postId) => {
 }
 likeUpdate = () => {
   this.props.userLikes.map(likes=>{
-    if (likes.username===this.props.username){
+    if (likes.username===this.props.userLogged){
       this.setState({liked:true});
     }
     return null;
