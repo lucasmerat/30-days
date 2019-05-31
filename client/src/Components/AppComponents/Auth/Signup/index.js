@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
 import { Col, Row, Container } from "../../../BootstrapComponents/Grid";
 import API from "../../../../utils/API";
 import "./Signup.css";
@@ -7,7 +7,8 @@ import "./Signup.css";
 export default class Signup extends Component {
   state = {
     username: "",
-    password: ""
+    password: "",
+    errorMessage:""
   };
   handleChange = e => {
     this.setState({
@@ -16,7 +17,17 @@ export default class Signup extends Component {
   };
   handleSubmit = e => {
     e.preventDefault();
-    API.signupUser(this.state);
+    API.signupUser(this.state)
+      .then(res => {
+        if (!res.data.success) {
+          this.setState({
+            errorMessage: res.data.message
+          });
+        } else {
+           this.props.history.push('/login')
+        }
+      })
+      .catch(err => console.log(err));
   };
   render() {
     return (
@@ -39,13 +50,14 @@ export default class Signup extends Component {
                   />
                   <label>Password</label>
                   <input
-                    type="text"
                     name="password"
+                    type="password"
                     onChange={this.handleChange}
                     value={this.state.password}
                     className="signup-input"
                     required
                   />
+                   <div className="error-message">{this.state.errorMessage.length > 0 && <p>{this.state.errorMessage}</p>}</div>
                   <div className="signup-button-box">
                     <button type="submit" className="btn btn-warning my-3">
                       Signup

@@ -28,6 +28,7 @@ module.exports = function(app) {
 
   //Create local user with username
   app.post("/api/signup", function(req, res) {
+    var passRegex = RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
     req.body.username = req.body.username.toLowerCase();
     db.User.find(
       {
@@ -44,6 +45,11 @@ module.exports = function(app) {
           return res.send({
             success: false,
             message: "Username already exists"
+          });
+        } else if (!passRegex.test(req.body.password)){
+           return res.send({
+            success: false,
+            message: "Password must be at least 8 characters; must contain at least one lowercase letter, one uppercase letter, one numeric digit, and one special character "
           });
         }
         const newUser = new db.User();
