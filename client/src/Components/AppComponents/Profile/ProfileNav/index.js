@@ -57,13 +57,6 @@ class ProfileNav extends Component {
     API.changeProfilePicture(this.props.userId, {
       picture: this.state.postImage
     })
-      .then(data => {
-        console.log(data);
-        this.props.getUserInfo();
-      })
-      .catch(err => {
-        console.log(err);
-      });
   };
   render() {
     return (
