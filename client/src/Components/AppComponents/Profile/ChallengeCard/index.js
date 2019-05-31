@@ -1,66 +1,77 @@
 import React from "react";
 import moment from "moment";
 import { Link } from "react-router-dom";
-import { FormBtn } from "../../../BootstrapComponents/Form";
 import { ProgressBar } from "react-bootstrap";
 import "./ChallengeCard.css";
 
-export default function ChallengeCard(props) {
+const ChallengeCard = ({
+  startDate,
+  type,
+  _id,
+  title,
+  image,
+  description,
+  numUsers,
+  joinChallenge,
+  userId
+}) => {
   const now = moment();
-  const start = moment(props.startDate);
+  const start = moment(startDate);
   const daysApt = now.diff(start, "days");
-  if (props.type === "Browse") {
+  if (type === "Browse") {
     return (
       <div className="card challenge-card browse-card col-md-3 col-s-12">
         <div className="challenge-card-body">
-            <Link to={`/profile/challenge/${props._id}`}>
-              <h5 className="card-title challenge-card-title">{props.title}</h5>
-            </Link>
-          </div>
-          <img src={props.image} className="card-img-top img-fluid" alt="..." />
-          <div className="card-body challenge-detail-body">
-            <p className="card-text challenge-text">{props.description}</p>
-            <p className="card-text challenge-text active-athletes">
-              {props.numUsers} active athletes
-            </p>
-            <FormBtn
-              onClick={() => {
-                props.joinChallenge(props._id, { userId: props.userId });
-              }}
-              href="#"
-              className="btn btn-primary join-btn"
-            >
-              Join Workout
-            </FormBtn>
-          </div>
-          <p className="card-text challenge-info">
-            Start Date: {moment(props.startDate).format("MM/DD/YYYY")}
-          </p>
-        </div>
-    );
-  } else if (props.type === "Ongoing") {
-    return (
-      <div className="card challenge-card browse-card col-md-3 col-s-12">
-        <div className="challenge-card-body">
-          <Link to={`/profile/challenge/${props._id}`}>
-            <h5 className="card-title challenge-card-title">{props.title}</h5>
+          <Link to={`/profile/challenge/${_id}`}>
+            <h5 className="card-title challenge-card-title">{title}</h5>
           </Link>
-          <img src={props.image} className="card-img-top" alt="..." />
+        </div>
+        <img src={image} className="card-img-top img-fluid" alt="..." />
+        <div className="card-body challenge-detail-body">
+          <p className="card-text challenge-text">{description}</p>
+          <p className="card-text challenge-text active-athletes">
+            {numUsers} active athletes
+          </p>
+          <input
+            onClick={() => {
+              joinChallenge(_id, { userId: userId });
+            }}
+            href="#"
+            className="btn btn-success join-btn"
+            value="Join Workout"
+          />
+
+        </div>
+        <p className="card-text challenge-info">
+          Start Date: {moment(startDate).format("MM/DD/YYYY")}
+        </p>
+      </div>
+    );
+  } else if (type === "Ongoing") {
+    return (
+      <div className="card challenge-card browse-card col-md-3 col-s-12">
+        <div className="challenge-card-body">
+          <Link to={`/profile/challenge/${_id}`}>
+            <h5 className="card-title challenge-card-title">{title}</h5>
+          </Link>
+          <img src={image} className="card-img-top" alt="..." />
           <div className="card-body challenge-detail-body">
             <p className="card-text challenge-text">Progress</p>
-            <ProgressBar now ={(daysApt / 30) * 100} variant={"danger"}/>
+            <ProgressBar now={(daysApt / 30) * 100} variant={"danger"} />
 
             <p className="card-text challenge-text active-athletes">
-              {props.numUsers} active athletes
+              {numUsers} active athletes
             </p>
-            <Link to={`/profile/challenge/${props._id}`}>
-              <FormBtn href="#" className="btn btn-primary join-btn">
-                View workout
-              </FormBtn>
+            <Link to={`/profile/challenge/${_id}`}>
+              <input
+                href="#"
+                className="btn btn-success join-btn"
+                value="View Workout"
+              />
             </Link>
             <p className="card-text challenge-info">
               Ends:{" "}
-              {moment(props.startDate)
+              {moment(startDate)
                 .add(30, "d")
                 .format("MM/DD/YYYY")}
             </p>
@@ -68,32 +79,36 @@ export default function ChallengeCard(props) {
         </div>
       </div>
     );
-  } else if (props.type === "Done") {
+  } else if (type === "Done") {
     return (
       <div className="card challenge-card browse-card col-md-3 col-s-12">
         <div className="card-body challenge-card-body">
-          <Link to={`/profile/challenge/${props._id}`}>
-            <h5 className="card-title challenge-card-title">{props.title}</h5>
+          <Link to={`/profile/challenge/${_id}`}>
+            <h5 className="card-title challenge-card-title">{title}</h5>
           </Link>
-          <img src={props.image} className="card-img-top" alt="..." />
+          <img src={image} className="card-img-top" alt="..." />
           <div className="card-body challenge-detail-body">
-          <p className="card-text challenge-text active-athletes">
-            {props.numUsers} finished athletes
-          </p>
-          <Link to={`/profile/challenge/${props._id}`}>
-            <FormBtn href="#" className="btn btn-primary join-btn">
-              View workout
-            </FormBtn>
-          </Link>
-        </div>
-        <p className="card-text challenge-info">
-          Ended:{" "}
-          {moment(props.startDate)
-            .add(29, "d")
-            .format("MM/DD/YYYY")}{" "}
-        </p>{" "}
+            <p className="card-text challenge-text active-athletes">
+              {numUsers} finished athletes
+            </p>
+            <Link to={`/profile/challenge/${_id}`}>
+            <input
+                href="#"
+                className="btn btn-success join-btn"
+                value="View Workout"
+              />
+            </Link>
+          </div>
+          <p className="card-text challenge-info">
+            Ended:{" "}
+            {moment(startDate)
+              .add(29, "d")
+              .format("MM/DD/YYYY")}{" "}
+          </p>{" "}
         </div>
       </div>
     );
   }
-}
+};
+
+export default ChallengeCard;

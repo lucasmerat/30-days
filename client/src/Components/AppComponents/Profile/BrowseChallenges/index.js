@@ -3,21 +3,19 @@ import moment from "moment";
 import "./BrowseChallenges.css";
 import ChallengeCard from "../ChallengeCard";
 
-export default function BrowseChallenges({
-  challenges,
-  userId,
-  joinChallenge
-}) {
+const BrowseChallenges = ({ challenges, userId, joinChallenge }) => {
   return (
     <div className="row">
       <div className="with-margin-row row">
         {challenges &&
         challenges.find(challenge =>
-          moment(challenge.startDate).add(1,'days').isAfter(moment())
+          moment(challenge.startDate)
+            .add(1, "days")
+            .isAfter(moment())
         ) ? (
           challenges.map(challenge => {
             let firstDate = moment(challenge.startDate).add(1, "days");
-            let endDate = moment(challenge.startDate).add(30, "days");
+            let endDate = moment(challenge.startDate).add(31, "days");
             if (endDate.isAfter(moment()) && firstDate.isAfter(moment())) {
               return (
                 <ChallengeCard
@@ -44,4 +42,6 @@ export default function BrowseChallenges({
       </div>
     </div>
   );
-}
+};
+
+export default BrowseChallenges;

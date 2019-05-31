@@ -4,7 +4,6 @@ import {
   InstagramLoginButton,
   GoogleLoginButton
 } from "react-social-login-buttons";
-import { Col, Row, Container } from "../../../BootstrapComponents/Grid";
 import API from "../../../../utils/API";
 import "./Login.css";
 
@@ -47,10 +46,10 @@ class Login extends Component {
     return this.props.readCookie() ? (
       <Redirect to="/profile/browse" />
     ) : (
-      <Container fluid>
-        <Row classes="login-row">
-          <Col size="md-4" />
-          <Col classes="social-button-box" size="md-4">
+      <div className="container-fluid" >
+        <div className="row login-row">
+          <div className="col-md-4"  />
+          <div className="col-md-4 social-button-box">
             <a className="social-button" href={instaLink}>
               <InstagramLoginButton />
             </a>
@@ -92,9 +91,9 @@ class Login extends Component {
                 Signup
               </Link>
             </p>
-          </Col>
-        </Row>
-      </Container>
+          </div>
+        </div>
+      </div>
     );
   }
 }

@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import { Link} from "react-router-dom";
-import { Col, Row, Container } from "../../../BootstrapComponents/Grid";
 import API from "../../../../utils/API";
 import "./Signup.css";
 
-export default class Signup extends Component {
+class Signup extends Component {
   state = {
     username: "",
     password: "",
@@ -32,10 +31,10 @@ export default class Signup extends Component {
   render() {
     return (
       <div>
-        <Container fluid>
-          <Row classes="login-row">
-            <Col size="md-4" />
-            <Col classes="social-button-box" size="md-4">
+        <div className="container-fluid">
+          <div className="login-row row">
+            <div className="col-md-4" />
+            <div className="social-button-box col-md-4">
               <form onSubmit={this.handleSubmit}>
                 <div className="signup-box">
                   <h3 className="text-center">Create an account</h3>
@@ -68,10 +67,12 @@ export default class Signup extends Component {
               <p className="text-center">
                 Already have an account? <Link className="login-link" to="/login">Login</Link>
               </p>
-            </Col>
-          </Row>
-        </Container>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
 }
+
+export default Signup;
