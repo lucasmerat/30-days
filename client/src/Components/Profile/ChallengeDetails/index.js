@@ -236,16 +236,23 @@ class ChallengeDetails extends Component {
             </div>
             {!this.props.userChallenges.some(
               challenge => challenge._id === this.props.match.params.id
-            ) ? null : (
+            ) ? null : moment(this.state.startDate)
+                .add(30, "days")
+                .isAfter(moment()) ? (
               <div className="leave-workout-box">
                 <button
                   className="leave-workout-box btn btn-success"
-                  onClick={()=>{this.props.leaveChallenge(this.props.match.params.id, this.props.userId)}}
+                  onClick={() => {
+                    this.props.leaveChallenge(
+                      this.props.match.params.id,
+                      this.props.userId
+                    );
+                  }}
                 >
                   Leave Workout
                 </button>
               </div>
-            )}
+            ) : null}
           </div>
         </div>
       </div>
