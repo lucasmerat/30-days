@@ -73,6 +73,7 @@ class ProfileWrapper extends Component {
   leaveChallenge = (challengeId, userId) =>{
     API.removeUserChallenge(challengeId, {userId: userId}).then(data=>{
       this.loadChallenges();
+      this.loadPosts();
       this.props.history.push("/profile/ongoing");
     })
   }
