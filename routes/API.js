@@ -5,17 +5,15 @@ const passportSetup = require("../bin/authGoogle");
 require("dotenv").config();
 
 module.exports = function(app) {
-  //Instagram Login API routes
-  app.get("/api/auth", authUser);
-
-  app.get("/api/login", function(req, res) {
-    res.redirect(process.env.INSTAGRAM_AUTH_URL);
-  });
-
   //Google Login API routes
-  app.get("/api/auth/google",passport.authenticate("google", { scope: ["profile"] }));
+  app.get(
+    "/api/auth/google",
+    passport.authenticate("google", { scope: ["profile"] })
+  );
 
-  app.get("/api/auth/google/callback",passport.authenticate("google"),
+  app.get(
+    "/api/auth/google/callback",
+    passport.authenticate("google"),
     (req, res) => {
       res.cookie("userId", req.user.id, { maxAge: 604800000 });
       if (process.env.NODE_ENV === "development") {
@@ -28,7 +26,9 @@ module.exports = function(app) {
 
   //Create local user with username
   app.post("/api/signup", function(req, res) {
-    var passRegex = RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/i);
+    var passRegex = RegExp(
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/i
+    );
     console.log(passRegex.test(req.body.password));
     console.log(req.body.password);
     req.body.username = req.body.username.toLowerCase();
@@ -48,10 +48,11 @@ module.exports = function(app) {
             success: false,
             message: "Username already exists"
           });
-        } else if (!passRegex.test(req.body.password)){
-           return res.send({
+        } else if (!passRegex.test(req.body.password)) {
+          return res.send({
             success: false,
-            message: "Password must be at least 8 characters; must contain at least one lowercase letter, one uppercase letter, one numeric digit, and one special character "
+            message:
+              "Password must be at least 8 characters; must contain at least one lowercase letter, one uppercase letter, one numeric digit, and one special character "
           });
         }
         const newUser = new db.User();
@@ -60,7 +61,7 @@ module.exports = function(app) {
         newUser.password = newUser.generateHash(req.body.password);
         newUser.id = newUser.generateHash(req.body.username);
         newUser.save((err, user) => {
-          console.log(user)
+          console.log(user);
           if (err) {
             return res.send({
               success: false,
@@ -96,12 +97,12 @@ module.exports = function(app) {
           });
         }
         let user = userResponse[0];
-        if(!user.validPassword(req.body.password) && userResponse){
+        if (!user.validPassword(req.body.password) && userResponse) {
           res.send({
             success: false,
             message: "Invalid password"
           });
-        } else{
+        } else {
           res.cookie("userId", user.id.toString(), { maxAge: 604800000 });
           res.json(user);
         }
@@ -292,14 +293,13 @@ module.exports = function(app) {
       { profile_picture: req.body.picture },
       { new: true }
     )
-    .then(function(dbUser) {
-      res.json(dbUser);
-    })
-    .catch(function(err) {
-      res.json(err);
-    });
+      .then(function(dbUser) {
+        res.json(dbUser);
+      })
+      .catch(function(err) {
+        res.json(err);
+      });
   });
-
 
   //Add like to a post
   app.post("/api/likePost/:postid/:userid", function(req, res) {
