@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import { Redirect, Link } from "react-router-dom";
-import {
-  InstagramLoginButton,
-  GoogleLoginButton
-} from "react-social-login-buttons";
+import { GoogleLoginButton } from "react-social-login-buttons";
 import API from "../../../utils/API";
 import "./Login.css";
 
@@ -20,7 +17,7 @@ class Login extends Component {
   };
   handleSubmit = e => {
     e.preventDefault();
-    const newUser = {...this.state};
+    const newUser = { ...this.state };
     newUser.username = newUser.username.toLowerCase();
     API.loginUser(newUser)
       .then(res => {
@@ -35,25 +32,19 @@ class Login extends Component {
       .catch(err => console.log(err));
   };
   render() {
-    let instaLink;
     let googleLink;
     if (process.env.NODE_ENV === "production") {
-      instaLink = "/api/login";
       googleLink = "/api/auth/google";
     } else {
-      instaLink = "http://localhost:5000/api/login";
       googleLink = "http://localhost:5000/api/auth/google";
     }
     return this.props.readCookie() ? (
       <Redirect to="/profile/browse" />
     ) : (
-      <div className="container-fluid" >
+      <div className="container-fluid">
         <div className="row login-row">
-          <div className="col-md-4"  />
+          <div className="col-md-4" />
           <div className="col-md-4 social-button-box">
-            <a className="social-button" href={instaLink}>
-              <InstagramLoginButton />
-            </a>
             <a className="social-button" href={googleLink}>
               <GoogleLoginButton />
             </a>
@@ -78,7 +69,11 @@ class Login extends Component {
                   className="login-input"
                   required
                 />
-                <div className="error-message">{this.state.errorMessage.length > 0 && <p>{this.state.errorMessage}</p>}</div>
+                <div className="error-message">
+                  {this.state.errorMessage.length > 0 && (
+                    <p>{this.state.errorMessage}</p>
+                  )}
+                </div>
                 <div className="button-box">
                   <button type="submit" className="btn btn-warning my-3">
                     Login
