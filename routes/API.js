@@ -1,5 +1,4 @@
 var db = require("../models");
-const authUser = require("../bin/authService");
 const passport = require("passport");
 const passportSetup = require("../bin/authGoogle");
 require("dotenv").config();
